@@ -35,10 +35,26 @@
 ;; company
 (use-package company
   :init
-  (global-company-mode 1)
-  (delete 'company-semantic company-backends))
-;; (define-key c-mode-map  [(control tab)] 'company-complete)
-;; (define-key c++-mode-map  [(control tab)] 'company-complete)
+  (global-company-mode 1))
+;;  (delete 'company-semantic company-backends))
+;;  (define-key c-mode-map  [(control tab)] 'company-complete)
+;; (define-key c++-mode-map  [(control tab)] 'company-complete))
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; a Backend for keyword completion
+(defun company-elisp-finder-keyword-backend (command &optional arg &rest ign)
+  "`company-backend' for finder-keywords."
+  (case command
+    (prefix
+     (and (require 'finder nil t)
+          (or (company-grab ":group '\\(\\(\\sw\\|\\s_\\)*\\)" 1)
+              (company-grab "Keywords:.*[ \t]+\\(\\(\\sw\\|\\s_\\)*\\)" 1))))
+    (candidates (all-completions arg finder-known-keywords))
+    (meta (cdr (assoc (intern arg) finder-known-keywords)))))
+
+(require 'company-c-headers)
+(add-to-list 'company-backends 'company-c-headers)
+(add-to-list 'company-c-headers-path-system "/usr/include/c++/8/")
 
 ;; Package: projejctile
 (use-package projectile
@@ -56,5 +72,11 @@
 ;; activate whitespace-mode to view all whitespace characters
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (windmove-default-keybindings)
+
+;; Define C/C++ Style
+(setq-default indent-tabs-mode nil)
+(setq c-default-style "k&r"
+      c-basic-offset 4)
+
 
 (provide 'setup-general)
