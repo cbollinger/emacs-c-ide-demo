@@ -52,7 +52,8 @@
     (candidates (all-completions arg finder-known-keywords))
     (meta (cdr (assoc (intern arg) finder-known-keywords)))))
 
-(require 'company-c-headers)
+;; (require 'company-c-headers)
+(use-package company-c-headers :init)
 (add-to-list 'company-backends 'company-c-headers)
 (add-to-list 'company-c-headers-path-system "/usr/include/c++/8/")
 

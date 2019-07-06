@@ -1,5 +1,6 @@
-(require 'cc-mode)
-(require 'semantic)
+
+(use-package cc-mode :init)
+(use-package semantic :init)
 
 (global-semanticdb-minor-mode 1)
 (global-semantic-idle-scheduler-mode 1)
@@ -16,8 +17,9 @@
 (add-hook 'c++-mode-hook 'alexott/cedet-hook)
 
 ;; Enable EDE only in C/C++
-(require 'ede)
-(global-ede-mode)
+(use-package ede
+  :init
+  (global-ede-mode))
 (add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode 1)
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode 1)
 (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode 1)
@@ -27,10 +29,11 @@
 (add-to-list 'semantic-default-submodes 'global-srecode-minor-mode t)
 (add-to-list 'semantic-default-submodes 'global-semantic-decoration-mode t)
 (semantic-mode) ;; Active le mode semantic
-(require 'stickyfunc-enhance) ;; multilines concatene dans la header line
-(require 'cedet-cscope)
 
-(require 'ecb)
+(use-package stickyfunc-enhance :init) ;; multilines concatene dans la header line
+(require 'cedet-cscope)
+(use-package ecb :init)
+
 ;; (ede-cpp-root-project "projName"
 ;;                       :name "projName Project"
 ;;                       :file "~/workspaces/projName/proj.txt" ;; an arbitrary file
@@ -49,6 +52,7 @@
 (semanticdb-enable-gnu-global-databases 'c++-mode t)
 
 ;; You can add this to improve the parse of macro-heavy code:
+
 (require 'semantic/bovine/c)
 (add-to-list 'semantic-lex-c-preprocessor-symbol-file "/usr/include/c++/8/stdlib.h")
 
