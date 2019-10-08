@@ -1,0 +1,103 @@
+%% Logo
+\DeclareNewLayer[
+align=tl,
+hoffset=3.5cm,
+voffset=1.5cm,
+width=3cm,
+height=1.2cm,
+background,
+contents={\includegraphics[width=\layerwidth]{/home/Christian/.emacs.d/templates/image/dg_header_small.png}}
+]{logo}
+
+%% Header Text Left
+\DeclareNewLayer[
+align=tl,
+hoffset=16cm,
+voffset=1.1cm,
+width=3cm,
+height=1\baselineskip,
+background,
+contents={
+  \footnotesize{
+    \begin{flushright}
+      d-nnnnnn-nnnnnn
+    \end{flushright}}
+}
+]{header_text_left}
+
+
+%% Header Line
+\DeclareNewLayer[
+align=tl,
+hoffset=6.4cm,
+voffset=1.9cm,
+width=13cm,
+height=1\baselineskip,
+background,
+contents={
+  \begin{tikzpicture}
+      \draw (0,0) -- (12.5,0);
+   \end{tikzpicture}
+}
+]{header_line}
+
+
+%% Footer
+\DeclareNewLayer[
+align=tl,
+hoffset=0cm,
+voffset=27cm,
+width=21cm,
+height=2.2cm,
+background,
+contents={\includegraphics[width=\layerwidth]{/home/Christian/.emacs.d/templates/image/dg_footer.png}}
+]{footer}
+
+%% www
+\DeclareNewLayer[
+align=tl,
+hoffset=3.5cm,
+voffset=27.4cm,
+width=14cm,
+height=1\baselineskip,
+contents={
+  \begin{flushleft}
+    \footnotesize{© duagon AG •  Riedstrasse 12 • CH-8953 Dietikon • www.duagon.com}
+  \end{flushleft}
+}
+]{www}
+
+%% Footer Text Right
+\DeclareNewLayer[
+align=tr,
+hoffset=19cm,
+voffset=27.3cm,
+width=5cm,
+height=1\baselineskip,
+contents={
+  \begin{flushright}
+    \textbf{\footnotesize{Version: \today}}
+  \end{flushright}
+}
+]{footer_text_right}
+
+
+%% Footer Line
+\DeclareNewLayer[
+align=tl,
+hoffset=3.4cm,
+voffset=27.5cm,
+width=13cm,
+height=1\baselineskip,
+background,
+contents={
+  \begin{tikzpicture}
+      \draw (0,0) -- (15.6,0);
+   \end{tikzpicture}
+}
+]{footer_line}
+
+
+
+\DeclareNewPageStyleByLayers{dg_page_style}{logo,header_line,header_text_left,www,footer_text_right,footer_line}
+\pagestyle{dg_page_style} %% Logo in header
