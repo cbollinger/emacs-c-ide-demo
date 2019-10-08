@@ -1,7 +1,7 @@
 \begin{titlepage}
-  NEEDS SOME TEXT HERE
 
-  %% Logo
+  
+  %%Logo
   \DeclareNewLayer[
   align=tl,
   hoffset=0cm,
@@ -54,8 +54,48 @@
   }
   ]{www}
 
+%% Docoration Image
+  \DeclareNewLayer[
+  align=tl,
+  hoffset=6cm,
+  voffset=15cm,
+  width=12cm,
+  height=12cm,
+  background,
+  contents={\includegraphics[width=\layerwidth]{/home/Christian/.emacs.d/templates/image/dg_deco.png}}
+  ]{deco}
   
-  \DeclareNewPageStyleByLayers{titlestyle}{logo,footer,addressfield,www}
+  
+\begin{tikzpicture}[remember picture,overlay]
+  \node[DG_YELLOW, outer sep=0pt,inner sep=0pt, anchor=west](TZeile1) 
+  at ([xshift=00mm, yshift=-20mm]){\textbf{\Huge{Erste Zeile des Titels}}};
+
+  \node[DG_YELLOW, outer sep=0pt,inner sep=0pt, anchor=west](TZeile2) 
+  at ([xshift=00mm, yshift=-30mm]){\textbf{\Huge{Zweite Zeile des Titels}}};
+
+  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile1) 
+  at ([xshift=00mm, yshift=-50mm]){Erste Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
+
+  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile2)
+  at ([xshift=00mm, yshift=-55mm]){Zweite Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
+
+  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile3)
+  at ([xshift=00mm, yshift=-60mm]){Dritte Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
+
+ \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile4) 
+  at ([xshift=00mm, yshift=-65mm]){Vierte Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
+
+  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile5)
+  at ([xshift=00mm, yshift=-70mm]){Fünfte Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
+
+  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile6)
+  at ([xshift=00mm, yshift=-75mm]){Sexhste Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
+
+  
+\end{tikzpicture}
+
+  
+  \DeclareNewPageStyleByLayers{titlestyle}{logo,deco,footer,addressfield,www}
   \thispagestyle{titlestyle} %% Logo in header
 \end{titlepage}
 \newpage
