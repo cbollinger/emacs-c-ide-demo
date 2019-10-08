@@ -1,5 +1,5 @@
-;; (setq org-ditaa-jar-path "~/java/ditaa0_6b.jar")
-;; (setq org-plantuml-jar-path "~/java/plantuml.jar")
+(setq org-ditaa-jar-path "~/java/ditaa0_6b.jar")
+(setq org-plantuml-jar-path "~/java/plantuml.jar")
 (add-to-list 'exec-path "/usr/bin/magick")
 
 
@@ -32,6 +32,7 @@
                      (face-attribute 'default :background) 3))
 
 (setq org-src-block-faces '(("emacs-lisp" (:background "#FA8072"))
+                            ("org" (:background "#FA8072"))
                             ("C++" (:background "#FA8072"))
                             ("latex" (:background "#FA8072"))
                             ("bclogo" (:background "#FA8072"))
