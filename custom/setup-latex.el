@@ -6,10 +6,32 @@
                '(TeX-command-extra-options . "-shell-escape")))
 
 
-(setq org-latex-to-pdf-process
-      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; (setq org-latex-to-pdf-process
+;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+
+;; lualatex preview
+(setq org-latex-pdf-process
+      '("lualatex -shell-escape -interaction nonstopmode %f"
+        "lualatex -shell-escape -interaction nonstopmode %f"))
+
+(setq luamagick '(luamagick :programs ("lualatex" "convert")
+                            :description "pdf > png"
+                            :message "you need to install lualatex and imagemagick."
+                            :use-xcolor t
+                            :image-input-type "pdf"
+                            :image-output-type "png"
+                            :image-size-adjust (1.0 . 1.0)
+                            :latex-compiler ("lualatex -interaction nonstopmode -output-directory %o %f")
+                            :image-converter ("convert -density %D -trim -antialias %f -quality 100 %O")))
+
+(add-to-list 'org-preview-latex-process-alist luamagick)
+
+(setq org-preview-latex-default-process 'luamagick)
+
+
 
 (with-eval-after-load "ox-latex"
   (add-to-list 'org-latex-classes
@@ -54,7 +76,8 @@
 (add-to-list 'org-latex-classes
     '("dg_article" "\\documentclass[draft=false,11pt,a4paper,ngerman]{scrartcl}
      \\usepackage{scrlayer}
-     \\usepackage[ngerman,american]{babel}
+     \\usepackage[ngerman]{babel}
+     \\usepackage{fontspec}
      \\usepackage{eurosym}
      \\usepackage{xspace}
      \\usepackage{tikz}
@@ -82,6 +105,8 @@
      %% \\renewcommand{\\pnumfont}{\\normalfont\\sffamily\\color{DG_YELLOW}}  %% First Heading ?
 
      \\setlist\{noitemsep\}                                           %% kills the space between items
+     \\setmainfont{Myriad Pro}                                        %% Set duagon font
+
      \\makeatletter
        \\renewcommand\\section{%
          \\scr@startsection{section}%  name
