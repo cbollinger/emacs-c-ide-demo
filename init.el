@@ -55,6 +55,7 @@
  '(TeX-engine (quote luatex))
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(async-bytecomp-package-mode t)
  '(custom-enabled-themes (quote (misterioso)))
  '(custom-safe-themes
    (quote
@@ -65,7 +66,6 @@
    (quote
     (("" "graphicx" t nil)
      ("" "grffile" t nil)
-     ("" "longtable" nil nil)
      ("" "wrapfig" nil nil)
      ("" "rotating" nil nil)
      ("normalem" "ulem" t nil)
@@ -74,9 +74,11 @@
      ("" "amssymb" t nil)
      ("" "capt-of" nil nil)
      ("" "hyperref" nil nil))))
+ '(package-enable-at-startup nil)
  '(package-selected-packages
    (quote
-    (auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package))))
+    (auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
+ '(use-package-always-ensure t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

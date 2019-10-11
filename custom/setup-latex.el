@@ -80,16 +80,11 @@
      \\usepackage{fontspec}
      \\usepackage{eurosym}
      \\usepackage{xspace}
-     \\usepackage{tikz}
      \\usepackage{lipsum}
      \\usepackage{enumitem}
-     %% \\usepackage[usenames,dvipsnames]{xcolor}
-     \\usepackage{xcolor}
-
+     \\usepackage[table]{xcolor}
+     \\usepackage{tikz}
      \\usepackage[left=6cm,top=4cm,right=2cm,bottom=4cm]{geometry}     %% define size
-     \\usepackage[space]{grffile}                                      %% enable spaces in filenames of includegraphics
-     %% \\usepackage\[protrusion=true,factor=900\]\{microtype\}
-
      \\usepackage{lastpage}                                            %% For getting page x of y
      \\usepackage{float}                                               %% Allows the figures to be positioned and formatted nicely
      \\floatstyle{boxed}                                                  %using this
