@@ -65,34 +65,23 @@
   contents={\includegraphics[width=\layerwidth]{/home/Christian/.emacs.d/templates/image/dg_deco.png}}
   ]{deco}
   
-  
-\begin{tikzpicture}[remember picture,overlay]
-  \node[DG_YELLOW, outer sep=0pt,inner sep=0pt, anchor=west](TZeile1) 
-  at ([xshift=00mm, yshift=-20mm]){\textbf{\Huge{Erste Zeile des Titels}}};
+  \vspace*{-1cm}
+  \Huge{
+      \begin{center}
+        \textsf{\textcolor{DG_YELLOW} {Title and Some More Words does it make line brake?}}
+      \end{center}}
 
-  \node[DG_YELLOW, outer sep=0pt,inner sep=0pt, anchor=west](TZeile2) 
-  at ([xshift=00mm, yshift=-30mm]){\textbf{\Huge{Zweite Zeile des Titels}}};
+  \vspace*{0.5cm}
+  \huge{
+      \begin{flushleft}
+        \textrm{Technical Note}
+      \end{flushleft}}
 
-  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile1) 
-  at ([xshift=00mm, yshift=-50mm]){Erste Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
-
-  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile2)
-  at ([xshift=00mm, yshift=-55mm]){Zweite Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
-
-  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile3)
-  at ([xshift=00mm, yshift=-60mm]){Dritte Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
-
- \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile4) 
-  at ([xshift=00mm, yshift=-65mm]){Vierte Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
-
-  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile5)
-  at ([xshift=00mm, yshift=-70mm]){Fünfte Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
-
-  \node[outer sep=0pt,inner sep=0pt, anchor=west](Zeile6)
-  at ([xshift=00mm, yshift=-75mm]){Sexhste Text Zeile.........bla bla bla.........bla bla bla.........bla bla bla};
-
-  
-\end{tikzpicture}
+ \vspace*{1cm}
+  \large{
+      \begin{flushleft}
+        \textrm{Some short description of the paper}
+      \end{flushleft}}
   
   \DeclareNewPageStyleByLayers{titlestyle}{logo,deco,footer,addressfield,www}
   \thispagestyle{titlestyle} %% Logo in header

@@ -101,6 +101,7 @@
 
      \\setlist\{noitemsep\}                                           %% kills the space between items
      \\setmainfont{Myriad Pro}                                        %% Set duagon font
+     \\setsansfont{Museo}                                        %% Set duagon font
 
      \\makeatletter
        \\renewcommand\\section{%
