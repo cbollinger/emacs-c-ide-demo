@@ -5,18 +5,22 @@
   (add-to-list 'safe-local-variable-values
                '(TeX-command-extra-options . "-shell-escape")))
 
+;; Make org aware of the tex enginge
+(setq org-latex-pdf-process
+      '("xelatex -shell-escape -interaction nonstopmode %f"
+        "xelatex -shell-escape -interaction nonstopmode %f")) ;; for multiple passes
 
-;; (setq org-latex-to-pdf-process
+;; (setq org-latex-pdf-process
+;;       '("lualatex -shell-escape -interaction nonstopmode %f"
+;;         "lualatex -shell-escape -interaction nonstopmode %f"))
+
+;; (setq org-latex-pdf-process
 ;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
 ;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
 ;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
 
-;; lualatex preview
-(setq org-latex-pdf-process
-      '("lualatex -shell-escape -interaction nonstopmode %f"
-        "lualatex -shell-escape -interaction nonstopmode %f"))
-
+;; PDF Preview with luamagick
 (setq luamagick '(luamagick :programs ("lualatex" "convert")
                             :description "pdf > png"
                             :message "you need to install lualatex and imagemagick."
@@ -28,9 +32,7 @@
                             :image-converter ("convert -density %D -trim -antialias %f -quality 100 %O")))
 
 (add-to-list 'org-preview-latex-process-alist luamagick)
-
 (setq org-preview-latex-default-process 'luamagick)
-
 
 
 (with-eval-after-load "ox-latex"
@@ -41,6 +43,7 @@
       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
       ("\\paragraph{%s}" . "\\paragraph*{%s}")
       ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
 
 (with-eval-after-load "ox-latex"
 (add-to-list 'org-latex-classes
