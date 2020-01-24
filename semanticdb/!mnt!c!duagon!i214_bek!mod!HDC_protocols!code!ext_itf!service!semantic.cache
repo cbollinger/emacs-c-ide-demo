@@ -1,0 +1,417 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("string.h" include (:system-flag t) nil [82 101])
+            ("stdio.h" include (:system-flag t) nil [102 120])
+            ("errno.h" include (:system-flag t) nil [121 139])
+            ("sys/utsname.h" include (:system-flag t) nil [140 164])
+            ("netdb.h" include (:system-flag t) nil [165 183])
+            ("unistd.h" include (:system-flag t) nil [184 203])
+            ("assert.h" include (:system-flag t) nil [204 223])
+            ("sys/param.h" include (:system-flag t) nil [224 246])
+            ("denv.h" include (:system-flag t) nil [247 264])
+            ("parser.h" include (:system-flag t) nil [265 284])
+            ("startup.h" include (:system-flag t) nil [285 305])
+            ("cyg/hal/hal_io.h" include (:system-flag t) nil [306 333])
+            ("cyg/kernel/kapi.h" include (:system-flag t) nil [334 362])
+            ("cyg/infra/diag.h" include (:system-flag t) nil [388 415])
+            ("pkgconf/system.h" include (:system-flag t) nil [954 981])
+            ("dg_svc_s.h" include nil nil [983 1004])
+            ("dg_error.h" include nil nil [1005 1026])
+            ("dg_stdio.h" include nil nil [1027 1048])
+            ("dg_string.h" include nil nil [1049 1071])
+            ("src/dm_hdc_controller.h" include nil nil [1095 1129])
+            ("src/dm_rpc.h" include nil nil [1130 1153])
+            ("fw_load.h" include nil nil [1211 1231])
+            ("reset_counters.h" include nil nil [1292 1319])
+            ("bal.h" include nil nil [1368 1384])
+            ("HOST_VERSION_MAJOR" variable (:constant-flag t) nil [1571 1589])
+            ("HOST_VERSION_MINOR" variable (:constant-flag t) nil [1674 1692])
+            ("SVC_KEY_DELIMITER" variable (:constant-flag t) nil [1778 1795])
+            ("SVC_KEY_DELIMITER_STR" variable (:constant-flag t) nil [1808 1829])
+            ("SVC_VAL_QUERY_STR" variable (:constant-flag t) nil [1842 1859])
+            ("SVC_DEBUG" variable (:constant-flag t) nil [1874 1883])
+            ("svc_debug_printf" variable (:constant-flag t) nil [1958 1974])
+            ("dummy_printf" function
+               (:arguments 
+                  ( ("SVC_CHAR8" variable (:type ("SVC_DECL_CONST" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2021 2046])
+                    ("" variable (:type ("nothing" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2047 2055])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [2055 2059]))                  
+                :type "void")
+                nil [2003 2080])
+            ("VAL_PTR_OFFSET" variable (:constant-flag t) nil [2588 2602])
+            ("reset_type_t" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("reset_type_none" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2625 2641])
+                          ("reset_type_boardreset" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2646 2668])
+                          ("reset_type_softreset" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [2673 2694]))                        
+                      :type "enum")
+                      nil nil)
+                :type "typedef")
+                nil [2606 2710])
+            ("svc_get_version" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2752 2767])
+                    ("valLen" variable (:type ("SVC_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2769 2785]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [2727 2786])
+            ("def_svc_get" variable
+               (:dereference 1
+                :default-value "{CMD_SVC_GET,
+        RPC_TEXT, RPC_RETURN_ARRAY8, RPC_RETURN_32, RPC_END}"
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [2803 2903])
+            ("def_svc_set" variable
+               (:dereference 1
+                :default-value "{CMD_SVC_SET,
+        RPC_TEXT, RPC_TEXT, RPC_RETURN_32, RPC_END}"
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [2919 3010])
+            ("def_svc_loopback" variable
+               (:dereference 1
+                :default-value "{CMD_SVC_LOOPBACK,
+        RPC_ARRAY8, RPC_RETURN_ARRAY8, RPC_RETURN_32, RPC_END}"
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [3026 3138])
+            ("def_svc_init" variable
+               (:dereference 1
+                :default-value "{CMD_SVC_INIT,
+        RPC_IO_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [3154 3252])
+            ("def_svc_last" variable
+               (:dereference 1
+                :default-value "{CMD_SVC_LAST,
+        RPC_END}"
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [3268 3326])
+            ("svc_key_registry" variable
+               (:dereference 1
+                :type ("SVC_KEY_DESC" type (:type "class") nil nil))
+                nil [3377 3421])
+            ("svc_init" function
+               (:arguments 
+                  ( ("version" variable
+                       (:pointer 1
+                        :type ("SVC_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3452 3469])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("SVC_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3470 3487])
+                    ("svc_errno" variable
+                       (:pointer 1
+                        :type ("SVC_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3488 3507]))                  
+                :type "void")
+                nil [3438 5067])
+            ("svc_get_product_name" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5113 5128])
+                    ("valLen" variable (:type ("SVC_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5129 5144])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5145 5159]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [5084 5414])
+            ("svc_get_op_id" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5453 5468])
+                    ("valLen" variable (:type ("SVC_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5469 5484])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5485 5499]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [5431 5747])
+            ("svc_get_app_id" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5787 5802])
+                    ("valLen" variable (:type ("SVC_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5803 5818])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5819 5833]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [5764 6082])
+            ("svc_get_pld_id" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6122 6137])
+                    ("valLen" variable (:type ("SVC_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6138 6153])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6154 6168]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [6099 6589])
+            ("svc_get_startup_result" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7793 7808])
+                    ("valLen" variable (:type ("SVC_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7809 7824])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7825 7839]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [7762 9019])
+            ("svc_get_env_key" function
+               (:arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24817 24838])
+                    ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24839 24854])
+                    ("valLen" variable
+                       (:pointer 1
+                        :type ("SVC_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24855 24871]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [24793 25446])
+            ("svc_set_env_key" function
+               (:arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25487 25508])
+                    ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25509 25530]))                  
+                :type ("SVC_S16" type (:type "class") nil nil))
+                nil [25463 25882])
+            ("svc_get" function
+               (:arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25914 25929])
+                    ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25930 25945])
+                    ("valLen" variable
+                       (:pointer 1
+                        :type ("SVC_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25946 25962])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("SVC_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25964 25980]))                  
+                :type "void")
+                nil [25900 32294])
+            ("svc_set" function
+               (:arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [32325 32340])
+                    ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [32341 32356])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("SVC_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [32358 32374]))                  
+                :type "void")
+                nil [32311 33534])
+            ("svc_loopback" function
+               (:arguments 
+                  ( ("dataIn" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [33570 33588])
+                    ("inLen" variable
+                       (:pointer 1
+                        :type ("SVC_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [33589 33604])
+                    ("dataOut" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [33605 33624])
+                    ("outLen" variable
+                       (:pointer 1
+                        :type ("SVC_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [33625 33641])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("SVC_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [33643 33659]))                  
+                :type "void")
+                nil [33551 34497])
+            ("dg_svc_register" function
+               (:arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [34542 34557])
+                    ("gfun" variable (:type ("SVC_GET_VALUE_FUNC" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [34562 34586])
+                    ("sfun" variable (:type ("SVC_SET_VALUE_FUNC" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [34591 34616]))                  
+                :type "void")
+                nil [34515 35312])
+            ("dg_svc_unregister" function
+               (:arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [35359 35375]))                  
+                :type "void")
+                nil [35330 35665])
+            ("service_interfaces" variable
+               (:dereference 1
+                :default-value "{
+        {svc_get, def_svc_get}, // cmd = 0
+        {svc_set, def_svc_set},  // cmd = 1
+        {svc_loopback, def_svc_loopback}, //cmd = 2
+        {svc_init, def_svc_init}, //cmd = 3
+        {NULL, def_svc_last}
+}"
+                :type ("RPC_Interface" type (:type "class") nil nil))
+                nil [35682 35935])
+            ("svc_get_version" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [36029 36044])
+                    ("valLen" variable (:type ("SVC_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [36049 36065]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [36000 36244])
+            ("reset_thread" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("data" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [38359 38380]))                  
+                :type "void")
+                nil [38334 39212])
+            ("reset_thread_stack" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :type ("cyg_uint16" type (:type "class") nil nil))
+                nil [39214 39295])
+            ("reset_thread_handle" variable
+               (:typemodifiers ("static")
+                :type ("cyg_handle_t" type (:type "class") nil nil))
+                nil [39296 39339])
+            ("reset_thread_obj" variable
+               (:typemodifiers ("static")
+                :type ("cyg_thread" type (:type "class") nil nil))
+                nil [39340 39380])
+            ("init_reset_task" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("reset_type" variable (:type ("reset_type_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [39410 39434]))                  
+                :type "void")
+                nil [39382 39727])
+            ("svc_set_reset" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [39795 39810])
+                    ("itf_nr" variable (:type ("DG_U8" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [39811 39824]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [39772 40226])
+            ("svc_set_fw_load" function
+               (:arguments 
+                  ( ("filename" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [42692 42712])
+                    ("itf_nr" variable (:type ("DG_U8" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [42713 42726]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [42668 43288])
+            ("svc_get_fw_load_done" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [43431 43446])
+                    ("valLen" variable (:type ("SVC_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [43447 43462])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [43463 43477]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [43402 43852])
+            ("svc_get_fw_load_status" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("SVC_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [44036 44051])
+                    ("valLen" variable (:type ("SVC_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [44052 44067])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [44068 44082]))                  
+                :type ("SVC_S32" type (:type "class") nil nil))
+                nil [44005 44295])
+            ("dg_service_init" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [44358 44364]))                  
+                :type "void")
+                nil [44331 50942]))          
+      :file "dg_svc_s.c"
+      :pointmax 50943
+      :fsize 52565
+      :lastmodtime '(24037 16994 737044 500000)
+      :unmatched-syntax '((symbol 44315 . 44330) (symbol 43990 . 44004) (symbol 43387 . 43401) (symbol 42653 . 42667) (symbol 39757 . 39771) (symbol 35985 . 35999) (symbol 35667 . 35681) (symbol 35314 . 35329) (symbol 34499 . 34514) (symbol 33536 . 33550) (symbol 32296 . 32310) (symbol 25885 . 25899) (symbol 25448 . 25462) (symbol 24778 . 24792) (symbol 7747 . 7761) (symbol 6084 . 6098) (symbol 5749 . 5763) (symbol 5416 . 5430) (symbol 5069 . 5083) (symbol 3423 . 3437) (symbol 3362 . 3376) (symbol 3253 . 3267) (symbol 3139 . 3153) (symbol 3011 . 3025) (symbol 2904 . 2918) (symbol 2788 . 2802) (symbol 2712 . 2726) (punctuation 2045 . 2046) (symbol 1988 . 2002))
+      :lexical-table 
+        '(("SVC_KEY_DELIMITER_STR" . ((string "\"_\"" 1830 . 1833)))
+          ("SVC_DEBUG" . ((number "0" 1884 . 1885)))
+          ("VAL_PTR_OFFSET" . ((number "4" 2603 . 2604)))
+          ("SVC_KEY_DELIMITER" . ((string "'_'" 1796 . 1799)))
+          ("HOST_VERSION_MAJOR" . ((number "1" 1590 . 1591)))
+          ("svc_debug_printf" . ((symbol "dummy_printf" 1975 . 1987)))
+          ("HOST_VERSION_MINOR" . ((number "1" 1693 . 1694)))
+          ("SVC_VAL_QUERY_STR" . ((string "\"_?\"" 1860 . 1864)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :file "dg_svc_s.h"
+      :fsize 4032
+      :lastmodtime '(24037 16578 956308 0)))
+  :file "!mnt!c!duagon!i214_bek!mod!HDC_protocols!code!ext_itf!service!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

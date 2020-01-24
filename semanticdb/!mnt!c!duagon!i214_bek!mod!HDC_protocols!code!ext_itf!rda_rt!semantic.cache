@@ -1,0 +1,788 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("cyg/infra/diag.h" include (:system-flag t) nil [631 658])
+            ("stdio.h" include (:system-flag t) nil [659 677])
+            ("stdlib.h" include (:system-flag t) nil [678 697])
+            ("assert.h" include (:system-flag t) nil [698 717])
+            ("rda_rt.h" include nil nil [718 737])
+            ("dg_rda_rt_s.h" include nil nil [738 762])
+            ("dg_svc_s.h" include nil nil [763 784])
+            ("src/dm_hdc_controller.h" include nil nil [808 842])
+            ("src/dm_rpc.h" include nil nil [843 866])
+            ("RDA_RT_HOST_VERSION_MAJOR" variable (:constant-flag t) nil [1228 1253])
+            ("RDA_RT_HOST_VERSION_MINOR" variable (:constant-flag t) nil [1425 1450])
+            ("dg_rda_rt_init" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("version" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2471 2487])
+                    ("service_identifier" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2492 2518])
+                    ("rda_rt_type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2523 2542])
+                    ("timeout_ms" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2547 2566])
+                    ("client_name_filter" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2571 2597])
+                    ("client_name" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2602 2621])
+                    ("client_name_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2626 2650])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2655 2671])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2676 2697]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [2437 2698])
+            ("dg_rda_rt_get_pd" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3355 3368])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3373 3385])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3390 3407])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3412 3428])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3433 3449])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3454 3475]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [3319 3476])
+            ("dg_rda_rt_get_pd_ext" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4245 4258])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4263 4275])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4280 4297])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4302 4318])
+                    ("last_update_ms" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4323 4346])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4351 4367])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4372 4393]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [4205 4394])
+            ("dg_rda_rt_put_pd" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4978 4991])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4996 5008])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5013 5030])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5035 5051])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5056 5077]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [4942 5078])
+            ("dg_rda_rt_enqueue_ac_diag" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("msg_type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5671 5687])
+                    ("buf_type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5692 5708])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5713 5725])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5730 5747])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5752 5768])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5773 5794]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [5626 5795])
+            ("dg_rda_rt_dequeue_ac_diag" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("msg_type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6421 6437])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6442 6454])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6459 6476])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6481 6497])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6502 6518])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6523 6544]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [6376 6545])
+            ("dg_rda_rt_get_udp_data" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7151 7163])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7168 7180])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7185 7202])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7207 7223])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7228 7244])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7249 7270]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [7109 7271])
+            ("dg_rda_rt_get_udp_data_ext" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8025 8037])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8042 8054])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8059 8076])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8081 8097])
+                    ("last_update_ms" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8102 8125])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8130 8146])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8151 8172]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [7979 8173])
+            ("dg_rda_rt_get_status" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("is_initialized" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8800 8822])
+                    ("diag_fill" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8827 8845])
+                    ("rda_rt_count" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8850 8870])
+                    ("master_client_name" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8875 8901])
+                    ("master_client_name_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8906 8937])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8942 8958])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8963 8984]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [8760 8985])
+            ("rda_rt_prot_version" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("DG_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9244 9258])
+                    ("val_len" variable (:type ("DG_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9263 9278])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9283 9297]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [9205 9298])
+            ("def_rda_rt_init" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_INIT,
+        RPC_IO_32,
+        RPC_8,
+        RPC_8,
+        RPC_32,
+        RPC_8,
+        RPC_ARRAY8,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [9570 9790])
+            ("def_rda_rt_get_pd" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_GET_PD,
+        RPC_16,
+        RPC_RETURN_ARRAY8,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [9863 10053])
+            ("def_rda_rt_get_pd_ext" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_GET_PD_EXT,
+        RPC_16,
+        RPC_RETURN_ARRAY8,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [10135 10356])
+            ("def_rda_rt_put_pd" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_PUT_PD,
+        RPC_16,
+        RPC_ARRAY8,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [10430 10590])
+            ("def_rda_rt_enqueue_ac_diag" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_ENQ_AC_DIAG,
+        RPC_8,
+        RPC_8,
+        RPC_ARRAY8,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [10669 10857])
+            ("def_rda_rt_dequeue_ac_diag" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_DEQ_AC_DIAG,
+        RPC_RETURN_8,
+        RPC_RETURN_ARRAY8,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_END }"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [10944 11155])
+            ("def_rda_rt_get_udp_data" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_GET_UDP_DATA,
+        RPC_8,
+        RPC_RETURN_ARRAY8,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_END }"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [11223 11425])
+            ("def_rda_rt_get_udp_data_ext" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_GET_UDP_DATA_EXT,
+        RPC_8,
+        RPC_RETURN_ARRAY8,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_END }"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [11502 11735])
+            ("def_rda_rt_get_status" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_GET_STATUS,
+        RPC_RETURN_8,
+        RPC_RETURN_32,
+        RPC_RETURN_8,
+        RPC_RETURN_ARRAY8,
+        RPC_RETURN_32,
+        RPC_RETURN_32,
+        RPC_END }"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [11801 12028])
+            ("def_rda_rt_last" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        RDA_RT_LAST_CMD,
+        RPC_RETURN_32,
+        RPC_END }"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [12084 12186])
+            ("service_interfaces" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+        { dg_rda_rt_init, def_rda_rt_init },
+        { dg_rda_rt_get_pd, def_rda_rt_get_pd },
+        { dg_rda_rt_get_pd_ext, def_rda_rt_get_pd_ext },
+        { dg_rda_rt_put_pd, def_rda_rt_put_pd },
+        { dg_rda_rt_enqueue_ac_diag, def_rda_rt_enqueue_ac_diag },
+        { dg_rda_rt_dequeue_ac_diag, def_rda_rt_dequeue_ac_diag },
+        { dg_rda_rt_get_udp_data, def_rda_rt_get_udp_data },
+        { dg_rda_rt_get_udp_data_ext, def_rda_rt_get_udp_data_ext },
+        { dg_rda_rt_get_status, def_rda_rt_get_status },
+        { NULL, def_rda_rt_last } }"
+                :type ("RPC_Interface" type (:type "class") nil nil))
+                nil [12232 12835])
+            ("dg_rda_rt_init" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("version" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13071 13087])
+                    ("service_identifier" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13092 13118])
+                    ("rda_rt_type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13123 13142])
+                    ("timeout_ms" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13147 13166])
+                    ("client_name_filter" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13171 13197])
+                    ("client_name" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13202 13221])
+                    ("client_name_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13226 13250])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13255 13271])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13276 13297]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [13037 14546])
+            ("dg_rda_rt_get_pd" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14584 14597])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14602 14614])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14619 14636])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14641 14657])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14662 14678])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14683 14704]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [14548 14962])
+            ("dg_rda_rt_get_pd_ext" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15004 15017])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15022 15034])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15039 15056])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15061 15077])
+                    ("last_update_ms" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15082 15105])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15110 15126])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15131 15152]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [14964 15430])
+            ("dg_rda_rt_put_pd" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15468 15481])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15486 15498])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15503 15520])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15525 15541])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15546 15567]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [15432 15816])
+            ("dg_rda_rt_enqueue_ac_diag" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("msg_type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15863 15879])
+                    ("buf_type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15884 15900])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15905 15917])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15922 15939])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15944 15960])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15965 15986]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [15818 16286])
+            ("dg_rda_rt_dequeue_ac_diag" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("msg_type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16333 16349])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16354 16366])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16371 16388])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16393 16409])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16414 16430])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16435 16456]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [16288 16726])
+            ("dg_rda_rt_get_udp_data" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16770 16782])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16787 16799])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16804 16821])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16826 16842])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16847 16863])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16868 16889]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [16728 17177])
+            ("dg_rda_rt_get_udp_data_ext" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("type" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17225 17237])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17242 17254])
+                    ("data_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17259 17276])
+                    ("msg_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17281 17297])
+                    ("last_update_ms" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17302 17325])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17330 17346])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17351 17372]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [17179 17680])
+            ("dg_rda_rt_get_status" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("is_initialized" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17722 17744])
+                    ("diag_fill" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17749 17767])
+                    ("rda_rt_count" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17772 17792])
+                    ("master_client_name" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17797 17823])
+                    ("master_client_name_len" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17828 17859])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17864 17880])
+                    ("rda_rt_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17885 17906]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [17682 18452])
+            ("rda_rt_prot_version" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("DG_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18691 18705])
+                    ("val_len" variable (:type ("DG_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [18710 18725])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18730 18744]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [18652 19429])
+            ("dg_rda_rt_rpc_init" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [19470 19475]))                  
+                :type "void")
+                nil [19446 20312]))          
+      :file "dg_rda_rt_s.c"
+      :pointmax 20327
+      :fsize 21087
+      :lastmodtime '(24037 16578 948458 100000)
+      :unmatched-syntax '((symbol 19431 . 19445))
+      :lexical-table 
+        '(("RDA_RT_HOST_VERSION_MAJOR" . ((number "1" 1254 . 1255)))
+          ("RDA_RT_HOST_VERSION_MINOR" . ((number "0" 1451 . 1452)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :file "dg_rda_rt_s.h"
+      :fsize 2267
+      :lastmodtime '(24037 16578 949439 100000)))
+  :file "!mnt!c!duagon!i214_bek!mod!HDC_protocols!code!ext_itf!rda_rt!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

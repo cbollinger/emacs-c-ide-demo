@@ -1,0 +1,694 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("denv.h" include (:system-flag t) nil [612 629])
+            ("cyg/infra/diag.h" include (:system-flag t) nil [630 657])
+            ("dg_svc_s.h" include (:system-flag t) nil [658 679])
+            ("cyg/infra/cyg_type.h" include (:system-flag t) nil [681 712])
+            ("cyg/kernel/kapi.h" include (:system-flag t) nil [713 741])
+            ("cyg/fileio/fileio.h" include (:system-flag t) nil [743 773])
+            ("cyg/error/errno.h" include (:system-flag t) nil [774 802])
+            ("sys/stat.h" include (:system-flag t) nil [803 824])
+            ("limits.h" include (:system-flag t) nil [825 844])
+            ("stdlib.h" include (:system-flag t) nil [846 865])
+            ("unistd.h" include (:system-flag t) nil [866 885])
+            ("dirent.h" include (:system-flag t) nil [886 905])
+            ("dg_pfs_s.h" include nil nil [907 928])
+            ("dg_svc_s.h" include nil nil [929 950])
+            ("dg_error.h" include nil nil [951 972])
+            ("src/dm_hdc_controller.h" include nil nil [996 1030])
+            ("src/dm_rpc.h" include nil nil [1031 1054])
+            ("dg_trace_by_id" variable (:constant-flag t) nil [1193 1207])
+            ("dg_trace_register_name" variable (:constant-flag t) nil [1233 1255])
+            ("HOST_VERSION_MAJOR" variable (:constant-flag t) nil [1454 1472])
+            ("HOST_VERSION_MINOR" variable (:constant-flag t) nil [1544 1562])
+            ("pfs_get_version" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1667 1682])
+                    ("valLen" variable (:type ("PFS_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1683 1698])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("PFS_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1699 1714]))                  
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [1642 1715])
+            ("def_pfs_check" variable
+               (:dereference 1
+                :default-value "{PFS_CMD_CHECK, RPC_8, RPC_ARRAY8, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [1930 2034])
+            ("def_pfs_access" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_ACCESS, RPC_TEXT, RPC_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [2050 2156])
+            ("def_pfs_open" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_OPEN, RPC_TEXT, RPC_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [2172 2276])
+            ("def_pfs_close" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_CLOSE, RPC_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [2292 2372])
+            ("def_pfs_read" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_READ,RPC_32, RPC_RETURN_ARRAY8, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [2388 2500])
+            ("def_pfs_write" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_WRITE, RPC_32, RPC_ARRAY8, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [2516 2623])
+            ("def_pfs_lseek" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_LSEEK, RPC_32, RPC_32, RPC_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [2639 2750])
+            ("def_pfs_unlink" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_UNLINK, RPC_TEXT, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [2766 2864])
+            ("def_pfs_stat" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_STAT, RPC_TEXT, RPC_RETURN_32, RPC_RETURN_32, RPC_RETURN_16, RPC_RETURN_16, RPC_RETURN_16, RPC_RETURN_16, RPC_RETURN_32, RPC_RETURN_32, RPC_RETURN_32, RPC_RETURN_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [2880 3126])
+            ("def_pfs_pathconf" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_PATHCONF, RPC_TEXT, RPC_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [3142 3250])
+            ("def_pfs_getcwd" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_GETCWD, RPC_RETURN_ARRAY8, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [3266 3373])
+            ("def_pfs_chdir" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_CHDIR, RPC_TEXT, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [3389 3486])
+            ("def_pfs_mkdir" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_MKDIR, RPC_TEXT, RPC_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [3502 3607])
+            ("def_pfs_rmdir" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_RMDIR, RPC_TEXT, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [3623 3720])
+            ("def_pfs_opendir" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_OPENDIR, RPC_TEXT, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [3736 3835])
+            ("def_pfs_closedir" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_CLOSEDIR, RPC_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [3851 3949])
+            ("def_pfs_readdir_r" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_READDIR_R, RPC_32, RPC_RETURN_ARRAY8, RPC_RETURN_8, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [3965 4098])
+            ("def_pfs_rewinddir" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_REWINDDIR, RPC_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [4114 4214])
+            ("def_pfs_open_read_close" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_OPEN_READ_CLOSE,RPC_TEXT, RPC_32, RPC_RETURN_ARRAY8, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [4230 4371])
+            ("def_pfs_open_write_close" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_OPEN_WRITE_CLOSE, RPC_TEXT, RPC_32, RPC_ARRAY8, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [4387 4523])
+            ("def_pfs_init" variable
+               (:dereference 1
+                :default-value "{PFS_POSIX_INIT, RPC_IO_32, RPC_RETURN_32, RPC_RETURN_32, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [4539 4632])
+            ("def_pfs_last" variable
+               (:dereference 1
+                :default-value "{PFS_LAST_CMD, RPC_END}"
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [4648 4702])
+            ("pfs_init" function
+               (:arguments 
+                  ( ("version" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4769 4786])
+                    ("ret_val" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4787 4804])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4805 4824]))                  
+                :type "void")
+                nil [4755 6582])
+            ("pfs_close" function
+               (:arguments 
+                  ( ("filedes" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6614 6631])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6632 6651]))                  
+                :type "void")
+                nil [6599 6898])
+            ("pfs_open" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6930 6946])
+                    ("oflag" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6947 6962])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6963 6979])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6980 6999]))                  
+                :type "void")
+                nil [6915 7260])
+            ("pfs_read" function
+               (:arguments 
+                  ( ("filedes" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7292 7309])
+                    ("buf" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7310 7325])
+                    ("nbyte" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7326 7341])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7342 7358])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7359 7378]))                  
+                :type "void")
+                nil [7278 7500])
+            ("pfs_open_read_close" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7542 7558])
+                    ("oflag" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7559 7574])
+                    ("buf" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7575 7590])
+                    ("nbyte" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7591 7606])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7607 7623])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7624 7643]))                  
+                :type "void")
+                nil [7517 8282])
+            ("pfs_write" function
+               (:arguments 
+                  ( ("filedes" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8314 8331])
+                    ("buf" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8332 8347])
+                    ("nbyte" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8348 8363])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8364 8380])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8381 8400]))                  
+                :type "void")
+                nil [8299 8524])
+            ("pfs_open_write_close" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8567 8583])
+                    ("oflag" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8584 8599])
+                    ("buf" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8600 8615])
+                    ("nbyte" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8616 8631])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8632 8648])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8649 8668]))                  
+                :type "void")
+                nil [8541 9266])
+            ("pfs_unlink" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9300 9316])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9317 9333])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9334 9353]))                  
+                :type "void")
+                nil [9284 9424])
+            ("pfs_access" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9457 9473])
+                    ("amode" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9474 9489])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9490 9506])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9507 9526]))                  
+                :type "void")
+                nil [9441 9605])
+            ("pfs_pathconf" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9641 9657])
+                    ("name" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9658 9672])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9673 9689])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9690 9709]))                  
+                :type "void")
+                nil [9623 9789])
+            ("pfs_getcwd" function
+               (:arguments 
+                  ( ("buf" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9822 9837])
+                    ("size" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9838 9852])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9853 9869])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9870 9889]))                  
+                :type "void")
+                nil [9806 10019])
+            ("pfs_mkdir" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10051 10067])
+                    ("mode" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10068 10082])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10083 10099])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10100 10119]))                  
+                :type "void")
+                nil [10036 10227])
+            ("pfs_closedir" function
+               (:arguments 
+                  ( ("dirData" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10262 10279])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10280 10296])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10297 10316]))                  
+                :type "void")
+                nil [10244 10497])
+            ("pfs_rewinddir" function
+               (:arguments 
+                  ( ("dirData" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10533 10550])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10551 10567])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10568 10587]))                  
+                :type "void")
+                nil [10514 10742])
+            ("pfs_chdir" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10774 10790])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10791 10807])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10808 10827]))                  
+                :type "void")
+                nil [10759 10928])
+            ("pfs_lseek" function
+               (:arguments 
+                  ( ("filedes" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10960 10977])
+                    ("offset" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10978 10994])
+                    ("whence" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10995 11011])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11012 11028])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11029 11048]))                  
+                :type "void")
+                nil [10945 11140])
+            ("pfs_rmdir" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11172 11188])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11189 11205])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11206 11225]))                  
+                :type "void")
+                nil [11157 11295])
+            ("pfs_stat" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11326 11342])
+                    ("st_mode" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11343 11360])
+                    ("st_ino" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11361 11377])
+                    ("st_dev" variable
+                       (:pointer 1
+                        :type ("PFS_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11378 11394])
+                    ("st_nlink" variable
+                       (:pointer 1
+                        :type ("PFS_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11406 11424])
+                    ("st_uid" variable
+                       (:pointer 1
+                        :type ("PFS_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11425 11441])
+                    ("st_gid" variable
+                       (:pointer 1
+                        :type ("PFS_S16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11442 11458])
+                    ("st_size" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11459 11476])
+                    ("st_atime" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11488 11506])
+                    ("st_mtime" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11507 11525])
+                    ("st_ctime" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11526 11544])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11546 11562])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11563 11582]))                  
+                :type "void")
+                nil [11312 12004])
+            ("pfs_readdir_r" function
+               (:arguments 
+                  ( ("dirData" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12040 12057])
+                    ("dirname" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12058 12077])
+                    ("size" variable
+                       (:pointer 1
+                        :type ("PFS_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12078 12092])
+                    ("zero_when_end" variable
+                       (:pointer 1
+                        :type ("PFS_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12093 12115])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12116 12132])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12133 12152]))                  
+                :type "void")
+                nil [12021 12643])
+            ("pfs_opendir" function
+               (:arguments 
+                  ( ("path" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12677 12693])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12694 12710])
+                    ("pfs_errno" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12711 12730]))                  
+                :type "void")
+                nil [12660 13019])
+            ("pfs_get_version" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13113 13128])
+                    ("valLen" variable (:type ("PFS_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13133 13148])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("PFS_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13153 13169]))                  
+                :type ("PFS_S32" type (:type "class") nil nil))
+                nil [13084 13396])
+            ("pfs_check" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("cmd" variable
+                       (:pointer 1
+                        :type ("PFS_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13625 13637])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13638 13654])
+                    ("argsLen" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13655 13672])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13673 13689]))                  
+                :type "void")
+                nil [13610 13690])
+            ("service_interfaces" variable
+               (:dereference 1
+                :default-value "{
+		{pfs_check, def_pfs_check},	  /* cmd = 0*/
+        {pfs_access, def_pfs_access}, /* cmd = 1*/
+        {pfs_open, def_pfs_open},     /* cmd = 2*/
+        {pfs_close, def_pfs_close},
+        {pfs_read, def_pfs_read},
+        {pfs_write, def_pfs_write},
+        {pfs_lseek, def_pfs_lseek},
+        {pfs_unlink, def_pfs_unlink},
+        {pfs_stat, def_pfs_stat},
+        {pfs_pathconf, def_pfs_pathconf},
+        {pfs_getcwd, def_pfs_getcwd},
+        {pfs_chdir, def_pfs_chdir},
+        {pfs_mkdir, def_pfs_mkdir},
+        {pfs_rmdir, def_pfs_rmdir},
+        {pfs_opendir, def_pfs_opendir},
+        {pfs_closedir, def_pfs_closedir},
+        {pfs_readdir_r, def_pfs_readdir_r},
+        {pfs_rewinddir, def_pfs_rewinddir},
+        {pfs_open_read_close, def_pfs_open_read_close},
+        {pfs_open_write_close, def_pfs_open_write_close},
+        {pfs_init, def_pfs_init},
+        {NULL, def_pfs_last}
+}"
+                :type ("RPC_Interface" type (:type "class") nil nil))
+                nil [13733 14670])
+            ("pfs_check" function
+               (:arguments 
+                  ( ("cmd" variable
+                       (:pointer 1
+                        :type ("PFS_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14702 14714])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("PFS_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14715 14731])
+                    ("argsLen" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14732 14749])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("PFS_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14750 14766]))                  
+                :type "void")
+                nil [14687 15044])
+            ("dg_pfs_init" function
+               (:typemodifiers ("extern")
+                :type "void")
+                nil [15399 16364]))          
+      :file "dg_pfs_s.c"
+      :pointmax 16383
+      :fsize 16937
+      :lastmodtime '(24037 16578 943551 100000)
+      :unmatched-syntax '((symbol 14672 . 14686) (symbol 13718 . 13732) (symbol 13595 . 13609) (symbol 13069 . 13083) (symbol 12645 . 12659) (symbol 12006 . 12020) (symbol 11297 . 11311) (symbol 11142 . 11156) (symbol 10930 . 10944) (symbol 10744 . 10758) (symbol 10499 . 10513) (symbol 10229 . 10243) (symbol 10021 . 10035) (symbol 9791 . 9805) (symbol 9608 . 9622) (symbol 9426 . 9440) (symbol 9269 . 9283) (symbol 8526 . 8540) (symbol 8284 . 8298) (symbol 7502 . 7516) (symbol 7263 . 7277) (symbol 6900 . 6914) (symbol 6584 . 6598) (symbol 4740 . 4754) (symbol 4633 . 4647) (symbol 4524 . 4538) (symbol 4372 . 4386) (symbol 4215 . 4229) (symbol 4099 . 4113) (symbol 3950 . 3964) (symbol 3836 . 3850) (symbol 3721 . 3735) (symbol 3608 . 3622) (symbol 3487 . 3501) (symbol 3374 . 3388) (symbol 3251 . 3265) (symbol 3127 . 3141) (symbol 2865 . 2879) (symbol 2751 . 2765) (symbol 2624 . 2638) (symbol 2501 . 2515) (symbol 2373 . 2387) (symbol 2277 . 2291) (symbol 2157 . 2171) (symbol 2035 . 2049) (symbol 1915 . 1929) (symbol 1627 . 1641))
+      :lexical-table 
+        '(("dg_trace_register_name" (spp-arg-list ("a" "...") 1255 . 1262) . ((semantic-list "((void)0)" 1263 . 1272)))
+          ("HOST_VERSION_MAJOR" . ((number "1" 1473 . 1474)))
+          ("dg_trace_by_id" (spp-arg-list ("a" "...") 1207 . 1214) . ((semantic-list "((void)0)" 1215 . 1224)))
+          ("HOST_VERSION_MINOR" . ((number "1" 1563 . 1564)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :file "dg_pfs_s.h"
+      :fsize 2286
+      :lastmodtime '(24037 16578 944536 200000)))
+  :file "!mnt!c!duagon!i214_bek!mod!HDC_protocols!code!ext_itf!pfs!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

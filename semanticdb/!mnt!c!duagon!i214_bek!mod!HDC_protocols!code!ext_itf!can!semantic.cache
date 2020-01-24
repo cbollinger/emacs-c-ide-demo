@@ -1,0 +1,391 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("denv.h" include (:system-flag t) nil [609 626])
+            ("cyg/infra/diag.h" include (:system-flag t) nil [627 654])
+            ("dg_svc_s.h" include (:system-flag t) nil [655 676])
+            ("cyg/infra/cyg_type.h" include (:system-flag t) nil [678 709])
+            ("cyg/kernel/kapi.h" include (:system-flag t) nil [710 738])
+            ("cyg/fileio/fileio.h" include (:system-flag t) nil [740 770])
+            ("cyg/error/errno.h" include (:system-flag t) nil [771 799])
+            ("sys/stat.h" include (:system-flag t) nil [800 821])
+            ("limits.h" include (:system-flag t) nil [822 841])
+            ("stdlib.h" include (:system-flag t) nil [843 862])
+            ("unistd.h" include (:system-flag t) nil [863 882])
+            ("dirent.h" include (:system-flag t) nil [883 902])
+            ("dg_can_s.h" include nil nil [904 925])
+            ("dg_svc_s.h" include nil nil [926 947])
+            ("src/dm_hdc_controller.h" include nil nil [971 1005])
+            ("src/dm_rpc.h" include nil nil [1006 1029])
+            ("bal.h" include nil nil [1071 1087])
+            ("cpmacro.h" include nil nil [1276 1296])
+            ("cpcore.h" include nil nil [1297 1316])
+            ("cpuser.h" include nil nil [1317 1336])
+            ("cpfilter.h" include nil nil [1337 1358])
+            ("CpFifoClear" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("buffer" variable (:type ("_U08" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1799 1811]))                  
+                :type ("Cp_PREFIX" type (:type "class") nil nil))
+                nil [1777 1812])
+            ("db_printf" variable (:constant-flag t) nil [3342 3351])
+            ("state_str" variable (:constant-flag t) nil [3369 3378])
+            ("active_str" variable (:constant-flag t) nil [3390 3400])
+            ("HOST_VERSION_MAJOR" variable (:constant-flag t) nil [3482 3500])
+            ("HOST_VERSION_MINOR" variable (:constant-flag t) nil [3572 3590])
+            ("can_get_version" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("DG_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3632 3646])
+                    ("valLen" variable (:type ("DG_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3647 3661])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3662 3676]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [3608 3677])
+            ("def_can_check" variable
+               (:dereference 1
+                :default-value "{CAN_CMD_CHECK,
+												RPC_8,
+												RPC_ARRAY8,
+												RPC_RETURN_32,
+												RPC_RETURN_32,
+												RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [3891 4055])
+            ("def_can_init_node" variable
+               (:dereference 1
+                :default-value "{CAN_INITNODE,
+												RPC_16,
+												RPC_RETURN_32,
+												RPC_RETURN_32,
+												RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [4071 4211])
+            ("def_can_send" variable
+               (:dereference 1
+                :default-value "{CAN_SEND,
+												RPC_32,
+												RPC_8,
+												RPC_8,
+												RPC_ARRAY8,
+												RPC_RETURN_32,
+												RPC_RETURN_32,
+												RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [4227 4425])
+            ("def_can_receive" variable
+               (:dereference 1
+                :default-value "{CAN_RECEIVE,
+												RPC_RETURN_32,
+												RPC_RETURN_8,
+												RPC_RETURN_8,
+												RPC_RETURN_ARRAY8,
+												RPC_RETURN_32,
+												RPC_RETURN_32,
+												RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [4441 4670])
+            ("def_can_status" variable
+               (:dereference 1
+                :default-value "{CAN_GETSTATUS,
+												RPC_RETURN_8,
+												RPC_RETURN_8,
+												RPC_RETURN_32,
+												RPC_RETURN_32,
+												RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [4687 4860])
+            ("def_can_init" variable
+               (:dereference 1
+                :default-value "{CAN_INIT,
+												RPC_IO_32,
+												RPC_RETURN_32,
+												RPC_RETURN_32,
+												RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [4876 5015])
+            ("def_can_filter_list" variable
+               (:dereference 1
+                :default-value "{CAN_FILTER_LIST,
+												RPC_ARRAY8,
+												RPC_8,
+												RPC_RETURN_32,
+												RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [5031 5171])
+            ("def_can_filter_all" variable
+               (:dereference 1
+                :default-value "{CAN_FILTER_ALL,
+												RPC_8,
+												RPC_RETURN_32,
+												RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [5187 5301])
+            ("def_can_last" variable
+               (:dereference 1
+                :default-value "{CAN_LAST_CMD,
+                                            RPC_END}"
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [5350 5447])
+            ("can_msg" variable
+               (:typemodifiers ("static")
+                :type ("CpStruct_CAN" type (:type "class") nil nil))
+                nil [5679 5707])
+            ("canpie_bus_state" variable
+               (:typemodifiers ("static")
+                :default-value "CpErr_OK"
+                :type ("_U08" type (:type "class") nil nil))
+                nil [5708 5748])
+            ("UserIntErr" function
+               (:arguments 
+                  ( ("err" variable (:type ("_U08" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5766 5775]))                  
+                :type ("_U08" type (:type "class") nil nil))
+                nil [5750 5830])
+            ("can_init" function
+               (:arguments 
+                  ( ("version" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6042 6058])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6067 6082])
+                    ("can_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6091 6110]))                  
+                :type "void")
+                nil [6018 6820])
+            ("can_init_node" function
+               (:arguments 
+                  ( ("bps" variable
+                       (:pointer 1
+                        :type ("DG_U16" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7089 7101])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7110 7125])
+                    ("can_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7134 7153]))                  
+                :type "void")
+                nil [7060 9657])
+            ("can_send" function
+               (:arguments 
+                  ( ("id" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9870 9881])
+                    ("len" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9890 9902])
+                    ("flags" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9911 9925])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9934 9947])
+                    ("nbyte" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9956 9970])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9979 9994])
+                    ("can_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10003 10022]))                  
+                :type "void")
+                nil [9846 12349])
+            ("can_receive" function
+               (:arguments 
+                  ( ("id" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12636 12647])
+                    ("len" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12656 12668])
+                    ("flags" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12677 12691])
+                    ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12700 12713])
+                    ("nbyte" variable
+                       (:pointer 1
+                        :type ("DG_U32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12722 12736])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12745 12760])
+                    ("can_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12769 12788]))                  
+                :type "void")
+                nil [12609 14408])
+            ("can_status" function
+               (:arguments 
+                  ( ("can_state" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14626 14643])
+                    ("can_active" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14652 14670])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14679 14694])
+                    ("can_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14703 14722]))                  
+                :type "void")
+                nil [14600 15109])
+            ("can_filter_list" function
+               (:arguments 
+                  ( ("data" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15374 15386])
+                    ("length" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15389 15404])
+                    ("enable" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15407 15421])
+                    ("can_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15424 15443]))                  
+                :type "void")
+                nil [15349 16083])
+            ("can_filter_all" function
+               (:arguments 
+                  ( ("enable" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16350 16364])
+                    ("can_errno" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16367 16386]))                  
+                :type "void")
+                nil [16326 16605])
+            ("can_get_version" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type ("DG_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16830 16844])
+                    ("valLen" variable (:type ("DG_U32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16849 16863])
+                    ("itf_nr" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16868 16883]))                  
+                :type ("DG_S32" type (:type "class") nil nil))
+                nil [16801 17125])
+            ("can_check" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("cmd" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17550 17561])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("DG_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17562 17577])
+                    ("argsLen" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17578 17594])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17595 17610]))                  
+                :type "void")
+                nil [17535 17611])
+            ("service_interfaces" variable
+               (:dereference 1
+                :default-value "{
+        {can_check, def_can_check},
+        {can_init_node, def_can_init_node},
+        {can_send, def_can_send},
+        {can_receive, def_can_receive},
+        {can_status, def_can_status},
+        {can_init, def_can_init},
+        {can_filter_list, def_can_filter_list},
+        {can_filter_all, def_can_filter_all},
+        {NULL, def_can_last}
+}"
+                :type ("RPC_Interface" type (:type "class") nil nil))
+                nil [17653 18043])
+            ("can_check" function
+               (:arguments 
+                  ( ("cmd" variable
+                       (:pointer 1
+                        :type ("DG_U8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18084 18095])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("DG_CHAR8" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18104 18119])
+                    ("argsLen" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18128 18144])
+                    ("retVal" variable
+                       (:pointer 1
+                        :type ("DG_S32" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18153 18169]))                  
+                :type "void")
+                nil [18059 18427])
+            ("dg_can_init" function (:type "void") nil [18444 19239]))          
+      :file "dg_can_s.c"
+      :pointmax 19240
+      :fsize 19973
+      :lastmodtime '(24037 16578 936682 200000)
+      :unmatched-syntax '((symbol 18429 . 18443) (symbol 18045 . 18058) (symbol 17639 . 17652) (symbol 17521 . 17534) (symbol 16787 . 16800) (symbol 16312 . 16325) (symbol 15335 . 15348) (symbol 14586 . 14599) (symbol 12595 . 12608) (symbol 9832 . 9845) (symbol 7046 . 7059) (symbol 6004 . 6017) (symbol 5336 . 5349) (symbol 5173 . 5186) (symbol 5017 . 5030) (symbol 4862 . 4875) (symbol 4673 . 4686) (symbol 4427 . 4440) (symbol 4213 . 4226) (symbol 4057 . 4070) (symbol 3877 . 3890) (symbol 3594 . 3607) (symbol 1772 . 1776))
+      :lexical-table 
+        '(("HOST_VERSION_MAJOR" . ((number "1" 3501 . 3502)))
+          ("active_str" (spp-arg-list ("v") 3400 . 3403))
+          ("HOST_VERSION_MINOR" . ((number "0" 3591 . 3592)))
+          ("db_printf" (spp-arg-list ("fmt" "...") 3351 . 3360))
+          ("state_str" (spp-arg-list ("v") 3378 . 3381))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :file "dg_can_s.h"
+      :fsize 881
+      :lastmodtime '(24037 16578 937663 500000)))
+  :file "!mnt!c!duagon!i214_bek!mod!HDC_protocols!code!ext_itf!can!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

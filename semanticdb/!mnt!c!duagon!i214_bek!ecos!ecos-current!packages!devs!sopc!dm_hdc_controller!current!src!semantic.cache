@@ -1,0 +1,842 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("string.h" include (:system-flag t) nil [1 20])
+            ("stdio.h" include (:system-flag t) nil [21 39])
+            ("pkgconf/devs_sopc_dm_hdc_controller.h" include (:system-flag t) nil [41 89])
+            ("cyg/infra/cyg_type.h" include (:system-flag t) nil [91 122])
+            ("cyg/hal/hal_arch.h" include (:system-flag t) nil [123 152])
+            ("cyg/infra/diag.h" include (:system-flag t) nil [153 180])
+            ("sys/param.h" include (:system-flag t) nil [181 203])
+            ("sys/errno.h" include (:system-flag t) nil [204 226])
+            ("cyg/kernel/kapi.h" include (:system-flag t) nil [227 255])
+            ("string.h" include (:system-flag t) nil [256 275])
+            ("cyg/hal/hal_io.h" include (:system-flag t) nil [276 303])
+            ("cyg/hal/system.h" include (:system-flag t) nil [304 331])
+            ("cyg/hal/drv_api.h" include (:system-flag t) nil [332 360])
+            ("altera/common/alt_cache.h" include (:system-flag t) nil [361 397])
+            ("dm_hdc_controller.h" include (:system-flag t) nil [398 428])
+            ("dm_rpc.h" include (:system-flag t) nil [429 448])
+            ("ENABLE_TX_IRQ" variable (:constant-flag t) nil [459 472])
+            ("ENABLE_RX_IRQ" variable (:constant-flag t) nil [487 500])
+            ("ENABLE_DUC" variable (:constant-flag t) nil [515 525])
+            ("SERVER_RDY" variable (:constant-flag t) nil [543 553])
+            ("ENABLE_PERF" variable (:constant-flag t) nil [571 582])
+            ("DISABLE_DUC" variable (:constant-flag t) nil [600 611])
+            ("CCR" variable (:constant-flag t) nil [629 632])
+            ("MODE_BITMASK" variable (:constant-flag t) nil [656 668])
+            ("DUC_TICKS_PER_US" variable (:constant-flag t) nil [726 742])
+            ("NBOF_HANDLES_CH0" variable (:constant-flag t) nil [1933 1949])
+            ("MAX_PROTOCOL" variable (:constant-flag t) nil [1962 1974])
+            ("MAX_COMMAND" variable (:constant-flag t) nil [1987 1998])
+            ("RX_BUFFER_SIZE0" variable (:constant-flag t) nil [2011 2026])
+            ("TX_BUFFER_SIZE0" variable (:constant-flag t) nil [2039 2054])
+            ("WORKING_THREAD_STACK_SIZE0" variable (:constant-flag t) nil [2067 2093])
+            ("NBOF_HANDLES_CH1" variable (:constant-flag t) nil [2788 2804])
+            ("RX_BUFFER_SIZE1" variable (:constant-flag t) nil [2817 2832])
+            ("TX_BUFFER_SIZE1" variable (:constant-flag t) nil [2845 2860])
+            ("WORKING_THREAD_STACK_SIZE1" variable (:constant-flag t) nil [2873 2899])
+            ("RX_OFFSET" variable (:constant-flag t) nil [2920 2929])
+            ("TX_OFFSET" variable (:constant-flag t) nil [2974 2983])
+            ("CLOCK_TICKS" variable (:constant-flag t) nil [2998 3009])
+            ("REC_TIMEOUT" variable (:constant-flag t) nil [3037 3048])
+            ("REBOOT_THREAD_PRIORITY" variable (:constant-flag t) nil [3074 3096])
+            ("REBOOT_STACK_SIZE" variable (:constant-flag t) nil [3107 3124])
+            ("dm_hdc_handle_info" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("handle_id" variable (:type "unsigned int") (reparse-symbol classsubparts) [3185 3208])
+                          ("status_reg" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [3239 3266])
+                          ("rxaddr_reg" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [3270 3297])
+                          ("txaddr_reg" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [3301 3328])
+                          ("rx_buff" variable
+                             (:pointer 1
+                              :typemodifiers ("volatile")
+                              :type "unsigned char")
+                              (reparse-symbol classsubparts) [3332 3364])
+                          ("tx_buff" variable
+                             (:pointer 1
+                              :typemodifiers ("volatile")
+                              :type "unsigned char")
+                              (reparse-symbol classsubparts) [3368 3400])
+                          ("protocol" variable (:type "unsigned char") (reparse-symbol classsubparts) [3404 3427])
+                          ("cmd" variable (:type "unsigned char") (reparse-symbol classsubparts) [3471 3489])
+                          ("rx_len" variable (:type "unsigned int") (reparse-symbol classsubparts) [3538 3558])
+                          ("tx_len" variable (:type "unsigned int") (reparse-symbol classsubparts) [3609 3629])
+                          ("worker_thread_sem" variable (:type ("cyg_sem_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3680 3708])
+                          ("worker_thread_handle" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3764 3798])
+                          ("worker_thread" variable (:type ("cyg_thread" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3822 3847])
+                          ("wait_thread_callback" variable (:type ("dm_hdc_wait_callback_func" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3881 3928]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [3165 3950])
+            ("dm_hdc_channel_info" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("status_reg" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [3973 4000])
+                          ("rx_info_reg" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [4044 4072])
+                          ("rx_info2_reg" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [4113 4142])
+                          ("tx_info_reg" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [4184 4212])
+                          ("tx_info2_reg" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [4253 4282])
+                          ("mode_reg" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [4324 4349])
+                          ("base_addr" variable
+                             (:pointer 1
+                              :type ("cyg_addrword_t" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [4424 4450])
+                          ("irq" variable (:type "int") (reparse-symbol classsubparts) [4481 4489])
+                          ("interrupt_handle" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4493 4523])
+                          ("interrupt_object" variable (:type ("cyg_interrupt" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4527 4558])
+                          ("nb_of_handle" variable (:type "int") (reparse-symbol classsubparts) [4562 4579])
+                          ("worker_stack_size" variable (:type "int") (reparse-symbol classsubparts) [4632 4654])
+                          ("rx_buffer_size" variable (:type "int") (reparse-symbol classsubparts) [4658 4677])
+                          ("tx_buffer_size" variable (:type "int") (reparse-symbol classsubparts) [4681 4700])
+                          ("current_handle" variable (:type "int") (reparse-symbol classsubparts) [4704 4723])
+                          ("thread_prio" variable (:type "int") (reparse-symbol classsubparts) [4781 4797])
+                          ("mode" variable (:type "int") (reparse-symbol classsubparts) [4825 4834])
+                          ("handle_info_arr" variable
+                             (:pointer 1
+                              :dereference 1
+                              :type ("dm_hdc_handle_info" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [4899 4940]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [3953 4963])
+            ("Pdm_hdc_cmd_info" type
+               (:typedef ("dm_hdc_cmd_info_struct" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :pointer 1
+                :type "typedef")
+                nil [4965 5021])
+            ("dm_hdc_cmd_info_struct" type
+               (:members 
+                  ( ("isr_execution" variable (:type "unsigned char") (reparse-symbol classsubparts) [5066 5094])
+                    ("num_calls" variable (:type "unsigned int") (reparse-symbol classsubparts) [5099 5122])
+                    ("min_time" variable (:type "unsigned int") (reparse-symbol classsubparts) [5127 5149])
+                    ("max_time" variable (:type "unsigned int") (reparse-symbol classsubparts) [5154 5176])
+                    ("func" function
+                       (:prototype-flag t
+                        :function-pointer t
+                        :type "void")
+                        (reparse-symbol classsubparts) [5181 5196])
+                    ("data_def" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol classsubparts) [5201 5215]))                  
+                :type "struct")
+                nil [5022 5234])
+            ("dm_hdc_cmd_info" type
+               (:typedef ("dm_hdc_cmd_info_struct" type (:type "struct") nil nil)
+                :type "typedef")
+                nil [5022 5234])
+            ("TIMEOUT_TYPE" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("SEND_TIMEOUT_T" variable
+                             (:constant-flag t
+                              :default-value (5271 5272)
+                              :type "int")
+                              (reparse-symbol enumsubparts) [5256 5272])
+                          ("REC_TIMEOUT_T" variable
+                             (:constant-flag t
+                              :default-value (5292 5293)
+                              :type "int")
+                              (reparse-symbol enumsubparts) [5278 5293]))                        
+                      :type "enum")
+                      nil nil)
+                :type "typedef")
+                nil [5237 5309])
+            ("alarm_handle" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) nil [5311 5337])
+            ("wd_alarm" variable
+               (:typemodifiers ("static")
+                :type ("cyg_alarm" type (:type "class") nil nil))
+                nil [5338 5364])
+            ("cancel_timeout" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("alarm_handle" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5481 5507]))                  
+                :type "void")
+                nil [5454 5508])
+            ("request_timeout" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("alarm_handle" variable
+                       (:pointer 1
+                        :type ("cyg_handle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5826 5853])
+                    ("cancel_id" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5854 5880])
+                    ("type" variable (:type "unsigned char") (reparse-symbol arg-sub-list) [5881 5900])
+                    ("time_ms" variable (:type "unsigned long int") (reparse-symbol arg-sub-list) [5901 5927]))                  
+                :type "void")
+                nil [5798 5928])
+            ("reset_timeout" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("alarm_handle" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6113 6139])
+                    ("time_ms" variable (:type "unsigned long int") (reparse-symbol arg-sub-list) [6140 6166]))                  
+                :type "void")
+                nil [6087 6167])
+            ("hdc_send_tmo" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("alarm" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6429 6448])
+                    ("cancel_id" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6449 6474]))                  
+                :type "void")
+                nil [6404 6475])
+            ("hdc_rec_tmo" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("alarm" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6738 6757])
+                    ("cancel_id" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6758 6783]))                  
+                :type "void")
+                nil [6714 6784])
+            ("board_reset_thread" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("arg" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6818 6837]))                  
+                :type "void")
+                nil [6787 6934])
+            ("k_board_reset" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [6981 6986]))                  
+                :type "void")
+                nil [6962 7722])
+            ("cancel_timeout" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("alarm_handle" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7751 7777]))                  
+                :type "void")
+                nil [7724 7817])
+            ("request_timeout" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("alarm_handle" variable
+                       (:pointer 1
+                        :type ("cyg_handle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7848 7876])
+                    ("cancel_id" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7877 7903])
+                    ("type" variable (:type "unsigned char") (reparse-symbol arg-sub-list) [7904 7923])
+                    ("time_ms" variable (:type "unsigned long int") (reparse-symbol arg-sub-list) [7924 7950]))                  
+                :type "void")
+                nil [7820 8596])
+            ("reset_timeout" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("alarm_handle" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8624 8650])
+                    ("time_ms" variable (:type "unsigned long int") (reparse-symbol arg-sub-list) [8651 8677]))                  
+                :type "void")
+                nil [8598 8789])
+            ("hdc_send_tmo" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("alarm" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9064 9083])
+                    ("cancel_id" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9084 9109]))                  
+                :type "void")
+                nil [9039 9240])
+            ("hdc_rec_tmo" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("alarm" variable (:type ("cyg_handle_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9510 9529])
+                    ("cancel_id" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9530 9555]))                  
+                :type "void")
+                nil [9486 9786])
+            ("cmd_info" variable
+               (:dereference 2
+                :typemodifiers ("static")
+                :type ("dm_hdc_cmd_info" type (:type "class") nil nil))
+                nil [9790 9853])
+            ("handle_info0" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :type ("dm_hdc_handle_info" type (:type "class") nil nil))
+                nil [9882 9939])
+            ("worker_thread_stack0" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :type "unsigned char")
+                nil [9940 10062])
+            ("rx_buffer0" variable
+               (:pointer 1
+                :typemodifiers ("static" "volatile")
+                :type "char")
+                nil [10063 10096])
+            ("tx_buffer0" variable
+               (:pointer 1
+                :typemodifiers ("static" "volatile")
+                :type "char")
+                nil [10097 10130])
+            ("channel_info" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :type ("dm_hdc_channel_info" type (:type "class") nil nil))
+                nil [10438 10481])
+            ("dm_hdc_get_call" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("protocol" variable (:type "unsigned char") (reparse-symbol arg-sub-list) [10524 10547])
+                    ("cmd" variable (:type "unsigned char") (reparse-symbol arg-sub-list) [10548 10566]))                  
+                :type ("Pdm_hdc_cmd_info" type (:type "class") nil nil))
+                nil [10484 10702])
+            ("dm_hdc_statistics" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("hi" variable
+                       (:pointer 1
+                        :type ("dm_hdc_handle_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10734 10757]))                  
+                :type "void")
+                nil [10704 11410])
+            ("dm_hdc_send_response" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("hi" variable
+                       (:pointer 1
+                        :type ("dm_hdc_handle_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11446 11469]))                  
+                :type "void")
+                nil [11413 11942])
+            ("dm_hdc_send_empty_response" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("hi" variable
+                       (:pointer 1
+                        :type ("dm_hdc_handle_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11983 12006]))                  
+                :type "void")
+                nil [11944 12060])
+            ("handle_dsr" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ci" variable
+                       (:pointer 1
+                        :type ("dm_hdc_channel_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12085 12109]))                  
+                :type "void")
+                nil [12062 12557])
+            ("handle_isr" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ci" variable
+                       (:pointer 1
+                        :type ("dm_hdc_channel_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12581 12605]))                  
+                :type "int")
+                nil [12559 14991])
+            ("dm_hdc_controller_dsr_common" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("vector" variable (:type ("cyg_vector_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15034 15054])
+                    ("ci" variable
+                       (:pointer 1
+                        :type ("dm_hdc_channel_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15055 15079]))                  
+                :type "void")
+                nil [14993 15103])
+            ("dm_hdc_controller_isr_common" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("vector" variable (:type ("cyg_vector_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15198 15218])
+                    ("ci" variable
+                       (:pointer 1
+                        :type ("dm_hdc_channel_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15219 15243]))                  
+                :type ("cyg_uint32" type (:type "class") nil nil))
+                nil [15151 15824])
+            ("dm_hdc_controller_isr0" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("vector" variable (:type ("cyg_vector_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15914 15934])
+                    ("data" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15935 15955]))                  
+                :type ("cyg_uint32" type (:type "class") nil nil))
+                nil [15873 16026])
+            ("dm_hdc_controller_isr1" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("vector" variable (:type ("cyg_vector_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16115 16135])
+                    ("data" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16136 16156]))                  
+                :type ("cyg_uint32" type (:type "class") nil nil))
+                nil [16074 16227])
+            ("dm_hdc_controller_dsr0" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("vector" variable (:type ("cyg_vector_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16265 16285])
+                    ("count" variable (:type ("cyg_ucount32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16286 16305])
+                    ("data" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16306 16326]))                  
+                :type "void")
+                nil [16230 16391])
+            ("dm_hdc_controller_dsr1" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("vector" variable (:type ("cyg_vector_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16428 16448])
+                    ("count" variable (:type ("cyg_ucount32" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16449 16468])
+                    ("data" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16469 16489]))                  
+                :type "void")
+                nil [16393 16554])
+            ("dm_hdc_controller_worker" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("data" variable (:type ("cyg_addrword_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16593 16613]))                  
+                :type "void")
+                nil [16556 17372])
+            ("dm_hdc_channel_init" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ci" variable
+                       (:pointer 1
+                        :type ("dm_hdc_channel_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17431 17455])
+                    ("base_addr" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17480 17506])
+                    ("stack" variable
+                       (:dereference 1
+                        :type "unsigned char")
+                        (reparse-symbol arg-sub-list) [17531 17553])
+                    ("handle_info_arr" variable
+                       (:dereference 1
+                        :type ("dm_hdc_handle_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17578 17615])
+                    ("rx_buffer" variable
+                       (:dereference 1
+                        :typemodifiers ("volatile")
+                        :type "unsigned char")
+                        (reparse-symbol arg-sub-list) [17640 17675])
+                    ("tx_buffer" variable
+                       (:dereference 1
+                        :typemodifiers ("volatile")
+                        :type "unsigned char")
+                        (reparse-symbol arg-sub-list) [17700 17735]))                  
+                :type "void")
+                nil [17374 19043])
+            ("dm_hdc_channel_activate" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ci" variable
+                       (:pointer 1
+                        :type ("dm_hdc_channel_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19103 19127]))                  
+                :type "void")
+                nil [19067 19321])
+            ("dm_hdc_controller_init" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [19398 19403]))                  
+                :type "void")
+                nil [19370 24046])
+            ("dm_hdc_controller_register_wait_thread_callback" function
+               (:arguments 
+                  ( ("channel" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [24100 24121])
+                    ("handle" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [24122 24142])
+                    ("wait" variable (:type ("dm_hdc_wait_callback_func" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24143 24174]))                  
+                :type "int")
+                nil [24048 24795])
+            ("dm_hdc_controller_register_command" function
+               (:arguments 
+                  ( ("protocol" variable (:type "unsigned char") (reparse-symbol arg-sub-list) [24837 24860])
+                    ("cmd" variable (:type "unsigned char") (reparse-symbol arg-sub-list) [24861 24879])
+                    ("isr_execution" variable (:type "unsigned char") (reparse-symbol arg-sub-list) [24880 24908])
+                    ("data_def" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [24909 24923])
+                    ("func" function
+                       (:function-pointer t
+                        :arguments "void"
+                        :type "void")
+                        nil nil))                  
+                :type "void")
+                nil [24797 25238])
+            ("dm_hdc_controller_handle_error_count" function
+               (:arguments 
+                  ( ("channel" variable (:type "int") (reparse-symbol arg-sub-list) [25282 25294]))                  
+                :type "int")
+                nil [25241 25488])
+            ("dm_hdc_controller_lsr_get" function
+               (:arguments 
+                  ( ("channel" variable (:type "int") (reparse-symbol arg-sub-list) [25520 25532]))                  
+                :type "int")
+                nil [25490 25728])
+            ("dm_hdc_controller_ccr_set_i" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ci" variable
+                       (:pointer 1
+                        :type ("dm_hdc_channel_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25770 25794])
+                    ("ccr" variable (:type "int") (reparse-symbol arg-sub-list) [25795 25803]))                  
+                :type "void")
+                nil [25730 25933])
+            ("dm_hdc_controller_ccr_set" function
+               (:arguments 
+                  ( ("channel" variable (:type "int") (reparse-symbol arg-sub-list) [25966 25978])
+                    ("ccr" variable (:type "int") (reparse-symbol arg-sub-list) [25979 25987]))                  
+                :type "void")
+                nil [25935 26142])
+            ("dm_hdc_controller_set_perf_i" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ci" variable
+                       (:pointer 1
+                        :type ("dm_hdc_channel_info" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26185 26209])
+                    ("set" variable (:type "int") (reparse-symbol arg-sub-list) [26210 26218]))                  
+                :type "void")
+                nil [26144 26379])
+            ("dm_hdc_controller_set_perf" function
+               (:arguments 
+                  ( ("channel" variable (:type "int") (reparse-symbol arg-sub-list) [26413 26425])
+                    ("set" variable (:type "int") (reparse-symbol arg-sub-list) [26426 26434]))                  
+                :type "void")
+                nil [26381 26591])
+            ("test_read_write" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("base_addr" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26621 26647])
+                    ("info_reg" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26648 26673])
+                    ("info2_reg" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26674 26700])
+                    ("debug" variable (:type "int") (reparse-symbol arg-sub-list) [26701 26711]))                  
+                :type "int")
+                nil [26594 28185])
+            ("test_i" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("base_addr" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [28205 28231])
+                    ("debug" variable (:type "int") (reparse-symbol arg-sub-list) [28232 28242]))                  
+                :type "int")
+                nil [28187 28774])
+            ("dm_hdc_controller_test" function
+               (:arguments 
+                  ( ("debug" variable (:type "int") (reparse-symbol arg-sub-list) [28851 28861]))                  
+                :type "int")
+                nil [28824 29269])
+            ("dm_hdc_controller_show_status_i" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("base_addr" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [29315 29341]))                  
+                :type "void")
+                nil [29271 30188])
+            ("dm_hdc_controller_show_status" function
+               (:arguments 
+                  ( ("ch" variable (:type "int") (reparse-symbol arg-sub-list) [30225 30232]))                  
+                :type "void")
+                nil [30190 30505])
+            ("buffer" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :type "unsigned int")
+                nil [30507 30541])
+            ("dm_hdc_controller_set_buffer_i" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("base_addr" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [30586 30612])
+                    ("len" variable (:type "int") (reparse-symbol arg-sub-list) [30613 30621])
+                    ("buf" variable
+                       (:dereference 1
+                        :type "unsigned int")
+                        (reparse-symbol arg-sub-list) [30622 30641]))                  
+                :type "void")
+                nil [30543 31007])
+            ("dm_hdc_controller_set_buffer" function
+               (:arguments 
+                  ( ("channel" variable (:type "int") (reparse-symbol arg-sub-list) [31043 31055])
+                    ("len" variable (:type "int") (reparse-symbol arg-sub-list) [31056 31064]))                  
+                :type "void")
+                nil [31009 31624])
+            ("dm_hdc_controller_read_buffer_i" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("base_addr" variable
+                       (:pointer 1
+                        :type ("cyg_addrword_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [31669 31695])
+                    ("len" variable (:type "int") (reparse-symbol arg-sub-list) [31696 31704])
+                    ("swBuffer" variable
+                       (:pointer 1
+                        :typemodifiers ("volatile")
+                        :type "unsigned char")
+                        (reparse-symbol arg-sub-list) [31705 31738]))                  
+                :type "void")
+                nil [31625 31992])
+            ("dm_hdc_controller_read_buffer" function
+               (:arguments 
+                  ( ("channel" variable (:type "int") (reparse-symbol arg-sub-list) [32029 32041])
+                    ("handle" variable (:type "int") (reparse-symbol arg-sub-list) [32042 32053])
+                    ("len" variable (:type "int") (reparse-symbol arg-sub-list) [32054 32062]))                  
+                :type "void")
+                nil [31994 33024])
+            ("dm_hdc_controller_show_statistics" function
+               (:arguments 
+                  ( ("outbuf" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [33065 33078])
+                    ("len" variable (:type "int") (reparse-symbol arg-sub-list) [33079 33087]))                  
+                :type "void")
+                nil [33026 33798])
+            ("dm_get_numcalls" function
+               (:arguments 
+                  ( ("protocol" variable (:type "int") (reparse-symbol arg-sub-list) [33820 33833])
+                    ("cmd" variable (:type "int") (reparse-symbol arg-sub-list) [33834 33842]))                  
+                :type "int")
+                nil [33800 34087])
+            ("dm_get_minexectime" function
+               (:arguments 
+                  ( ("protocol" variable (:type "int") (reparse-symbol arg-sub-list) [34112 34125])
+                    ("cmd" variable (:type "int") (reparse-symbol arg-sub-list) [34126 34134]))                  
+                :type "int")
+                nil [34089 34395])
+            ("dm_get_maxexectime" function
+               (:arguments 
+                  ( ("protocol" variable (:type "int") (reparse-symbol arg-sub-list) [34420 34433])
+                    ("cmd" variable (:type "int") (reparse-symbol arg-sub-list) [34434 34442]))                  
+                :type "int")
+                nil [34397 34703]))          
+      :file "dm_hdc_controller.c"
+      :pointmax 34704
+      :fsize 35781
+      :lastmodtime '(24051 45198 966876 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SERVER_RDY" . ((number "0x100" 557 . 562)))
+          ("REBOOT_THREAD_PRIORITY" . ((number "3" 3097 . 3098)))
+          ("ENABLE_DUC" . ((number "0x200" 529 . 534)))
+          ("CLOCK_TICKS" . ((number "10" 3011 . 3013)))
+          ("CCR" . ((number "0x00" 643 . 647)))
+          ("DUC_TICKS_PER_US" . ((number "50" 743 . 745)))
+          ("MAX_PROTOCOL" . ((number "0" 1975 . 1976)))
+          ("RX_BUFFER_SIZE0" . ((number "0" 2027 . 2028)))
+          ("ENABLE_RX_IRQ" . ((number "0x400" 501 . 506)))
+          ("MODE_BITMASK" . ((semantic-list "(ENABLE_RX_IRQ | ENABLE_DUC | SERVER_RDY | CCR)" 669 . 716)))
+          ("RX_BUFFER_SIZE1" . ((number "0" 2833 . 2834)))
+          ("NBOF_HANDLES_CH0" . ((number "0" 1950 . 1951)))
+          ("MAX_COMMAND" . ((number "0" 1999 . 2000)))
+          ("WORKING_THREAD_STACK_SIZE0" . ((number "0" 2094 . 2095)))
+          ("REC_TIMEOUT" . ((number "5000" 3050 . 3054)))
+          ("NBOF_HANDLES_CH1" . ((number "0" 2805 . 2806)))
+          ("WORKING_THREAD_STACK_SIZE1" . ((number "0" 2900 . 2901)))
+          ("RX_OFFSET" . ((semantic-list "(32)" 2930 . 2934)))
+          ("DISABLE_DUC" . ((number "0x2000" 614 . 620)))
+          ("TX_BUFFER_SIZE0" . ((number "0" 2055 . 2056)))
+          ("REBOOT_STACK_SIZE" . ((semantic-list "(CYGNUM_HAL_STACK_SIZE_MINIMUM + 1000)" 3125 . 3163)))
+          ("ENABLE_TX_IRQ" . ((number "0x800" 473 . 478)))
+          ("TX_BUFFER_SIZE1" . ((number "0" 2861 . 2862)))
+          ("TX_OFFSET" . ((semantic-list "(64)" 2984 . 2988)))
+          ("ENABLE_PERF" . ((number "0x1000" 585 . 591)))
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :file "dm_hdc_controller.h"
+      :fsize 1370
+      :lastmodtime '(24037 16575 396909 0))
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags 
+        '( ("DM_RPC_H_" variable (:constant-flag t) nil [27 36])
+            ("RPC_DATA_TYPES" type
+               (:members 
+                  ( ("RPC_ARRAY8" variable
+                       (:constant-flag t
+                        :default-value (282 283)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [269 283])
+                    ("RPC_TEXT" variable
+                       (:constant-flag t
+                        :default-value (300 301)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [289 301])
+                    ("RPC_8" variable
+                       (:constant-flag t
+                        :default-value (315 316)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [307 316])
+                    ("RPC_16" variable
+                       (:constant-flag t
+                        :default-value (331 332)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [322 332])
+                    ("RPC_32" variable
+                       (:constant-flag t
+                        :default-value (347 348)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [338 348])
+                    ("RPC_ARRAY32" variable
+                       (:constant-flag t
+                        :default-value (368 369)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [354 369])
+                    ("RPC_RETURN_ARRAY8" variable
+                       (:constant-flag t
+                        :default-value (395 397)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [375 397])
+                    ("RPC_RETURN_8" variable
+                       (:constant-flag t
+                        :default-value (418 420)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [403 420])
+                    ("RPC_RETURN_16" variable
+                       (:constant-flag t
+                        :default-value (442 444)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [426 444])
+                    ("RPC_RETURN_32" variable
+                       (:constant-flag t
+                        :default-value (466 468)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [450 468])
+                    ("RPC_IO_32" variable
+                       (:constant-flag t
+                        :default-value (486 488)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [474 488])
+                    ("RPC_IO_16" variable
+                       (:constant-flag t
+                        :default-value (506 508)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [494 508])
+                    ("RPC_IO_8" variable
+                       (:constant-flag t
+                        :default-value (525 527)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [514 527])
+                    ("RPC_END" variable
+                       (:constant-flag t
+                        :default-value (543 546)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [533 546]))                  
+                :type "enum")
+                nil [243 581])
+            ("_RPC_Interface" type
+               (:members 
+                  ( ("interf" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol classsubparts) [716 728]))                  
+                :type "struct")
+                nil [662 745])
+            ("RPC_Interface" type
+               (:typedef ("_RPC_Interface" type (:type "struct") nil nil)
+                :type "typedef")
+                nil [662 745])
+            ("rpc_call" function
+               (:prototype-flag t
+                :typemodifiers ("extern")
+                :arguments 
+                  ( ("request_payload_len" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [782 815])
+                    ("request_payload" variable
+                       (:pointer 1
+                        :typemodifiers ("volatile")
+                        :type "unsigned char")
+                        (reparse-symbol arg-sub-list) [820 860])
+                    ("response_payload" variable
+                       (:pointer 1
+                        :typemodifiers ("volatile")
+                        :type "unsigned char")
+                        (reparse-symbol arg-sub-list) [865 906])
+                    ("data_def" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [911 925])
+                    ("func" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [943 948]))                          
+                        :type "void")
+                        nil nil))                  
+                :type "unsigned int")
+                nil [747 951])
+            ("rpc_s_check_cmd" function
+               (:prototype-flag t
+                :typemodifiers ("extern")
+                :arguments 
+                  ( ("cmds" variable
+                       (:pointer 1
+                        :type "unsigned char")
+                        (reparse-symbol arg-sub-list) [986 1006])
+                    ("len" variable (:type "int") (reparse-symbol arg-sub-list) [1011 1019])
+                    ("data_def" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [1024 1039]))                  
+                :type "int")
+                nil [953 1040])
+            ("rpc_printf" variable (:constant-flag t) nil [1051 1061])
+            ("debug_printf" variable (:constant-flag t) nil [1171 1183]))          
+      :file "dm_rpc.h"
+      :pointmax 1228
+      :fsize 1288
+      :lastmodtime '(24037 16575 398866 700000)
+      :unmatched-syntax '((punctuation 710 . 711) (semantic-list 703 . 710) (VOID 698 . 702))
+      :lexical-table 
+        '(("rpc_printf" . ((symbol "diag_printf" 1062 . 1073)))
+          ("DM_RPC_H_")
+          ("debug_printf" . ((symbol "dummy_printf" 1184 . 1196)))
+          )
+))
+  :file "!mnt!c!duagon!i214_bek!ecos!ecos-current!packages!devs!sopc!dm_hdc_controller!current!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
