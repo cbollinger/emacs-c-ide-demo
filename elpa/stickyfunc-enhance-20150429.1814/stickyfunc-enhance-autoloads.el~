@@ -1,13 +1,0 @@
-;;; stickyfunc-enhance-autoloads.el --- automatically extracted autoloads
-;;
-;;; Code:
-
-
-(provide 'stickyfunc-enhance-autoloads)
-;; Local Variables:
-;; version-control: never
-;; no-byte-compile: t
-;; no-update-autoloads: t
-;; coding: utf-8
-;; End:
-;;; stickyfunc-enhance-autoloads.el ends here

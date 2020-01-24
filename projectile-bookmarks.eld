@@ -1,1 +1,0 @@
-("~/.emacs.d/" "/mnt/c/Users/cbollinger/.emacs.d/" "/mnt/c/duagon/i214_bek/ecos/ecos-current/" "/mnt/c/duagon/i214_bek/mod/HDC_protocols/" "/mnt/c/duagon/i214_bek/mod/config/" "/mnt/c/duagon/ionia_yocto/packages/ionia-libhost/" "/mnt/c/duagon/ionia_yocto/layers/" "/mnt/c/duagon/ionia_yocto/packages/led-cpu-set/")
