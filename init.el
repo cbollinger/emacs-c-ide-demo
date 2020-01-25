@@ -12,6 +12,7 @@
 ;; Install Packages
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
+  (eval-when-compile (require 'use-package))
 (require 'use-package)
 (setq use-package-always-ensure t)
 
@@ -39,30 +40,8 @@
 (require 'setup-literate)
 (require 'setup-latex)
 (require 'setup-org)
+(require 'setup-style)
 
-;; Set Window size
-(if (display-graphic-p)
-    (setq initial-frame-alist
-          '(
-            (tool-bar-lines . 0)
-            (width . 106)
-            (height . 60)
-            ;;            (background-color . "honeydew")
-            (left . 50)
-            (top . 50)))
-  (setq initial-frame-alist '( (tool-bar-lines . 0))))
-
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
-
-;; Set Minor-Modes globally
-(global-linum-mode 1) ; always show line numbers
-(setq column-number-mode t); always show column numbers
-
-;; Set Theme
-(load-theme 'cyberpunk-2019 t)
-(load-theme 'org-beautify t)
-(load-theme 'cyberpunk-2019 t)
 
 ;; Org Settings
 (add-hook 'org-mode-hook
@@ -94,7 +73,7 @@
  '(delete-selection-mode nil)
  '(fci-rule-color "#3E4451")
  '(menu-bar-mode nil)
- '(message-user-organization "Linux Private Site")
+ '(message-user-organization "Linux Private Site" t)
  '(notmuch-search-line-faces
    (quote
     (("unread" :foreground "#aeee00")
@@ -132,7 +111,7 @@
  '(package-enable-at-startup nil)
  '(package-selected-packages
    (quote
-    (org-bullets cyberpunk-theme cyberpunk-2019-theme tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
+    (spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
  '(show-paren-mode t)
  '(tetris-x-colors
    [[229 192 123]
