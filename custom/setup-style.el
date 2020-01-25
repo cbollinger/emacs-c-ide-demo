@@ -2,8 +2,8 @@
   (global-display-line-numbers-mode))
 
 ;; Set Minor-Modes globally
-(menu-bar-mode nil)          ; switch off menu-bar
-(tool-bar-mode nil)          ; swich off tool-bar
+(menu-bar-mode -1)           ; switch off menu-bar (values -1/1)
+(tool-bar-mode -1)           ; swich off tool-bar (values -1/1)
 (global-linum-mode 1)        ; always show line numbers
 (setq column-number-mode t)  ; always show column numbers
 
