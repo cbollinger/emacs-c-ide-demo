@@ -16,8 +16,8 @@
               ("PHONE" :foreground "forest green" :weight bold))))
 
 ;;file to save todo items
-(setq org-agenda-files (quote ("~/Dokumente/DG_ToDo/dg_todo.org"
-                               "~/Dokumente/DG_ToDo/dg_reference.org")))
+(setq org-agenda-files (quote ("~/Dokumente/org/todo.org"
+                               "~/Dokumente/org/reference.org")))
 ;;set priority range from A to C with default A
 (setq org-highest-priority ?A)
 (setq org-lowest-priority ?C)
@@ -41,9 +41,9 @@
 ;;capture todo items using C-c c t
 (define-key global-map (kbd "C-c c") 'org-capture)
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "~/Dokumente/DG_ToDo/dg_todo.org" "Tasks")
+      '(("t" "todo" entry (file+headline "~/Dokumente/org/todo.org" "Tasks")
          "* TODO [#A] %?")
-        ("n" "note" entry (file+datetree "~/Dokumente/DG_ToDo/dg_reference.org")
+        ("n" "note" entry (file+datetree "~/Dokumente/org/eference.org")
          "* %?\nEntered on %U\n  %i")
         ))
 
