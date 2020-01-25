@@ -73,7 +73,7 @@
  '(delete-selection-mode nil)
  '(fci-rule-color "#3E4451")
  '(menu-bar-mode nil)
- '(message-user-organization "Linux Private Site" t)
+ '(message-user-organization "Linux Private Site")
  '(notmuch-search-line-faces
    (quote
     (("unread" :foreground "#aeee00")
@@ -111,7 +111,7 @@
  '(package-enable-at-startup nil)
  '(package-selected-packages
    (quote
-    (spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
+    (dired-subtree spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
  '(show-paren-mode t)
  '(tetris-x-colors
    [[229 192 123]
