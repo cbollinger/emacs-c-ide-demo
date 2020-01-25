@@ -25,6 +25,13 @@
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
 
+;; Three-Style Directory Views
+(use-package dired-subtree
+  :config
+  (bind-keys :map dired-mode-map
+             ("i" . dired-subtree-insert)
+             (";" . dired-subtree-remove)))
+
 (provide 'setup-style)
 
 ;; Try this setup later - bug is than maybe fixed.
