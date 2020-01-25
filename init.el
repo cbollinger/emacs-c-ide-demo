@@ -121,7 +121,6 @@
     [152 195 121]
     [198 120 221]
     [86 182 194]])
- '(tool-bar-mode nil)
  '(use-package-always-ensure t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
