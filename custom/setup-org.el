@@ -15,14 +15,9 @@
               ("MEETING" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
 
-
-
-
-
 ;;file to save todo items
-(setq org-agenda-files (quote ("/mnt/c/Users/cbollinger/Documents/DG_ToDo/dg_todo.org"
-                               "/mnt/c/Users/cbollinger/Documents/DG_ToDo/dg_reference.org")))
-
+(setq org-agenda-files (quote ("~/Dokumente/DG_ToDo/dg_todo.org"
+                               "~/Dokumente/DG_ToDo/dg_reference.org")))
 ;;set priority range from A to C with default A
 (setq org-highest-priority ?A)
 (setq org-lowest-priority ?C)
@@ -36,7 +31,6 @@
 ;;open agenda in current window
 (setq org-agenda-window-setup (quote current-window))
 
-
 ;; Place tags close to the right-hand side of the window
 (add-hook 'org-finalize-agenda-hook 'place-agenda-tags)
 (defun place-agenda-tags ()
@@ -44,39 +38,39 @@
   (setq org-agenda-tags-column (- 4 (window-width)))
   (org-agenda-align-tags))
 
-
 ;;capture todo items using C-c c t
 (define-key global-map (kbd "C-c c") 'org-capture)
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "//mnt/c/Users/cbollinger/Documents/DG_ToDo/dg_todo.org" "Tasks")
+      '(("t" "todo" entry (file+headline "~/Dokumente/DG_ToDo/dg_todo.org" "Tasks")
          "* TODO [#A] %?")
-        ("n" "note" entry (file+datetree "//mnt/c/Users/cbollinger/Documents/DG_ToDo/dg_reference.org")
+        ("n" "note" entry (file+datetree "~/Dokumente/DG_ToDo/dg_reference.org")
          "* %?\nEntered on %U\n  %i")
         ))
 
-
-                                        ; Tags with fast selection keys
+;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)
                             ("@duagon" . ?d)
                             ("@home" . ?h)
-                            ("@training" . ?T)
+                            ("@training" . ?t)
                             (:endgroup)
-                            ("WTB" . ?W)
-                            ("RemoteIO" . ?R)
-                            ("PERSONAL" . ?P)
-                            ("DUAGON" . ?D)
-                            ("TRAINING" . ?t)
-                            ("ORG" . ?O)
                             ("CONTRACT" . ?C)
-                            ("NOTE" . ?n)
+                            ("DUAGON" . ?D)
+                            ("GYM" . ?G)
+                            ("DSP" . ?M)
+                            ("NOTE" . ?N)
+                            ("ORG" . ?O)
+                            ("PERSONAL" . ?P)
+                            ("RemoteIO" . ?R)
+                            ("DSP" . ?S)
+                            ("TRAINING" . ?T)
+                            ("WTB" . ?W)
                             ("FLAGGED" . ??))))
 
-                                        ; Allow setting single tags without the menu
+;; Allow setting single tags without the menu
 (setq org-fast-tag-selection-single-key (quote expert))
 
-                                        ; For tag searches ignore tasks with scheduled and deadline dates
+;; For tag searches ignore tasks with scheduled and deadline dates
 (setq org-agenda-tags-todo-honor-ignore-options t)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode agenda options                                                ;;
@@ -103,7 +97,5 @@
     (todo priority-down category-keep)
     (tags priority-down category-keep)
     (search category-keep))))
-
-
 
 (provide 'setup-org)
