@@ -1,6 +1,3 @@
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-
 (setq gc-cons-threshold 100000000)
 (setq inhibit-startup-message t)
 
@@ -36,9 +33,9 @@
 (use-package company
   :init
   (global-company-mode 1))
-;;  (delete 'company-semantic company-backends))
-;;  (define-key c-mode-map  [(control tab)] 'company-complete)
-;; (define-key c++-mode-map  [(control tab)] 'company-complete))
+  ;; (delete 'company-semantic company-backends))
+  ;; (define-key c-mode-map  [(control tab)] 'company-complete)
+ ;; (define-key c++-mode-map  [(control tab)] 'company-complete))
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; a Backend for keyword completion
@@ -52,7 +49,7 @@
     (candidates (all-completions arg finder-known-keywords))
     (meta (cdr (assoc (intern arg) finder-known-keywords)))))
 
-;; (require 'company-c-headers)
+(require 'company-c-headers)
 (use-package company-c-headers :init)
 (add-to-list 'company-backends 'company-c-headers)
 (add-to-list 'company-c-headers-path-system "/usr/include/c++/8/")
