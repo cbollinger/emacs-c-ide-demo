@@ -29,11 +29,15 @@
 ;; Custom Settings
 (add-to-list 'load-path "~/.emacs.d/custom")
 (require 'setup-general)
-(if (version< emacs-version "24.4")
-    (require 'setup-ivy-counsel)
-  (require 'setup-helm)
-  (require 'setup-helm-gtags))
-  ;; (require 'setup-ggtags)
+
+;; (if (version< emacs-version "24.4")
+;;     (require 'setup-ivy-counsel)
+;;   (require 'setup-helm)
+;;   (require 'setup-helm-gtags))
+
+(require 'setup-helm)
+(require 'setup-helm-gtags)
+;; (require 'setup-ggtags)
 (require 'setup-cedet)
 (require 'setup-c)
 (require 'setup-editing)
@@ -73,7 +77,7 @@
  '(delete-selection-mode nil)
  '(fci-rule-color "#3E4451")
  '(menu-bar-mode nil)
- '(message-user-organization "Linux Private Site")
+ '(message-user-organization "Linux Private Site" t)
  '(notmuch-search-line-faces
    (quote
     (("unread" :foreground "#aeee00")
@@ -111,7 +115,7 @@
  '(package-enable-at-startup nil)
  '(package-selected-packages
    (quote
-    (dired-subtree spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
+    (sr-speedbar direx dired-k diredful dired-filetype-face dired-subtree spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
  '(show-paren-mode t)
  '(tetris-x-colors
    [[229 192 123]

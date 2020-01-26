@@ -52,13 +52,18 @@
 (require 'company-c-headers)
 (use-package company-c-headers :init)
 (add-to-list 'company-backends 'company-c-headers)
-(add-to-list 'company-c-headers-path-system "/usr/include/c++/8/")
+(add-to-list 'company-c-headers-path-system "/usr/include/c++/7/")
 
 ;; Package: projejctile
 (use-package projectile
   :init
   (projectile-global-mode)
   (setq projectile-enable-caching t))
+
+(require 'projectile)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(projectile-mode +1)
 
 ;; Package zygospore
 (use-package zygospore
