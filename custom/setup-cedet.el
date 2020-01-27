@@ -24,8 +24,8 @@
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode 1)
 (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode 1)
 (add-to-list 'semantic-default-submodes 'global-semantic-highlight-func-mode 1)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode t)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode t)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode nil)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode 0)
 (add-to-list 'semantic-default-submodes 'global-srecode-minor-mode t)
 (add-to-list 'semantic-default-submodes 'global-semantic-decoration-mode t)
 (semantic-mode) ;; Active le mode semantic
