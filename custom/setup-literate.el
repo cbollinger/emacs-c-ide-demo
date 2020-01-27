@@ -31,15 +31,14 @@
                     (color-darken-name
                      (face-attribute 'default :background) 3))
 
-(setq org-src-block-faces '(("emacs-lisp" (:background "#FA8072"))
-                            ("org" (:background "#FA8072"))
-                            ("C++" (:background "#FA8072"))
-                            ("latex" (:background "#FA8072"))
-                            ("bclogo" (:background "#FA8072"))
-                            ("gnuplot" (:background "#FA8072"))
-                            ("octave" (:background "#FA8072"))
-                            ("shell" (:background "#FA8072"))
-                            ("sh" (:background "#FA8072"))))
+(setq org-src-block-faces '(("emacs-lisp" (:background "seashell4" :foreground "yellow"))
+                            ("org" (:background "seashell4" :foreground "yellow"))
+                            ("C++" (:background "seashell4" :foreground "yellow"))
+                            ("latex" (:background "seashell4" :foreground "yellow"))
+                            ("bclogo" (:background "seashell4" :foreground "yellow"))
+                            ("gnuplot" (:background "seashell4" :foreground "yellow"))
+                            ("octave" (:background "seashell4" :foreground "yellow"))
+                            ("sh" (:background "seashell4" :foreground "yellow"))))
 
 
 

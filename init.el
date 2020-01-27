@@ -1,8 +1,4 @@
-;; (require 'package)
-;; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-;; (require 'package)
-;; (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-
+;; Initialize Package Management
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (require 'package)
@@ -13,12 +9,13 @@
 (when (not package-archive-contents)
     (package-refresh-contents))
 
+;; Install Packages
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
+  (eval-when-compile (require 'use-package))
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-  
 (unless (package-installed-p 'ox-reveal)
   (package-install 'ox-reveal))
 (require 'ox-reveal)
@@ -37,41 +34,71 @@
 
 
 (add-to-list 'load-path "~/.emacs.d/custom")
-
 (require 'setup-general)
-(if (version< emacs-version "24.4")
-    (require 'setup-ivy-counsel)
-  (require 'setup-helm)
-  (require 'setup-helm-gtags))
-  ;; (require 'setup-ggtags)
+
+;; (if (version< emacs-version "24.4")
+;;     (require 'setup-ivy-counsel)
+;;   (require 'setup-helm)
+;;   (require 'setup-helm-gtags))
+
+(require 'setup-helm)
+(require 'setup-helm-gtags)
+;; (require 'setup-ggtags)
 (require 'setup-cedet)
 (require 'setup-c)
 (require 'setup-editing)
 (require 'setup-literate)
 (require 'setup-latex)
+(require 'setup-org)
+(require 'setup-style)
 
-(use-package org-beautify-theme :init)
 
-;; Load Reveal
+;; Org Settings
+(add-hook 'org-mode-hook
+          (defun org-setting-enable ()
+            (org-bullets-mode 1)
+            (org-indent-mode 1)
+            (auto-fill-mode 1)
+            (setq fill-column 90)))
+
+;; Set Application Paths
+(setq org-ditaa-jar-path "~/java/ditaa0_6b.jar")
 (setq org-reveal-root "file:///home/Christian/Data/git/reveal.js")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-engine (quote luatex))
+ '(TeX-engine (quote xetex))
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(async-bytecomp-package-mode t)
- '(custom-enabled-themes (quote (atom-one-dark)))
+ '(column-number-mode t)
  '(custom-safe-themes
    (quote
-    ("2d835b43e2614762893dc40cbf220482d617d3d4e2c35f7100ca697f1a388a0e" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" "e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "c5ad91387427abc66af38b8d6ea74cade4e3734129cbcb0c34cc90985d06dcb3" "1a1cdd9b407ceb299b73e4afd1b63d01bbf2e056ec47a9d95901f4198a0d2428" "f11e219c9d043cbd5f4b2e01713c2c24a948a98bed48828dc670bd64ae771aa1" "174502267725776b47bdd2d220f035cae2c00c818765b138fea376b2cdc15eb6" "669e02142a56f63861288cc585bee81643ded48a19e36bfdf02b66d745bcc626" "2642a1b7f53b9bb34c7f1e032d2098c852811ec2881eec2dc8cc07be004e45a0" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "4639288d273cbd3dc880992e6032f9c817f17c4a91f00f3872009a099f5b3f84" default)))
+    ("4639288d273cbd3dc880992e6032f9c817f17c4a91f00f3872009a099f5b3f84" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "c5ad91387427abc66af38b8d6ea74cade4e3734129cbcb0c34cc90985d06dcb3" default)))
  '(delete-selection-mode nil)
- '(ecb-options-version "2.50")
- '(ecb-source-path (quote (("/" "/"))))
- '(ede-project-directories (quote ("/home/duagon/ionia_yocto/packages/remoteIOd")))
+ '(fci-rule-color "#3E4451")
  '(menu-bar-mode nil)
+ '(message-user-organization "Linux Private Site" t)
+ '(notmuch-search-line-faces
+   (quote
+    (("unread" :foreground "#aeee00")
+     ("flagged" :foreground "#0a9dff")
+     ("deleted" :foreground "#ff2c4b" :bold t))))
+ '(org-babel-results-keyword "results")
+ '(org-confirm-babel-evaluate nil)
+ '(org-file-apps
+   (quote
+    ((auto-mode . emacs)
+     ("\\.mm\\'" . default)
+     ("\\.x?html?\\'" . default)
+     ("\\.pdf\\'" . "okular %s")
+     ("\\.pdf\\'" . default))))
+ '(org-from-is-user-regexp "\\<Christian\\>")
  '(org-latex-compiler "xelatex")
  '(org-latex-default-packages-alist
    (quote
@@ -85,18 +112,30 @@
      ("" "amssymb" t nil)
      ("" "capt-of" nil nil)
      ("" "hyperref" nil nil))))
+ '(org-latex-listings (quote minted))
+ '(org-latex-pdf-process
+   (quote
+    ("xelatex -shell-escape -interaction nonstopmode %f" "xelatex -shell-escape -interaction nonstopmode %f")))
+ '(org-plantuml-jar-path "~/java/plantuml.jar")
+ '(org-preview-latex-default-process (quote luamagick))
  '(package-enable-at-startup nil)
  '(package-selected-packages
    (quote
-    (cyberpunk-theme cyberpunk-2019-theme moe-theme espresso-theme clues-theme yasnippet-snippets yasnippet-classic-snippets atomic-chrome csv-mode csv org-ac lorem-ipsum org-bullets auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
- '(split-width-threshold 160)
- '(split-window-preferred-function (quote split-window-sensibly))
- '(tool-bar-mode nil)
+    (sr-speedbar direx dired-k diredful dired-filetype-face dired-subtree spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
+ '(show-paren-mode t)
+ '(tetris-x-colors
+   [[229 192 123]
+    [97 175 239]
+    [209 154 102]
+    [224 108 117]
+    [152 195 121]
+    [198 120 221]
+    [86 182 194]])
  '(use-package-always-ensure t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(header-line ((t (:background "medium blue" :foreground "deep sky blue"))))
+ '(org-block ((t (:background "cyan4" :foreground "deep sky blue" :box nil))))
  '(org-indent ((t (:inherit org-hide :underline nil)))))
