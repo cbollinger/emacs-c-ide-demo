@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: eqsplit
+# key: eqs_
+# group: techdoc
+# --
+#+BEGIN_LATEX
+\begin{gbar}{gray!15}{gray!15}
+  \begin{equation*}
+    \begin{split}
+     $0 \\
+     $1
+   \end{split}
+  \end{equation*}
+\end{gbar}
+#+END_LATEX

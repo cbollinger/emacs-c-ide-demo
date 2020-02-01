@@ -36,7 +36,7 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 (add-to-list 'load-path
-             "~/.emacs.d/snippet")
+             "~/.emacs.d/snippets/org-mode")
 
 ;; LOAD CUSTOM SETTINGS
 ;;============================================================================
