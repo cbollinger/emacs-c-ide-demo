@@ -3,10 +3,8 @@
 # key: eqa_
 # group: techdoc
 # --
-#+BEGIN_LATEX
 \begin{gbar}{gray!15}{gray!15}
   \begin{align*}
      $0
   \end{align*}
 \end{gbar}
-#+END_LATEX
