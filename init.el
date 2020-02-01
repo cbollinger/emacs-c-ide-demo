@@ -1,4 +1,5 @@
-;; Initialize Package Management
+;; INITIALIZE PACKAGE MANAGEMENT
+;;============================================================================
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (require 'package)
@@ -9,7 +10,8 @@
 (when (not package-archive-contents)
     (package-refresh-contents))
 
-;; Install Packages
+;; INSTALL PACKAGES
+;;============================================================================
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
   (eval-when-compile (require 'use-package))
@@ -26,13 +28,18 @@
 (require 'org)
 (setq org-always-ensure t)
 
+(unless (package-installed-p 'yasnippet-snippets)
+  (package-install 'yasnippet-snippets))
 
-(add-to-list 'load-path
-             "~/.emacs.d/plugins/yasnippet")
+(unless (package-installed-p 'yasnippet)
+  (package-install 'yasnippet))
 (require 'yasnippet)
 (yas-global-mode 1)
+(add-to-list 'load-path
+             "~/.emacs.d/snippet")
 
-
+;; LOAD CUSTOM SETTINGS
+;;============================================================================
 (add-to-list 'load-path "~/.emacs.d/custom")
 (require 'setup-general)
 
@@ -53,15 +60,8 @@
 (require 'setup-style)
 
 
-;; Org Settings
-(add-hook 'org-mode-hook
-          (defun org-setting-enable ()
-            (org-bullets-mode 1)
-            (org-indent-mode 1)
-            (auto-fill-mode 1)
-            (setq fill-column 90)))
-
-;; Set Application Paths
+;; SET APPLICATION PATH
+;;==============================================================================
 (setq org-ditaa-jar-path "~/java/ditaa0_6b.jar")
 (setq org-reveal-root "file:///home/Christian/Data/git/reveal.js")
 
@@ -83,7 +83,7 @@
  '(delete-selection-mode nil)
  '(fci-rule-color "#3E4451")
  '(menu-bar-mode nil)
- '(message-user-organization "Linux Private Site" t)
+ '(message-user-organization "Linux Private Site")
  '(notmuch-search-line-faces
    (quote
     (("unread" :foreground "#aeee00")
@@ -121,7 +121,7 @@
  '(package-enable-at-startup nil)
  '(package-selected-packages
    (quote
-    (sr-speedbar direx dired-k diredful dired-filetype-face dired-subtree spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
+    (yasnippet-snippets sr-speedbar direx dired-k diredful dired-filetype-face dired-subtree spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
  '(show-paren-mode t)
  '(tetris-x-colors
    [[229 192 123]
