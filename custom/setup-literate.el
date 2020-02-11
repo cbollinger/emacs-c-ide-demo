@@ -1,4 +1,4 @@
-(setq org-ditaa-jar-path "~/java/ditaa0_6b.jar")
+(setq org-ditaa-jar-path "~/java/ditaa.jar")
 (setq org-plantuml-jar-path "~/java/plantuml.jar")
 (add-to-list 'exec-path "/usr/bin/magick")
 
@@ -47,6 +47,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((ditaa . t)       ; this line activates ditaa
+   (shell . t)           ; this line activates C, C++, D
    (C . t)           ; this line activates C, C++, D
    (latex . t)       ; this line activates C, C++, D
    (octave . t)       ; this line activates C, C++, D

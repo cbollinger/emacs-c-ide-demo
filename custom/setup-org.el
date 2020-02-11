@@ -1,3 +1,12 @@
+;; SET ORG STYLE
+;;==============================================================================
+(add-hook 'org-mode-hook
+          (defun org-setting-enable ()
+            (org-bullets-mode 1)
+            (org-indent-mode 1)
+            (auto-fill-mode 1)
+            (setq fill-column 90)))
+
 ;; set key for agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 

@@ -49,15 +49,6 @@
   :init
   (global-undo-tree-mode 1))
 
-
-;; Package: yasnippet
-;; GROUP: Editing -> Yasnippet
-;; Package: yasnippet
-(use-package yasnippet
-  :defer t
-  :init
-  (add-hook 'prog-mode-hook 'yas-minor-mode))
-
 ;; Package: clean-aindent-mode
 (use-package clean-aindent-mode
   :init
