@@ -16,13 +16,13 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(unless (package-installed-p 'ox-reveal)
-  (package-install 'ox-reveal))
-(require 'ox-reveal)
-(setq ox-reveal-always-ensure t)
+;; (unless (package-installed-p 'ox-reveal)
+;;   (package-install 'ox-reveal))
+;; (require 'ox-reveal)
+;; (setq ox-reveal-always-ensure t)
 
-(unless (package-installed-p 'org)
-  (package-install 'org))
+;; (unless (package-installed-p 'org)
+;;   (package-install 'org))
 (require 'org)
 (setq org-always-ensure t)
 
@@ -56,7 +56,7 @@
             (setq fill-column 90)))
 
 ;; Set Application Paths
-(setq org-ditaa-jar-path "~/java/ditaa0_6b.jar")
+(setq org-ditaa-jar-path "~/java/ditaa.jar")
 (setq org-reveal-root "file:///home/Christian/Data/git/reveal.js")
 
 (custom-set-variables
@@ -90,7 +90,6 @@
     ((auto-mode . emacs)
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
-     ("\\.pdf\\'" . "okular %s")
      ("\\.pdf\\'" . default))))
  '(org-from-is-user-regexp "\\<Christian\\>")
  '(org-latex-compiler "xelatex")
