@@ -24,18 +24,18 @@
 
 
 ;; PDF Preview with luamagick
-;; (setq luamagick '(luamagick :programs ("lualatex" "convert")
-;;                             :description "pdf > png"
-;;                             :message "you need to install lualatex and imagemagick."
-;;                             :use-xcolor t
-;;                             :image-input-type "pdf"
-;;                             :image-output-type "png"
-;;                             :image-size-adjust (1.0 . 1.0)
-;;                             :latex-compiler ("lualatex -interaction nonstopmode -output-directory %o %f")
-;;                             :image-converter ("convert -density %D -trim -antialias %f -quality 100 %O")))
+(setq luamagick '(luamagick :programs ("lualatex" "convert")
+                            :description "pdf > png"
+                            :message "you need to install lualatex and imagemagick."
+                            :use-xcolor t
+                            :image-input-type "pdf"
+                            :image-output-type "png"
+                            :image-size-adjust (1.0 . 1.0)
+                            :latex-compiler ("lualatex -interaction nonstopmode -output-directory %o %f")
+                            :image-converter ("convert -density %D -trim -antialias %f -quality 100 %O")))
 
-;; (add-to-list 'org-preview-latex-process-alist luamagick)
-;; (setq org-preview-latex-default-process 'luamagick)
+(add-to-list 'org-preview-latex-process-alist luamagick)
+(setq org-preview-latex-default-process 'luamagick)
 
 
 (with-eval-after-load "ox-latex"
@@ -80,7 +80,7 @@
 
 (with-eval-after-load "ox-latex"
 (add-to-list 'org-latex-classes
-    '("dg_article" "\\documentclass[draft=false,12pt,a4paper,ngerman]{scrartcl}
+    '("dg_article" "\\documentclass[draft=false,9pt,a4paper,ngerman]{scrartcl}
      \\usepackage{scrlayer}
      \\usepackage[ngerman]{babel}
      \\usepackage{fontspec}
