@@ -9,9 +9,17 @@
 
 
 ;; Colorful dired
+(unless (package-installed-p 'dired-filetype-face)
+  (package-install 'dired-filetype-face))
 (require 'dired-filetype-face)
+
+(unless (package-installed-p 'diredful)
+  (package-install 'diredful))
+(require 'diredful)
 (diredful-mode 1)
 
+(unless (package-installed-p 'dired-k)
+  (package-install 'dired-k))
 (require 'dired-k)
 (define-key dired-mode-map (kbd "K") 'dired-k)
 
@@ -22,10 +30,12 @@
 (add-hook 'dired-initial-position-hook 'dired-k)
 (add-hook 'dired-after-readin-hook #'dired-k-no-revert)
 
+(unless (package-installed-p 'direx)
+  (package-install 'direx))
+(require 'direx)
 (require 'direx-k)
 (global-set-key (kbd "C-\\") 'direx-project:jump-to-project-root-other-window)
 (define-key direx:direx-mode-map (kbd "K") 'direx-k)
-
 
 (defun xah-dired-sort ()
   "Sort dired dir listing in different ways.
@@ -46,6 +56,9 @@ Version 2015-07-30"
 
 ;; Install spacemacs packages manually
 ;; spacemacs-theme, spacemacs-dark, spaceline-config
+(unless (package-installed-p 'spacemacs-theme)
+  (package-install 'spacemacs))
+
 (load-theme 'spacemacs-dark t)
 (setq spacemacs-theme-org-agenda-height nil)
 (setq spacemacs-theme-org-height nil)

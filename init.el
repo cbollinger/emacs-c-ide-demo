@@ -27,20 +27,17 @@
 (require 'org)
 (setq org-always-ensure t)
 
+(unless (package-installed-p 'company-c-headers)
+  (package-install 'company-c-headers))
+(require 'company-c-headers)
 
 (add-to-list 'load-path
              "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
 
-
 (add-to-list 'load-path "~/.emacs.d/custom")
 (require 'setup-general)
-
-;; (if (version< emacs-version "24.4")
-;;     (require 'setup-ivy-counsel)
-;;   (require 'setup-helm)
-;;   (require 'setup-helm-gtags))
 
 (require 'setup-helm)
 (require 'setup-helm-gtags)
@@ -84,7 +81,7 @@
  '(fci-rule-color "#3E4451")
  '(global-linum-mode nil)
  '(menu-bar-mode nil)
- '(message-user-organization "Linux Private Site")
+ '(message-user-organization "Linux Private Site" t)
  '(notmuch-search-line-faces
    (quote
     (("unread" :foreground "#aeee00")
@@ -97,9 +94,7 @@
     ((auto-mode . emacs)
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
-     ("\\.pdf\\'" . "qpdfview %s")
      ("\\.pdf\\'" . default))))
- '(org-from-is-user-regexp "\\<Christian\\>")
  '(org-latex-compiler "xelatex")
  '(org-latex-default-packages-alist
    (quote
@@ -117,12 +112,13 @@
  '(org-latex-pdf-process
    (quote
     ("xelatex -shell-escape -interaction nonstopmode %f" "xelatex -shell-escape -interaction nonstopmode %f")))
+ '(org-link-from-user-regexp "\\<Christian\\>")
  '(org-plantuml-jar-path "~/java/plantuml.jar")
  '(org-preview-latex-default-process (quote luamagick))
  '(package-enable-at-startup nil)
  '(package-selected-packages
    (quote
-    (sr-speedbar direx dired-k diredful dired-filetype-face dired-subtree spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
+    (spacemacs sr-speedbar direx dired-k diredful dired-filetype-face dired-subtree spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
  '(show-paren-mode t)
  '(tetris-x-colors
    [[229 192 123]
