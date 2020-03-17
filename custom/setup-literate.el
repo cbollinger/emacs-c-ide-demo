@@ -47,7 +47,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((ditaa . t)       ; this line activates ditaa
-   (sh . t)           ; this line activates C, C++, D
+   (shell . t)           ; this line activates C, C++, D
    (C . t)           ; this line activates C, C++, D
    (latex . t)       ; this line activates C, C++, D
    (octave . t)       ; this line activates C, C++, D

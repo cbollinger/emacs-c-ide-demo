@@ -4,44 +4,44 @@
 ;; Set Minor-Modes globally
 (menu-bar-mode -1)           ; switch off menu-bar (values -1/1)
 (tool-bar-mode -1)           ; swich off tool-bar (values -1/1)
-(global-linum-mode 1)        ; always show line numbers
+;;(global-linum-mode 1)        ; always show line numbers
 (setq column-number-mode t)  ; always show column numbers
 
 
 ;; Colorful dired
-;; (require 'dired-filetype-face)
-;; (diredful-mode 1)
+(require 'dired-filetype-face)
+(diredful-mode 1)
 
-;; (require 'dired-k)
-;; (define-key dired-mode-map (kbd "K") 'dired-k)
+(require 'dired-k)
+(define-key dired-mode-map (kbd "K") 'dired-k)
 
-;; ;; You can use dired-k alternative to revert-buffer
-;; (define-key dired-mode-map (kbd "g") 'dired-k)
+;; You can use dired-k alternative to revert-buffer
+(define-key dired-mode-map (kbd "g") 'dired-k)
 
-;; ;; always execute dired-k when dired buffer is opened
-;; (add-hook 'dired-initial-position-hook 'dired-k)
-;; (add-hook 'dired-after-readin-hook #'dired-k-no-revert)
+;; always execute dired-k when dired buffer is opened
+(add-hook 'dired-initial-position-hook 'dired-k)
+(add-hook 'dired-after-readin-hook #'dired-k-no-revert)
 
-;; (require 'direx-k)
-;; (global-set-key (kbd "C-\\") 'direx-project:jump-to-project-root-other-window)
-;; (define-key direx:direx-mode-map (kbd "K") 'direx-k)
+(require 'direx-k)
+(global-set-key (kbd "C-\\") 'direx-project:jump-to-project-root-other-window)
+(define-key direx:direx-mode-map (kbd "K") 'direx-k)
 
 
-;; (defun xah-dired-sort ()
-;;   "Sort dired dir listing in different ways.
-;; Prompt for a choice.
-;; URL `http://ergoemacs.org/emacs/dired_sort.html'
-;; Version 2015-07-30"
-;;   (interactive)
-;;   (let (-sort-by -arg)
-;;     (setq -sort-by (ido-completing-read "Sort by:" '( "date" "size" "name" "dir")))
-;;     (cond
-;;      ((equal -sort-by "name") (setq -arg "-Al --si --time-style long-iso "))
-;;      ((equal -sort-by "date") (setq -arg "-Al --si --time-style long-iso -t"))
-;;      ((equal -sort-by "size") (setq -arg "-Al --si --time-style long-iso -S"))
-;;      ((equal -sort-by "dir") (setq -arg "-Al --si --time-style long-iso --group-directories-first"))
-;;      (t (error "logic error 09535" )))
-;;     (dired-sort-other -arg )))
+(defun xah-dired-sort ()
+  "Sort dired dir listing in different ways.
+Prompt for a choice.
+URL `http://ergoemacs.org/emacs/dired_sort.html'
+Version 2015-07-30"
+  (interactive)
+  (let (-sort-by -arg)
+    (setq -sort-by (ido-completing-read "Sort by:" '( "date" "size" "name" "dir")))
+    (cond
+     ((equal -sort-by "name") (setq -arg "-Al --si --time-style long-iso "))
+     ((equal -sort-by "date") (setq -arg "-Al --si --time-style long-iso -t"))
+     ((equal -sort-by "size") (setq -arg "-Al --si --time-style long-iso -S"))
+     ((equal -sort-by "dir") (setq -arg "-Al --si --time-style long-iso --group-directories-first"))
+     (t (error "logic error 09535" )))
+    (dired-sort-other -arg )))
 
 
 ;; Install spacemacs packages manually
@@ -80,7 +80,7 @@
 ;;    (setq spacemacs-theme-org-agenda-height nil)
 ;;    (setq spacemacs-theme-org-height nil))
 
-;; (use-package spaceline
+;; use-package spaceline
 ;;   :demand t
 ;;   :init
 ;;   (setq powerline-default-separator 'arrow-fade)
