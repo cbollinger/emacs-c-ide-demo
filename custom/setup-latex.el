@@ -41,11 +41,11 @@
 (with-eval-after-load "ox-latex"
   (add-to-list 'org-latex-classes
     '("koma-article" "\\documentclass{scrartcl}"
-      ("\\section{%s}" . "\\section*{%s}")
-      ("\\subsection{%s}" . "\\subsection*{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-      ("\\paragraph{%s}" . "\\paragraph*{%s}")
-      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+      ("\\section{%s}" . "\\section{%s}")
+      ("\\subsection{%s}" . "\\subsection{%s}")
+      ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+      ("\\paragraph{%s}" . "\\paragraph{%s}")
+      ("\\subparagraph{%s}" . "\\subparagraph{%s}"))))
 
 
 (with-eval-after-load "ox-latex"
@@ -98,7 +98,7 @@
      \\restylefloat{figure}                                               %and this command
      \\usepackage{url}                                                 %% Formatting of Urls
 
-     \\usepackage{titlesec}                                           %% Forredefining paragraph
+     \\usepackage{titlesec}                                            %% Forredefining paragraph
      \\setcounter{secnumdepth}{4}                                         %% set section number counter to 4
 
 

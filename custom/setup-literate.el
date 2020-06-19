@@ -1,3 +1,8 @@
+(require 'org)
+(require 'color)
+(require 'ob-js)
+(require 'ox-latex)
+
 (setq org-ditaa-jar-path "~/java/ditaa.jar")
 (setq org-plantuml-jar-path "~/java/plantuml.jar")
 (add-to-list 'exec-path "/usr/bin/magick")
@@ -13,8 +18,6 @@
     (error nil)))
 
 ;;; Highlight coloring export of source code block export
-(require 'org)
-(require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)
 
@@ -26,32 +29,29 @@
 (setq org-src-fontify-natively t)
 
 ; Color (shade) source code blocks in emacs
-(require 'color)
 (set-face-attribute 'org-block nil :background
                     (color-darken-name
                      (face-attribute 'default :background) 3))
 
-(setq org-src-block-faces '(("emacs-lisp" (:background "seashell4" :foreground "yellow"))
-                            ("org" (:background "seashell4" :foreground "yellow"))
-                            ("C++" (:background "seashell4" :foreground "yellow"))
-                            ("latex" (:background "seashell4" :foreground "yellow"))
-                            ("bclogo" (:background "seashell4" :foreground "yellow"))
-                            ("gnuplot" (:background "seashell4" :foreground "yellow"))
-                            ("octave" (:background "seashell4" :foreground "yellow"))
-                            ("sh" (:background "seashell4" :foreground "yellow"))))
-
-
-
+(setq org-src-block-faces '(("emacs-lisp" (:background "dark blue" :foreground "yellow"))
+                            ("js"         (:background "dark blue" :foreground "yellow"))
+                            ("org"        (:background "dark blue" :foreground "yellow"))
+                            ("C++"        (:background "dark blue" :foreground "yellow"))
+                            ("latex"      (:background "dark blue" :foreground "yellow"))
+                            ("bclogo"     (:background "dark blue" :foreground "yellow"))
+                            ("gnuplot"    (:background "dark blue" :foreground "yellow"))
+                            ("octave"     (:background "dark blue" :foreground "yellow"))
+                            ("sh"         (:background "dark blue" :foreground "yellow"))))
 
 ; Set languages for babel
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((ditaa . t)       ; this line activates ditaa
-   (shell . t)           ; this line activates C, C++, D
-   (C . t)           ; this line activates C, C++, D
-   (latex . t)       ; this line activates C, C++, D
-   (octave . t)       ; this line activates C, C++, D
-   (gnuplot . t)
+(org-babel-do-load-languages 'org-babel-load-languages
+  '((C       . t)    ; C, C++, D
+   (js       . t)    ; JavaScript
+   (ditaa    . t)    ; ditaa
+   (shell    . t)    ; shell, bash
+   (latex    . t)    ; latex
+   (octave   . t)    ; octave
+   (gnuplot  . t)    ; gnuplot
    (plantuml . t)))  ; this line activate plantuml
 
 
@@ -60,7 +60,7 @@
 ;; of setting this -- see the docstring for details
 (setq org-confirm-babel-evaluate nil)
 
-;;                                         ; Use fundamental mode when editing plantuml blocks with C-c '
+;; Use fundamental mode when editing plantuml blocks with C-c '
 (add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
 
 (provide 'setup-literate)
