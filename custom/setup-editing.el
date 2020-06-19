@@ -53,10 +53,13 @@
 ;; Package: yasnippet
 ;; GROUP: Editing -> Yasnippet
 ;; Package: yasnippet
+(add-to-list 'load-path
+             "~/.emacs.d/plugins/yasnippet")
 (use-package yasnippet
   :defer t
   :init
-  (add-hook 'prog-mode-hook 'yas-minor-mode))
+  (yas-global-mode 1))
+(add-hook 'prog-mode-hook 'yas-minor-mode)
 
 ;; Package: clean-aindent-mode
 (use-package clean-aindent-mode

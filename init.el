@@ -31,10 +31,49 @@
   (package-install 'company-c-headers))
 (require 'company-c-headers)
 
-(add-to-list 'load-path
-             "~/.emacs.d/plugins/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
+
+;;; JavaScript
+;; JavaScript: MinorMode
+(unless (package-installed-p 'js2-mode)
+  (package-install 'js2-mode))
+(require 'js2-mode)
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; ;; Better imenu
+;; (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+
+;; JavaScript: Refactor Package
+(unless (package-installed-p 'js2-refactor)
+  (package-install 'js2-refactor))
+(require 'js2-refactor)
+(unless (package-installed-p 'xfef-js2)
+  (package-install 'xref-js2))
+
+;; JavaScript: Jumping to function definitions
+(require 'xref-js2)
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+(js2r-add-keybindings-with-prefix "C-c C-r")
+(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
+;; unbind it.
+(define-key js-mode-map (kbd "M-.") nil)
+
+(add-hook 'js2-mode-hook (lambda ()
+                           (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+
+;; JavaScript: Debugging aid
+(unless (package-installed-p 'sourcemap)
+  (package-install 'sourcemap))
+(require 'sourcemap)
+(setq coffee-args-compile '("-c" "-m")) ;; generating sourcemap file
+(add-hook 'coffee-after-compile-hook 'sourcemap-goto-corresponding-point)
+
+
+;; JavaScript: Debugging Mode and REPL
+(unless (package-installed-p 'indium)
+  (package-install 'indium))
+(require 'indium)
+(add-hook 'js-mode-hook #'indium-interaction-mode)
+
 
 (add-to-list 'load-path "~/.emacs.d/custom")
 (require 'setup-general)
@@ -50,7 +89,6 @@
 (require 'setup-org)
 (require 'setup-style)
 
-
 ;; Org Settings
 (add-hook 'org-mode-hook
           (defun org-setting-enable ()
@@ -61,78 +99,23 @@
 
 ;; Set Application Paths
 (setq org-reveal-root "file:///home/Christian/Data/git/reveal.js")
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-engine (quote xetex))
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
- '(async-bytecomp-package-mode t)
- '(column-number-mode t)
- '(custom-safe-themes
-   (quote
-    ("4639288d273cbd3dc880992e6032f9c817f17c4a91f00f3872009a099f5b3f84" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "c5ad91387427abc66af38b8d6ea74cade4e3734129cbcb0c34cc90985d06dcb3" default)))
  '(delete-selection-mode nil)
- '(fci-rule-color "#3E4451")
- '(global-linum-mode nil)
- '(menu-bar-mode nil)
- '(message-user-organization "Linux Private Site" t)
- '(notmuch-search-line-faces
+ '(org-agenda-files
    (quote
-    (("unread" :foreground "#aeee00")
-     ("flagged" :foreground "#0a9dff")
-     ("deleted" :foreground "#ff2c4b" :bold t))))
- '(org-babel-results-keyword "results")
- '(org-confirm-babel-evaluate nil)
- '(org-file-apps
-   (quote
-    ((auto-mode . emacs)
-     ("\\.mm\\'" . default)
-     ("\\.x?html?\\'" . default)
-     ("\\.pdf\\'" . default))))
- '(org-latex-compiler "xelatex")
- '(org-latex-default-packages-alist
-   (quote
-    (("" "graphicx" t nil)
-     ("" "grffile" t nil)
-     ("" "wrapfig" nil nil)
-     ("" "rotating" nil nil)
-     ("normalem" "ulem" t nil)
-     ("" "amsmath" t nil)
-     ("" "textcomp" t nil)
-     ("" "amssymb" t nil)
-     ("" "capt-of" nil nil)
-     ("" "hyperref" nil nil))))
- '(org-latex-listings (quote minted))
- '(org-latex-pdf-process
-   (quote
-    ("xelatex -shell-escape -interaction nonstopmode %f" "xelatex -shell-escape -interaction nonstopmode %f")))
- '(org-link-from-user-regexp "\\<Christian\\>")
- '(org-plantuml-jar-path "~/java/plantuml.jar")
- '(org-preview-latex-default-process (quote luamagick))
- '(package-enable-at-startup nil)
+    ("~/org/contracts.org" "~/Data/Duagon/DG_Projekte/Produktionalisierung/ionia_Production/MoM/mom_productionalisation.org" "~/org/todo.org" "~/org/reference.org")))
  '(package-selected-packages
    (quote
-    (spacemacs sr-speedbar direx dired-k diredful dired-filetype-face dired-subtree spaceline spacemacs-theme org-bullets tabbar helm-ispell auctex json-mode docker dockerfile-mode atom-dark-theme atom-one-dark-theme badwolf-theme abyss-theme afternoon-theme ahungry-theme ample-theme tramp-theme org-beautify-theme iedit anzu comment-dwim-2 ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights ecb stickyfunc-enhance helm-gtags helm-projectile helm-swoop helm zygospore projectile company-c-headers company ox-reveal use-package)))
- '(show-paren-mode t)
- '(tetris-x-colors
-   [[229 192 123]
-    [97 175 239]
-    [209 154 102]
-    [224 108 117]
-    [152 195 121]
-    [198 120 221]
-    [86 182 194]])
- '(use-package-always-ensure t))
+    (json-mode sourcemap xref-js2 js2-mode indium zygospore yasnippet-snippets ws-butler volatile-highlights use-package undo-tree spacemacs-theme spaceline psgml ox-reveal org-bullets org-beautify-theme nodejs-repl md4rd iedit helm-swoop helm-projectile helm-gtags ggtags flow-js2-mode dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face csv-mode csv company-c-headers comment-dwim-2 clean-aindent-mode anzu))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-block ((t (:background "cyan4" :foreground "deep sky blue" :box nil))))
- '(org-indent ((t (:inherit org-hide :underline nil)))))
+ '(org-column ((t (:inherit bold :background "#444155" :height 2.0))))
+ '(org-level-1 ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.5))))
+ '(org-level-2 ((t (:inherit bold :foreground "#2d9574" :weight bold :height 1.3)))))

@@ -2,11 +2,12 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "REQUEST(n)" "|" "DONE(d)")
+      (quote ((sequence "TODO(t)" "ONGOING(g)" "REQUEST(n)" "|" "DONE(d)")
               (sequence "WAITING(w@/!)" "PAUSED(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
+              ("ONGOING" :foreground "ForestGreen" :weight bold)
               ("REQUEST" :foreground "blue" :weight bold)
               ("DONE" :foreground "forest green" :weight bold)
               ("WAITING" :foreground "orange" :weight bold)
@@ -43,7 +44,7 @@
 (setq org-capture-templates
       '(("t" "todo" entry (file+headline "~/org/todo.org" "Tasks")
          "* TODO [#A] %?")
-        ("n" "note" entry (file+datetree "~/org/eference.org")
+        ("n" "note" entry (file+datetree "~/org/reference.org")
          "* %?\nEntered on %U\n  %i")
         ))
 
@@ -55,15 +56,16 @@
                             (:endgroup)
                             ("CONTRACT" . ?C)
                             ("DUAGON" . ?D)
-                            ("GYM" . ?G)
                             ("DSP" . ?M)
                             ("NOTE" . ?N)
                             ("ORG" . ?O)
                             ("PERSONAL" . ?P)
-                            ("RemoteIO" . ?R)
-                            ("DSP" . ?S)
-                            ("TRAINING" . ?T)
                             ("WTB" . ?W)
+                            ("RemoteIO" . ?R)
+                            ("Productionalisation" . ?Q)
+                            ("DSP" . ?S)
+                            ("GYM" . ?G)
+                            ("TRAINING" . ?T)
                             ("FLAGGED" . ??))))
 
 ;; Allow setting single tags without the menu
