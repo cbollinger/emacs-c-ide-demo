@@ -21,11 +21,6 @@
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)
 
-(setq org-latex-pdf-process
-      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-
 (setq org-src-fontify-natively t)
 
 ; Color (shade) source code blocks in emacs
@@ -41,6 +36,7 @@
                             ("bclogo"     (:background "dark blue" :foreground "yellow"))
                             ("gnuplot"    (:background "dark blue" :foreground "yellow"))
                             ("octave"     (:background "dark blue" :foreground "yellow"))
+                            ("python"     (:background "dark blue" :foreground "yellow"))
                             ("sh"         (:background "dark blue" :foreground "yellow"))))
 
 ; Set languages for babel
@@ -52,8 +48,12 @@
    (latex    . t)    ; latex
    (octave   . t)    ; octave
    (gnuplot  . t)    ; gnuplot
+   (python   . t)    ; pyhon
+   (ipython  . t)    ; iron python notebook
    (plantuml . t)))  ; this line activate plantuml
 
+(setq python-shell-interpreter "python3")
+(add-to-list 'org-latex-minted-langs '(ipython "python"))  ; Use python lexer for ipython blocks
 
 ;; Do not prompt to confirm evaluation
 ;; This may be dangerous - make sure you understand the consequences
