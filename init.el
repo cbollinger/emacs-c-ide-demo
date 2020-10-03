@@ -1,14 +1,8 @@
 ;; Initialize Package Management
 (require 'package)
-<<<<<<< HEAD
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
-             '("org" . "http://orgmode.org/elpa/")) ; Org-mode's repository
-=======
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")
-	     '("org" . "http://orgmode.org/elpa/"))
-;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
->>>>>>> 8cd5f53b47859f7f5c8895ac9a83a80262439e0c
+             '("org" . "http://orgmode.org/elpa/")) ;; Org-mode's repository
 (setq package-check-signature nil)
 
 (package-initialize)
@@ -38,12 +32,12 @@
 (require 'company-c-headers)
 
 (unless (package-installed-p 'org-plus-contrib)
-<<<<<<< HEAD
   (package-install 'org-plus-contrib))
-=======
-   (package-install 'org-plus-contrib))
->>>>>>> 8cd5f53b47859f7f5c8895ac9a83a80262439e0c
 (require 'ox-taskjuggler)
+
+(unless (package-installed-p 'ob-ipython)
+  (package-install 'ob-ipython))
+
 
 ;;; JavaScript
 ;; JavaScript: MinorMode
@@ -112,77 +106,12 @@
 
 ;; Set Application Paths
 (setq org-reveal-root "file:///home/Christian/Data/git/reveal.js")
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(column-number-mode t)
-;;  '(delete-selection-mode nil)
-;;  '(menu-bar-mode nil)
-;;  '(message-user-organization "Linux Private Site" t)
-;;  '(org-agenda-files
-;;    (quote
-;;     ("~/Data/Duagon/DG_Projekte/Produktionalisierung/ionia_Production/MoM/mom_productionalisation.org" "~/org/todo.org" "~/org/reference.org")))
-;;  '(org-agenda-loop-over-headlines-in-active-region nil)
-;;  '(org-agenda-skip-deadline-prewarning-if-scheduled (quote pre-scheduled) t)
-;;  '(org-agenda-skip-scheduled-if-deadline-is-shown t t)
-;;  '(org-agenda-sorting-strategy
-;;    (quote
-;;     ((agenda deadline-up priority-down)
-;;      (todo priority-down category-keep)
-;;      (tags priority-down category-keep)
-;;      (search category-keep))) t)
-;;  '(org-agenda-span (quote fortnight) t)
-;;  '(org-agenda-tags-todo-honor-ignore-options t t)
-;;  '(org-agenda-todo-ignore-deadlines (quote all) t)
-;;  '(org-agenda-todo-ignore-scheduled (quote all) t)
-;;  '(org-agenda-window-setup (quote current-window) t)
-;;  '(org-babel-results-keyword "results")
-;;  '(org-confirm-babel-evaluate nil)
-;;  '(org-deadline-warning-days 7)
-;;  '(org-ditaa-jar-path "~/java/ditaa.jar")
-;;  '(org-fast-tag-selection-single-key (quote expert))
-;;  '(org-latex-listings (quote minted))
-;;  '(org-latex-pdf-process
-;;    (quote
-;;     ("xelatex -shell-escape -interaction nonstopmode %f" "xelatex -shell-escape -interaction nonstopmode %f")))
-;;  '(org-latex-prefer-user-labels t)
-;;  '(org-link-from-user-regexp "\\<Christian\\>")
-;;  '(org-plantuml-jar-path "~/java/plantuml.jar")
-;;  '(org-preview-latex-default-process (quote luasvg))
-;;  '(org-priority-default 65)
-;;  '(org-todo-keywords
-;;    (quote
-;;     ((sequence "TODO(t)" "ONGOING(g)" "REQUEST(n)" "|" "DONE(d)")
-;;      (sequence "WAITING(w@/!)" "PAUSED(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
-;;  '(package-selected-packages
-;;    (quote
-;;     (org-plus-contrib ox-taskjuggler iso-transl ob-ipython mu4e-overview json-mode sourcemap xref-js2 js2-mode indium zygospore yasnippet-snippets ws-butler volatile-highlights use-package undo-tree spacemacs-theme spaceline psgml ox-reveal org-bullets org-beautify-theme nodejs-repl md4rd iedit helm-swoop helm-projectile helm-gtags ggtags flow-js2-mode dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face csv-mode csv company-c-headers comment-dwim-2 clean-aindent-mode anzu)))
-;;  '(show-paren-mode t)
-;;  '(spacemacs-theme-org-height nil)
-;;  '(tool-bar-mode nil))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(org-agenda-column-dateline ((t (:inherit nil))))
-;;  '(org-level-1 ((t (:foreground "#4f97d7" :weight normal :height 1.3))))
-;;  '(org-level-2 ((t (:foreground "#2d9574" :weight normal :height 1.3))))
-;;  '(org-level-3 ((t (:foreground "#67b11d" :weight normal :height 1.3))))
-;;  '(org-level-4 ((t (:foreground "#b1951d" :height 1.3))))
-;;  '(org-level-5 ((t (:foreground "#4f97d7" :weight normal :height 1.3))))
-;;  '(org-level-6 ((t (:foreground "#2d9574" :weight normal :height 1.3))))
-;;  '(org-level-7 ((t (:foreground "#67b11d"))))
-;;  '(org-level-8 ((t (:foreground "#b1951d")))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
-<<<<<<< HEAD
  '(org-agenda-files
    (quote
     ("~/org/todo.org" "~/org/reference.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D521-Alstom_PDM/todo/todo.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i101_Kernel_update/todo/todo.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i102_NewHW/todo/todo.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D522-Alstom_PDM/todo/todo.org")))
@@ -200,11 +129,6 @@
  '(package-selected-packages
    (quote
     (org-plus-contrib gnuplot json-mode sourcemap xref-js2 js2-mode indium zygospore yasnippet-snippets ws-butler volatile-highlights use-package undo-tree spacemacs-theme spaceline psgml ox-reveal org-bullets org-beautify-theme nodejs-repl md4rd iedit helm-swoop helm-projectile helm-gtags ggtags flow-js2-mode dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face csv-mode csv company-c-headers comment-dwim-2 clean-aindent-mode anzu))))
-=======
- '(package-selected-packages
-   (quote
-    (zygospore yasnippet-snippets xref-js2 ws-butler volatile-highlights use-package undo-tree spacemacs-theme spaceline sourcemap psgml ox-reveal org-plus-contrib org-bullets org-beautify-theme ob-ipython nodejs-repl md4rd json-mode indium iedit helm-swoop helm-projectile helm-gtags ggtags flow-js2-mode dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face csv-mode csv company-c-headers comment-dwim-2 clean-aindent-mode anzu))))
->>>>>>> 8cd5f53b47859f7f5c8895ac9a83a80262439e0c
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
