@@ -11,16 +11,16 @@
 ;; Make org aware of the tex enginge
 (setq org-latex-pdf-process
       '("xelatex -shell-escape -interaction nonstopmode %f"
-        "xelatex -shell-escape -interaction nonstopmode %f")) ;; for multiple passes
+        "xelatex -shell-escape -interaction nonstopmode %f"))
 
 ;; (setq org-latex-pdf-process
 ;;       '("lualatex -shell-escape -interaction nonstopmode %f"
 ;;         "lualatex -shell-escape -interaction nonstopmode %f"))
 
 ;; (setq org-latex-pdf-process
-;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;;    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;      "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;      "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
 
 ;; PDF Preview with luamagick
@@ -35,8 +35,25 @@
                             :image-converter ("convert -density %D -trim -antialias %f -quality 100 %O")))
 
 (add-to-list 'org-preview-latex-process-alist luamagick)
-(setq org-preview-latex-default-process 'luamagick)
 
+(setq luasvg
+      '(luasvg
+        :programs ("lualatex" "dvisvgm")
+        :description "dvi > svg"
+        :message "you need to install lualatex and dvisvgm."
+        :use-xcolor t
+        :image-input-type "dvi"
+        :image-output-type "svg"
+        :image-size-adjust (1.7 . 1.5)
+        :latex-compiler ("lualatex -interaction nonstopmode -output-format dvi -output-directory %o %f")
+        :image-converter ("dvisvgm %f -n -b min -c %S -o %O")))
+(add-to-list 'org-preview-latex-process-alist luasvg)
+(setq org-preview-latex-default-process 'luasvg)
+
+
+(setq org-latex-listings 'minted)
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "minted"))
 
 (with-eval-after-load "ox-latex"
   (add-to-list 'org-latex-classes
