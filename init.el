@@ -1,8 +1,8 @@
 ;; Initialize Package Management
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(require 'package)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/")
+             '("org" . "http://orgmode.org/elpa/")) ; Org-mode's repository
 (setq package-check-signature nil)
 
 (package-initialize)
@@ -31,6 +31,9 @@
   (package-install 'company-c-headers))
 (require 'company-c-headers)
 
+(unless (package-installed-p 'org-plus-contrib)
+  (package-install 'org-plus-contrib))
+(require 'ox-taskjuggler)
 
 ;;; JavaScript
 ;; JavaScript: MinorMode
@@ -107,10 +110,21 @@
  '(delete-selection-mode nil)
  '(org-agenda-files
    (quote
-    ("~/org/contracts.org" "~/Data/Duagon/DG_Projekte/Produktionalisierung/ionia_Production/MoM/mom_productionalisation.org" "~/org/todo.org" "~/org/reference.org")))
+    ("~/org/todo.org" "~/org/reference.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D521-Alstom_PDM/todo/todo.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i101_Kernel_update/todo/todo.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i102_NewHW/todo/todo.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D522-Alstom_PDM/todo/todo.org")))
+ '(org-latex-default-packages-alist
+   (quote
+    (("" "grffile" t nil)
+     ("" "wrapfig" nil nil)
+     ("" "rotating" nil nil)
+     ("normalem" "ulem" t nil)
+     ("" "amsmath" t nil)
+     ("" "textcomp" t nil)
+     ("" "amssymb" t nil)
+     ("" "capt-of" nil nil)
+     ("" "hyperref" nil nil))))
  '(package-selected-packages
    (quote
-    (json-mode sourcemap xref-js2 js2-mode indium zygospore yasnippet-snippets ws-butler volatile-highlights use-package undo-tree spacemacs-theme spaceline psgml ox-reveal org-bullets org-beautify-theme nodejs-repl md4rd iedit helm-swoop helm-projectile helm-gtags ggtags flow-js2-mode dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face csv-mode csv company-c-headers comment-dwim-2 clean-aindent-mode anzu))))
+    (org-plus-contrib gnuplot json-mode sourcemap xref-js2 js2-mode indium zygospore yasnippet-snippets ws-butler volatile-highlights use-package undo-tree spacemacs-theme spaceline psgml ox-reveal org-bullets org-beautify-theme nodejs-repl md4rd iedit helm-swoop helm-projectile helm-gtags ggtags flow-js2-mode dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face csv-mode csv company-c-headers comment-dwim-2 clean-aindent-mode anzu))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

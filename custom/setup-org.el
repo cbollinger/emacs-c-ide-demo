@@ -2,13 +2,16 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "ONGOING(g)" "REQUEST(n)" "|" "DONE(d)")
-              (sequence "WAITING(w@/!)" "PAUSED(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+      (quote ((sequence "TODO(t)" "OPEN(o)" "REQUEST(n)" "DEFINED(n)" "ONGOING(g)" "FIXED(f)" "|" "DONE(d)")
+              (sequence "WAITING(w)" "PAUSED(h)" "|" "CANCELLED(c)" "PHONE" "MEETING"))))
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
-              ("ONGOING" :foreground "ForestGreen" :weight bold)
+              ("OPEN" :foreground "OrangeRed" :weight bold)
               ("REQUEST" :foreground "blue" :weight bold)
+              ("DEFINED" :foreground "SlateBlue" :weight bold)
+              ("ONGOING" :foreground "Green2" :weight bold)
+              ("FIXED" :foreground "SeaGreen" :weight bold)
               ("DONE" :foreground "forest green" :weight bold)
               ("WAITING" :foreground "orange" :weight bold)
               ("PAUSED" :foreground "magenta" :weight bold)
@@ -18,7 +21,19 @@
 
 ;;file to save todo items
 (setq org-agenda-files (quote ("~/org/todo.org"
-                               "~/org/reference.org")))
+                               "~/org/reference.org"
+                               "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D521-Alstom_PDM/todo/todo.org"
+                               "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D522-Alstom_PDM/todo/todo/todo.org"
+                               "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i101_Kernel_update/todo/todo.org"
+                               "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i102_NewHW/todo/todo.org"
+                               )))
+
+
+;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
+(setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                 (org-agenda-files :maxlevel . 9))))
+
+
 ;;set priority range from A to C with default A
 (setq org-highest-priority ?A)
 (setq org-lowest-priority ?C)
@@ -54,6 +69,9 @@
                             ("@home" . ?h)
                             ("@training" . ?t)
                             (:endgroup)
+                            ("D521_PDM" . ?A)
+                            ("D522_PDM" . ?B)
+                            ("i101_Kernel" . ?I)
                             ("CONTRACT" . ?C)
                             ("DUAGON" . ?D)
                             ("DSP" . ?M)
