@@ -57,7 +57,7 @@ Version 2015-07-30"
 ;; Install spacemacs packages manually
 ;; spacemacs-theme, spacemacs-dark, spaceline-config
 (unless (package-installed-p 'spacemacs-theme)
-  (package-install 'spacemacs))
+  (package-install 'spacemacs-theme))
 
 (load-theme 'spacemacs-dark t)
 (setq spacemacs-theme-org-agenda-height nil)
@@ -72,7 +72,9 @@ Version 2015-07-30"
 (set-face-attribute 'org-table nil :foreground "#008787")
 
 (setq powerline-default-separator 'arrow-fade)
-(require 'spaceline-config)
+(unless (package-installed-p 'spaceline)
+  (package-install 'spaceline))
+(require 'spaceline)
 (spaceline-spacemacs-theme)
 
 ;; Three-Style Directory Views
