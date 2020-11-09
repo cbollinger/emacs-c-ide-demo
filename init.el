@@ -1,8 +1,11 @@
 ;; Initialize Package Management
 (require 'package)
+;; Initialize Package Management
+(require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/")
-             '("org" . "http://orgmode.org/elpa/")) ;; Org-mode's repository
+             '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives
+              '("org" . "http://orgmode.org/elpa/") t)
 (setq package-check-signature nil)
 
 (package-initialize)
@@ -26,6 +29,15 @@
   (package-install 'org))
 (require 'org)
 (setq org-always-ensure t)
+
+(unless (package-installed-p 'org-superstar)
+  (package-install 'org-superstar))
+(require 'org-superstar)
+
+(unless (package-installed-p 'org-beautify-theme)
+  (package-install 'org-beautify-theme))
+(require 'org-beautify-theme)
+
 
 (unless (package-installed-p 'company-c-headers)
   (package-install 'company-c-headers))
@@ -99,10 +111,12 @@
 ;; Org Settings
 (add-hook 'org-mode-hook
           (defun org-setting-enable ()
-            (org-bullets-mode 1)
+            (org-superstar-mode 1)
             (org-indent-mode 1)
             (auto-fill-mode 1)
             (setq fill-column 90)))
+(load-theme 'org-beautify t)
+
 
 ;; Set Application Paths
 (setq org-reveal-root "file:///home/Christian/Data/git/reveal.js")
@@ -113,11 +127,9 @@
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
  '(org-agenda-files
-   (quote
-    ("~/org/todo.org" "~/org/reference.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D521-Alstom_PDM/todo/todo.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i101_Kernel_update/todo/todo.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i102_NewHW/todo/todo.org" "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D522-Alstom_PDM/todo/todo.org")))
+   '("~/org/todo.org" "~/org/reference.org" "/home/Christian/Data/Duagon/DG_Projekte/D521-Alstom_PDM/todo/d521_alstom_nl_pdm.org" "/home/Christian/Data/Duagon/DG_Projekte/i101_Kernel_update/todo/todo.org" "/home/Christian/Data/Duagon/DG_Projekte/i102_NewHW/todo/todo.org"))
  '(org-latex-default-packages-alist
-   (quote
-    (("" "grffile" t nil)
+   '(("" "grffile" t nil)
      ("" "wrapfig" nil nil)
      ("" "rotating" nil nil)
      ("normalem" "ulem" t nil)
@@ -125,13 +137,16 @@
      ("" "textcomp" t nil)
      ("" "amssymb" t nil)
      ("" "capt-of" nil nil)
-     ("" "hyperref" nil nil))))
+     ("" "hyperref" nil nil)))
+ '(org-taskjuggler-default-project-duration 2800)
  '(package-selected-packages
-   (quote
-    (org-plus-contrib gnuplot json-mode sourcemap xref-js2 js2-mode indium zygospore yasnippet-snippets ws-butler volatile-highlights use-package undo-tree spacemacs-theme spaceline psgml ox-reveal org-bullets org-beautify-theme nodejs-repl md4rd iedit helm-swoop helm-projectile helm-gtags ggtags flow-js2-mode dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face csv-mode csv company-c-headers comment-dwim-2 clean-aindent-mode anzu))))
+   '(verilog-mode org-plus-contrib gnuplot json-mode sourcemap xref-js2 js2-mode indium zygospore yasnippet-snippets ws-butler volatile-highlights use-package undo-tree spacemacs-theme spaceline psgml ox-reveal org-beautify-theme nodejs-repl md4rd iedit helm-swoop helm-projectile helm-gtags ggtags flow-js2-mode dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face csv-mode csv company-c-headers comment-dwim-2 clean-aindent-mode anzu)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-column ((t (:background "#444155" :family "Monospace Regular"))))
+ '(org-level-1 ((t (:inherit bold :extend nil :foreground "#4f97d7" :box (:line-width 5 :color "#292b2e") :weight bold :height 1.1 :family "Monospace Regualar"))))
+ '(org-level-3 ((t (:inherit default :extend nil :foreground "#b2b2b2" :box (:line-width 5 :color "#292b2e") :weight normal :height 1.3))))
+ '(org-warning ((t (:inherit org-priority :foreground "orange")))))
