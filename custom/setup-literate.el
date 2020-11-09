@@ -32,6 +32,7 @@
                             ("js"         (:background "dark blue" :foreground "yellow"))
                             ("org"        (:background "dark blue" :foreground "yellow"))
                             ("C++"        (:background "dark blue" :foreground "yellow"))
+                            ("lisp"       (:background "dark blue" :foreground "yellow"))
                             ("latex"      (:background "dark blue" :foreground "yellow"))
                             ("bclogo"     (:background "dark blue" :foreground "yellow"))
                             ("gnuplot"    (:background "dark blue" :foreground "yellow"))
@@ -45,6 +46,7 @@
    (js       . t)    ; JavaScript
    (ditaa    . t)    ; ditaa
    (shell    . t)    ; shell, bash
+   (lisp    . t)    ; latex
    (latex    . t)    ; latex
    (octave   . t)    ; octave
    (gnuplot  . t)    ; gnuplot
