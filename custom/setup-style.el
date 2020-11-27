@@ -7,6 +7,9 @@
 ;;(global-linum-mode 1)        ; always show line numbers
 (setq column-number-mode t)  ; always show column numbers
 
+;; Defaults to Truncate lines
+(set-default 'truncate-lines t)
+
 
 ;; Colorful dired
 (unless (package-installed-p 'dired-filetype-face)

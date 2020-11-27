@@ -1,6 +1,19 @@
 ;; set key for agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
+;; Show column view with fixed size font
+(defun org-column-view-uses-fixed-width-face ()
+  ;; copy from org-faces.el
+  (when (fboundp 'set-face-attribute)
+    ;; Make sure that a fixed-width face is used when we have a column
+    ;; table.
+    (set-face-attribute 'org-column nil
+                        :height (face-attribute 'default :height)
+                        :family (face-attribute 'default :family))))
+(when (and (fboundp 'daemonp) (daemonp))
+  (add-hook 'org-mode-hook 'org-column-view-uses-fixed-width-face))
+
+
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "OPEN(o)" "REQUEST(n)" "DEFINED(n)" "ONGOING(g)" "FIXED(f)" "|" "DONE(d)")
               (sequence "WAITING(w)" "PAUSED(h)" "|" "CANCELLED(c)" "PHONE" "MEETING"))))
@@ -20,12 +33,20 @@
               ("PHONE" :foreground "forest green" :weight bold))))
 
 ;;file to save todo items
+;; (setq org-agenda-files (quote ("~/org/todo.org"
+;;                                "~/org/reference.org"
+;;                                "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D521-Alstom_PDM/todo/d521_alstom_nl_pdm.org"
+;;                                "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D522-Alstom_PDM/todo/todo/todo.org"
+;;                                "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i101_Kernel_update/todo/todo.org"
+;;                                "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i102_NewHW/todo/todo.org"
+;;                                )))
+
 (setq org-agenda-files (quote ("~/org/todo.org"
                                "~/org/reference.org"
-                               "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D521-Alstom_PDM/todo/todo.org"
-                               "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D522-Alstom_PDM/todo/todo/todo.org"
-                               "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i101_Kernel_update/todo/todo.org"
-                               "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i102_NewHW/todo/todo.org"
+                               "/home/Christian/Data/Duagon/DG_Projekte/D521-Alstom_PDM/todo/d521_alstom_nl_pdm.org"
+                               "/home/Christian/Data/Duagon/DG_Projekte/D522-Alstom_PDM/todo/todo/todo.org"
+                               "/home/Christian/Data/Duagon/DG_Projekte/i101_Kernel_update/todo/todo.org"
+                               "/home/Christian/Data/Duagon/DG_Projekte/i102_NewHW/todo/todo.org"
                                )))
 
 

@@ -39,6 +39,16 @@
 (require 'org-beautify-theme)
 
 
+;; (unless (package-installed-p 'auto-complete)
+;;   (package-install 'auto-complete))
+;; (require 'auto-complete)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+
+(unless (package-installed-p 'company)
+  (package-install 'company))
+(require 'company)
+
 (unless (package-installed-p 'company-c-headers)
   (package-install 'company-c-headers))
 (require 'company-c-headers)
@@ -96,12 +106,11 @@
 
 (add-to-list 'load-path "~/.emacs.d/custom")
 (require 'setup-general)
-
 (require 'setup-helm)
 (require 'setup-helm-gtags)
 ;; (require 'setup-ggtags)
-(require 'setup-cedet)
-(require 'setup-c)
+;; (require 'setup-cedet)
+;; (require 'setup-c) all in general
 (require 'setup-editing)
 (require 'setup-literate)
 (require 'setup-latex)
@@ -117,7 +126,6 @@
             (setq fill-column 90)))
 (load-theme 'org-beautify t)
 
-
 ;; Set Application Paths
 (setq org-reveal-root "file:///home/Christian/Data/git/reveal.js")
 (custom-set-variables
@@ -125,28 +133,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(delete-selection-mode nil)
- '(org-agenda-files
-   '("~/org/todo.org" "~/org/reference.org" "/home/Christian/Data/Duagon/DG_Projekte/D521-Alstom_PDM/todo/d521_alstom_nl_pdm.org" "/home/Christian/Data/Duagon/DG_Projekte/i101_Kernel_update/todo/todo.org" "/home/Christian/Data/Duagon/DG_Projekte/i102_NewHW/todo/todo.org"))
- '(org-latex-default-packages-alist
-   '(("" "grffile" t nil)
-     ("" "wrapfig" nil nil)
-     ("" "rotating" nil nil)
-     ("normalem" "ulem" t nil)
-     ("" "amsmath" t nil)
-     ("" "textcomp" t nil)
-     ("" "amssymb" t nil)
-     ("" "capt-of" nil nil)
-     ("" "hyperref" nil nil)))
- '(org-taskjuggler-default-project-duration 2800)
+ '(global-display-line-numbers-mode t)
+ '(menu-bar-mode nil)
  '(package-selected-packages
-   '(verilog-mode org-plus-contrib gnuplot json-mode sourcemap xref-js2 js2-mode indium zygospore yasnippet-snippets ws-butler volatile-highlights use-package undo-tree spacemacs-theme spaceline psgml ox-reveal org-beautify-theme nodejs-repl md4rd iedit helm-swoop helm-projectile helm-gtags ggtags flow-js2-mode dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face csv-mode csv company-c-headers comment-dwim-2 clean-aindent-mode anzu)))
+   '(company-irony irony zygospore yasnippet-snippets yasnippet-classic-snippets xref-js2 ws-butler volatile-highlights verilog-mode use-package undo-tree spacemacs-theme spaceline sourcemap ox-reveal org-superstar org-plus-contrib org-beautify-theme ob-ipython indium iedit helm-swoop helm-projectile helm-gtags helm-c-yasnippet ecb dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face company-quickhelp company-c-headers comment-dwim-2 clean-aindent-mode auto-complete anzu))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-column ((t (:background "#444155" :family "Monospace Regular"))))
- '(org-level-1 ((t (:inherit bold :extend nil :foreground "#4f97d7" :box (:line-width 5 :color "#292b2e") :weight bold :height 1.1 :family "Monospace Regualar"))))
- '(org-level-3 ((t (:inherit default :extend nil :foreground "#b2b2b2" :box (:line-width 5 :color "#292b2e") :weight normal :height 1.3))))
- '(org-warning ((t (:inherit org-priority :foreground "orange")))))
+ '(default ((t (:family "Hack" :foundry "SRC" :slant italic :weight normal :height 158 :width normal))))
+ '(font-lock-comment-face ((t (:background "#292e34" :foreground "#2aa1ae" :slant italic)))))

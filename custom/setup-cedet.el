@@ -1,22 +1,33 @@
 (require 'cc-mode)
 (require 'semantic)
 
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
-(global-semantic-stickyfunc-mode 1)
-
 (semantic-mode 1)
 
-(defun alexott/cedet-hook ()
-  (local-set-key "\C-c\C-j" 'semantic-ia-fast-jump)
-  (local-set-key "\C-c\C-s" 'semantic-ia-show-summary))
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(global-semantic-idle-completions-mode 1)
+(global-semantic-stickyfunc-mode 1)
 
-(add-hook 'c-mode-common-hook 'alexott/cedet-hook)
-(add-hook 'c-mode-hook 'alexott/cedet-hook)
-(add-hook 'c++-mode-hook 'alexott/cedet-hook)
 
-;; Enable EDE only in C/C++
-(require 'ede)
-(global-ede-mode)
+;; (defun christian:cedet-hook ()
+;;   (local-set-key "\C-c\C-j" 'semantic-ia-fast-jump)
+;;   (local-set-key "\C-c\C-s" 'semantic-ia-show-summary)
+;;   (add-to-list 'ac-sources 'ac-source-gtags)
+;;   (add-to-list 'ac-sources 'ac-source-semantic))
+
+;; (add-hook 'c-mode-common-hook 'christian:cedet-hook)
+;; (add-hook 'c-mode-hook 'christian:cedet-hook)
+;; (add-hook 'c++-mode-hook 'christian:cedet-hook)
+
+;; (require 'semantic/ia)
+;; (require 'eassist)
+;; ;; Enable EDE only in C/C++
+;; (require 'ede)
+;; (global-ede-mode 1)
+;; (ede-enable-generic-projects)
+;; (ede-cpp-root-project "Dummy"
+;;                       :name "Dummy Project"
+;;                       :file "/home/Christian/Data/Develop/cpp/threading/src/main.cpp"
+;;                       :include-path '("/.../inc"))
 
 (provide 'setup-cedet)

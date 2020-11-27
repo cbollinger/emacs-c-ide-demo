@@ -32,13 +32,13 @@
                             ("js"         (:background "dark blue" :foreground "yellow"))
                             ("org"        (:background "dark blue" :foreground "yellow"))
                             ("C++"        (:background "dark blue" :foreground "yellow"))
-                            ("lisp"       (:background "dark blue" :foreground "yellow"))
-                            ("latex"      (:background "dark blue" :foreground "yellow"))
-                            ("bclogo"     (:background "dark blue" :foreground "yellow"))
-                            ("gnuplot"    (:background "dark blue" :foreground "yellow"))
-                            ("octave"     (:background "dark blue" :foreground "yellow"))
-                            ("python"     (:background "dark blue" :foreground "yellow"))
-                            ("sh"         (:background "dark blue" :foreground "yellow"))))
+                            ("lisp"       (:background "DarkSlateGray" :foreground "yellow"))
+                            ("latex"      (:background "DarkSlateGray" :foreground "yellow"))
+                            ("bclogo"     (:background "DarkSlateGray" :foreground "yellow"))
+                            ("gnuplot"    (:background "DarkSlateGray" :foreground "yellow"))
+                            ("octave"     (:background "DarkSlateGray" :foreground "yellow"))
+                            ("python"     (:background "DarkSlateGray" :foreground "yellow"))
+                            ("sh"         (:background "DarkSlateGray" :foreground "yellow"))))
 
 ; Set languages for babel
 (org-babel-do-load-languages 'org-babel-load-languages
