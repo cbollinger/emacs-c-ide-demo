@@ -15,22 +15,22 @@
 
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "OPEN(o)" "REQUEST(n)" "DEFINED(n)" "ONGOING(g)" "FIXED(f)" "|" "DONE(d)")
-              (sequence "WAITING(w)" "PAUSED(h)" "|" "CANCELLED(c)" "PHONE" "MEETING"))))
+      (quote ((sequence "TODO(t)" "NEXT(n)" "ONGOING(g)"  "|" "DONE(d)")
+              (sequence "WAITING(w@/)" "PAUSED(h@/)" "|" "CANCELLED(c@/)" "PHONE" "MEETING"))))
 
 (setq org-todo-keyword-faces
-      (quote (("TODO" :foreground "red" :weight bold)
-              ("OPEN" :foreground "OrangeRed" :weight bold)
-              ("REQUEST" :foreground "blue" :weight bold)
-              ("DEFINED" :foreground "SlateBlue" :weight bold)
-              ("ONGOING" :foreground "Green2" :weight bold)
-              ("FIXED" :foreground "SeaGreen" :weight bold)
-              ("DONE" :foreground "forest green" :weight bold)
-              ("WAITING" :foreground "orange" :weight bold)
-              ("PAUSED" :foreground "magenta" :weight bold)
+      (quote (("TODO"      :foreground "red"          :weight bold)
+              ("NEXT"      :foreground "OrangeRed"    :weight bold)
+              ("REQUEST"   :foreground "blue"         :weight bold)
+              ("DEFINED"   :foreground "SlateBlue"    :weight bold)
+              ("ONGOING"   :foreground "Green2"       :weight bold)
+              ("FIXED"     :foreground "SeaGreen"     :weight bold)
+              ("DONE"      :foreground "forest green" :weight bold)
+              ("WAITING"   :foreground "orange"       :weight bold)
+              ("PAUSED"    :foreground "magenta"      :weight bold)
               ("CANCELLED" :foreground "forest green" :weight bold)
-              ("MEETING" :foreground "forest green" :weight bold)
-              ("PHONE" :foreground "forest green" :weight bold))))
+              ("MEETING"   :foreground "forest green" :weight bold)
+              ("PHONE"     :foreground "forest green" :weight bold))))
 
 ;;file to save todo items
 ;; (setq org-agenda-files (quote ("~/org/todo.org"
@@ -41,12 +41,7 @@
 ;;                                "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i102_NewHW/todo/todo.org"
 ;;                                )))
 
-(setq org-agenda-files (quote ("~/org/todo.org"
-                               "~/org/reference.org"
-                               "/home/Christian/Data/Duagon/DG_Projekte/D521-Alstom_PDM/todo/d521_alstom_nl_pdm.org"
-                               "/home/Christian/Data/Duagon/DG_Projekte/D522-Alstom_PDM/todo/todo/todo.org"
-                               "/home/Christian/Data/Duagon/DG_Projekte/i101_Kernel_update/todo/todo.org"
-                               "/home/Christian/Data/Duagon/DG_Projekte/i102_NewHW/todo/todo.org"
+(setq org-agenda-files (quote ("~/Daten/Duagon/DG_ORG/todo/DG_TodoList.org"
                                )))
 
 
@@ -86,25 +81,22 @@
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)
-                            ("@duagon" . ?d)
-                            ("@home" . ?h)
-                            ("@training" . ?t)
+                            ("Projekte" . ?P)
+                            (:grouptags)
+                            ("D521_PDM" . ?a)
+                            ("D522_BT" . ?b)
+                            ("D522_NLD" . ?c)
+                            ("RemoteIO" . ?c)
                             (:endgroup)
-                            ("D521_PDM" . ?A)
-                            ("D522_PDM" . ?B)
-                            ("i101_Kernel" . ?I)
-                            ("CONTRACT" . ?C)
-                            ("DUAGON" . ?D)
-                            ("DSP" . ?M)
-                            ("NOTE" . ?N)
-                            ("ORG" . ?O)
-                            ("PERSONAL" . ?P)
-                            ("WTB" . ?W)
-                            ("RemoteIO" . ?R)
-                            ("Productionalisation" . ?Q)
-                            ("DSP" . ?S)
-                            ("GYM" . ?G)
-                            ("TRAINING" . ?T)
+                            (:startgroup)
+                            ("Private" . ?V)
+                            (:grouptags)
+                            ("Training" . ?t)
+                            ("DSP" . ?d)
+                            ("NOTE" . ?n)
+                            ("ORG" . ?o)
+                            ("PERSONAL" . ?p)
+                            (:endgroup)
                             ("FLAGGED" . ??))))
 
 ;; Allow setting single tags without the menu

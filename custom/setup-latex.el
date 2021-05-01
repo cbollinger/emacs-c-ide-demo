@@ -55,19 +55,58 @@
 (require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 
+
 (with-eval-after-load "ox-latex"
   (add-to-list 'org-latex-classes
-    '("koma-article" "\\documentclass{scrartcl}"
-      ("\\section{%s}" . "\\section{%s}")
-      ("\\subsection{%s}" . "\\subsection{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection{%s}")
-      ("\\paragraph{%s}" . "\\paragraph{%s}")
-      ("\\subparagraph{%s}" . "\\subparagraph{%s}"))))
+     '("koma-article" "\\documentclass{scrartcl}
+       "
+     ("\\section{%s}" . "\\section{%s}")
+     ("\\subsection{%s}" . "\\subsection{%s}")
+     ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+     ("\\paragraph{%s}" . "\\paragraph{%s}")
+     ("\\subparagraph{%s}" . "\\subparagraph{%s}"))))
 
 
 (with-eval-after-load "ox-latex"
-(add-to-list 'org-latex-classes
-  '("artikel" "\\documentclass{article}
+  (add-to-list 'org-latex-classes
+     '("koma-article_yellow" "\\documentclass{scrartcl}
+       \\usepackage{xcolor}
+      \\definecolor\{Pantone123C}{RGB}{255,200,46}
+       \\makeatletter
+       \\renewcommand\\section{%
+         \\scr@startsection{section}%  name
+         {1}%      level
+         {-5mm}%    indent
+         {6ex}%   beforeskip
+         {6ex}%   afterskip
+         {\\color{Pantone123C}\\sffamily\\Huge\\bfseries\\textbf}% style
+       }
+       \\renewcommand\\subsection{%
+         \\scr@startsection{subsection}%  name
+         {1}%      level
+         {-5mm}%    indent
+         {4ex}%   beforeskip
+         {6ex}%   afterskip
+         {\\color{Pantone123C}\\sffamily\\huge\\bfseries\\textbf}% style
+       }
+       \\renewcommand\\subsubsection{%
+         \\scr@startsection{subsubsection}%  name
+         {1}%      level
+         {-5mm}%    indent
+         {2ex}%   beforeskip
+         {2ex}%   afterskip
+         {\\color{Pantone123C}\\sffamily\\Large\\bfseries\\textbf}% style
+       }
+     "
+     ("\\section{%s}" . "\\section{%s}")
+     ("\\subsection{%s}" . "\\subsection{%s}")
+     ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+     ("\\paragraph{%s}" . "\\paragraph{%s}")
+     ("\\subparagraph{%s}" . "\\subparagraph{%s}"))))
+
+(with-eval-after-load "ox-latex"
+  (add-to-list 'org-latex-classes
+               '("artikel" "\\documentclass{article}
        \\usepackage{xcolor}
        \\definecolor{myblue}{cmyk}{1,.72,0,.38}
        \\makeatletter
@@ -186,12 +225,11 @@
        \\renewcommand{\\arraystretch}{1.4}
 
        \\setlength{\\tabcolsep}{0.1cm} % set left and right margin in tables as fraction of cm (not pt), so it is easier to align tables
-   "
-  ("\\section\{%s\}"       . "\\section*\{%s\}")
-  ("\\subsection\{%s\}"    . "\\subsection*\{%s\}")
-  ("\\subsubsection*\{%s\}" . "\\subsubsection*\{%s\}")
-  ("\\paragraph{%s}"       . "\\paragraph*{%s}")
-  ("\\subparagraph{%s}"    . "\\subparagraph*{%s}"))))
-
+    "
+      ("\\section{%s}" . "\\section*{%s}")
+      ("\\subsection{%s}" . "\\subsection*{%s}")
+      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+      ("\\paragraph{%s}" . "\\paragraph*{%s}")
+      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 (provide 'setup-latex)

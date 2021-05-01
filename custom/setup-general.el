@@ -27,38 +27,6 @@
  gdb-show-main t
  )
 
-;; company
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-backends (delete 'company-semantic company-backends))
-(define-key c-mode-map  [(control tab)] 'company-complete)
-(define-key c++-mode-map  [(control tab)] 'company-complete)
-;; (add-to-list 'company-backends 'company-c-headers)
-;; (add-to-list 'company-c-headers-path-system "/usr/include/c++/7/")
-
-
-
-;; a Backend for keyword completion
-(defun company-elisp-finder-keyword-backend (command &optional arg &rest ign)
-  "`company-backend' for finder-keywords."
-  (case command
-    (prefix
-     (and (require 'finder nil t)
-          (or (company-grab ":group '\\(\\(\\sw\\|\\s_\\)*\\)" 1)
-              (company-grab "Keywords:.*[ \t]+\\(\\(\\sw\\|\\s_\\)*\\)" 1))))
-    (candidates (all-completions arg finder-known-keywords))
-    (meta (cdr (assoc (intern arg) finder-known-keywords)))))
-
-
-;; Package: projejctile
-(use-package projectile
-  :init
-  (projectile-global-mode)
-  (setq projectile-enable-caching t))
-
-(require 'projectile)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-(projectile-mode +1)
 
 ;; Package zygospore
 (use-package zygospore
@@ -90,6 +58,28 @@
    ;; “java”: The default style for java-mode (see below)
    ;; “user”: When you want to define your own style
 (setq c-default-style "k&r" c-basic-offset 4)
+
+
+
+(require 'hideshow)
+(require 'sgml-mode)
+(require 'nxml-mode)
+
+(add-to-list 'hs-special-modes-alist
+             '(nxml-mode
+               "<!--\\|<[^/>]*[^/]>"
+               "-->\\|</[^/>]*[^/]>"
+
+               "<!--"
+               sgml-skip-tag-forward
+               nil))
+
+
+
+(add-hook 'nxml-mode-hook 'hs-minor-mode)
+
+;; optional key bindings, easier than hs defaults
+(define-key nxml-mode-map (kbd "C-c h") 'hs-toggle-hiding)
 
 
 (provide 'setup-general)

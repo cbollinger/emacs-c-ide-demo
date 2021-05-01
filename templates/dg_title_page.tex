@@ -1,8 +1,6 @@
 \begin{titlepage}
-
-  
-  %%Logo
-  \DeclareNewLayer[
+  %% Logo
+  \DeclareNewLayer[%
   align=tl,
   hoffset=0cm,
   voffset=0cm,
@@ -13,7 +11,7 @@
   ]{logo}
 
   %% Footer
-  \DeclareNewLayer[
+  \DeclareNewLayer[%
   align=tl,
   hoffset=0cm,
   voffset=27cm,
@@ -24,14 +22,14 @@
   ]{footer}
 
   %% Adressfeld
-  \DeclareNewLayer[
+  \DeclareNewLayer[%
   align=tl,
   hoffset=4cm,
-  voffset=25.5cm,
+  voffset=26cm,
   width=5cm,
-  height=3\baselineskip,
-  contents={
-	\footnotesize{
+  height=3cm,
+  contents={%
+	\footnotesize{%
       \begin{flushleft}
         \textbf{duagon AG} \newline
         Riedstrasse 12     \newline
@@ -41,13 +39,13 @@
   ]{addressfield}
 
   %% www
-  \DeclareNewLayer[
+  \DeclareNewLayer[%
   align=tl,
   hoffset=4cm,
-  voffset=27.4cm,
+  voffset=27.6cm,
   width=5cm,
-  height=1\baselineskip,
-  contents={
+  height=1cm,
+  contents={%
 	\begin{flushleft}
       \footnotesize www.duagon.com
       \end{flushleft}
@@ -55,7 +53,7 @@
   ]{www}
 
 %% Docoration Image
-  \DeclareNewLayer[
+  \DeclareNewLayer[%
   align=tl,
   hoffset=6cm,
   voffset=15cm,
@@ -65,20 +63,22 @@
   contents={\includegraphics[width=\layerwidth]{~/.emacs.d/templates/image/dg_deco.png}}
   ]{deco}
   
-  \vspace*{-1cm}
-  \Huge{
-      \begin{center}
-        \textsf{\textcolor{DG_YELLOW} {Title and Some More Words does it make line brake?}}
-      \end{center}}
-
-  \vspace*{0.5cm}
-  \huge{
+  \vspace*{0cm}
+  \HUGE{%
       \begin{flushleft}
-        \textrm{Technical Note}
+        \textsf{
+          \textcolor{DG_YELLOW}{\justify Enter Title here}}
       \end{flushleft}}
 
- \vspace*{1cm}
-  \large{
+  \vspace*{0.5cm}
+  \huge{%
+    \begin{flushleft}
+      \textit{%
+        \textrm{Technical Note}}
+      \end{flushleft}}
+
+ \vspace*{-1cm}
+  \large{%
       \begin{flushleft}
         \textrm{Some short description of the paper}
       \end{flushleft}}

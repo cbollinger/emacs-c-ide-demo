@@ -13,6 +13,9 @@
 (when (not package-archive-contents)
     (package-refresh-contents))
 
+;; Supresses Warning 'Package cl is deprecated'
+(setq byte-compile-warnings '(cl-functions))
+
 ;; Install Packages
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
@@ -134,11 +137,21 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
+ '(custom-enabled-themes '(org-beautify spacemacs-dark use-package))
+ '(custom-safe-themes
+   '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "9685cefcb4efd32520b899a34925c476e7920725c8d1f660e7336f37d6d95764" default))
  '(delete-selection-mode nil)
  '(global-display-line-numbers-mode t)
+ '(inferior-octave-startup-args '("-i" "--line-editing"))
  '(menu-bar-mode nil)
+ '(org-agenda-files
+   '("~/Daten/Duagon/DG_Projekte/02-D522/D522-Bombardier/05-todo/d522_bombardier.org" "~/Daten/Duagon/DG_Projekte/01-D521/D521-Generic/04-Todo/d521_generic.org" "~/Dokumente/Administration/98 Diverses/todo/my_todos.org" "~/Daten/Duagon/DG_Projekte/01-D521/D521-Alstom_PDM/05-PM/todo/d521_alstom_pdm.org" "~/Daten/learning/Digital-Signal-Processing/sp4comm/orgmode/week1/week1.org" "~/Daten/Duagon/DG_Projekte/02-D522/D522-AlstomNL/02-Support/todo/d522_alstom_NLD.org" "~/org/todo.org" "~/Daten/Duagon/DG_ORG/todo/DG_TodoList.org"))
+ '(org-format-latex-options
+   '(:foreground default :background default :scale 2.5 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+ '(org-latex-caption-above '(table))
  '(package-selected-packages
-   '(company-irony irony zygospore yasnippet-snippets yasnippet-classic-snippets xref-js2 ws-butler volatile-highlights verilog-mode use-package undo-tree spacemacs-theme spaceline sourcemap ox-reveal org-superstar org-plus-contrib org-beautify-theme ob-ipython indium iedit helm-swoop helm-projectile helm-gtags helm-c-yasnippet ecb dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face company-quickhelp company-c-headers comment-dwim-2 clean-aindent-mode auto-complete anzu))
+   '(magit org company-irony irony zygospore yasnippet-snippets xref-js2 ws-butler volatile-highlights verilog-mode use-package undo-tree spacemacs-theme spaceline sourcemap ox-reveal org-superstar org-plus-contrib org-beautify-theme ob-ipython indium iedit helm-swoop helm-projectile helm-gtags helm-c-yasnippet ecb dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face company-quickhelp company-c-headers comment-dwim-2 clean-aindent-mode auto-complete anzu))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -146,5 +159,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Hack" :foundry "SRC" :slant italic :weight normal :height 158 :width normal))))
- '(font-lock-comment-face ((t (:background "#292e34" :foreground "#2aa1ae" :slant italic)))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant italic :weight normal :height 158 :width normal :foundry "SRC" :family "Hack"))))
+ '(font-lock-comment-face ((t (:background "#292e34" :foreground "#2aa1ae" :slant italic))))
+ '(org-column ((t (:background "#444155" :height 160))))
+ '(org-level-1 ((t (:inherit default :extend nil :foreground "#b2b2b2" :box (:line-width 5 :color "#292b2e") :weight bold :height 1.5 :family "Sans Serif"))))
+ '(org-scheduled-today ((t (:foreground "#bc6ec5" :height 160)))))
