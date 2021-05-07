@@ -28,6 +28,16 @@
 (require 'ox-reveal)
 (setq ox-reveal-always-ensure t)
 
+(unless (package-installed-p 'auto-dictionary)
+  (package-install 'auto-dictionary))
+(require 'auto-dictionary)
+
+(unless (package-installed-p 'helm-flyspell)
+  (package-install 'helm-flyspell))
+(require 'auto-dictionary)
+
+
+
 (unless (package-installed-p 'org)
   (package-install 'org))
 (require 'org)
@@ -151,7 +161,7 @@
                  ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-latex-caption-above '(table))
  '(package-selected-packages
-   '(magit org company-irony irony zygospore yasnippet-snippets xref-js2 ws-butler volatile-highlights verilog-mode use-package undo-tree spacemacs-theme spaceline sourcemap ox-reveal org-superstar org-plus-contrib org-beautify-theme ob-ipython indium iedit helm-swoop helm-projectile helm-gtags helm-c-yasnippet ecb dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face company-quickhelp company-c-headers comment-dwim-2 clean-aindent-mode auto-complete anzu))
+   '(helm-flyspell auto-dictionary magit org company-irony irony zygospore yasnippet-snippets xref-js2 ws-butler volatile-highlights verilog-mode use-package undo-tree spacemacs-theme spaceline sourcemap ox-reveal org-superstar org-plus-contrib org-beautify-theme ob-ipython indium iedit helm-swoop helm-projectile helm-gtags helm-c-yasnippet ecb dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face company-quickhelp company-c-headers comment-dwim-2 clean-aindent-mode auto-complete anzu))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces

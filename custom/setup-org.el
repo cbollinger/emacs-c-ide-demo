@@ -97,13 +97,35 @@
                             ("ORG" . ?o)
                             ("PERSONAL" . ?p)
                             (:endgroup)
-                            ("FLAGGED" . ??))))
+                            ("FLAGsGED" . ??))))
 
 ;; Allow setting single tags without the menu
 (setq org-fast-tag-selection-single-key (quote expert))
 
 ;; For tag searches ignore tasks with scheduled and deadline dates
 (setq org-agenda-tags-todo-honor-ignore-options t)
+
+
+;; Spell checker
+;; flyspell mode for spell checking everywhere
+(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
+
+;; Disable keys in org-mode
+;;    C-c [
+;;    C-c ]
+;;    C-c ;
+;;    C-c C-x C-q  cancelling the clock (we never want this)
+(add-hook 'org-mode-hook
+          '(lambda ()
+             ;; Undefine C-c [ and C-c ] since this breaks my
+             ;; org-agenda files when directories are include It
+             ;; expands the files in the directories individually
+             (org-defkey org-mode-map "\C-c[" 'undefined)
+             (org-defkey org-mode-map "\C-c]" 'undefined)
+             (org-defkey org-mode-map "\C-c;" 'undefined)
+             (org-defkey org-mode-map "\C-c\C-x\C-q" 'undefined))
+          'append)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode agenda options                                                ;;
