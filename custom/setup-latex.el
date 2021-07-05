@@ -1,3 +1,4 @@
+(require 'ox-latex)
 ;; Latex search path
 (setq exec-path (append exec-path '("/usr/share/texmf")))
 
@@ -11,6 +12,7 @@
 ;; Make org aware of the tex enginge
 (setq org-latex-pdf-process
       '("xelatex -shell-escape -interaction nonstopmode %f"
+        "xelatex -shell-escape -interaction nonstopmode %f"
         "xelatex -shell-escape -interaction nonstopmode %f"))
 
 ;; (setq org-latex-pdf-process
@@ -51,9 +53,8 @@
 (setq org-preview-latex-default-process 'luasvg)
 
 
-(setq org-latex-listings 'minted)
-(require 'ox-latex)
-(add-to-list 'org-latex-packages-alist '("" "minted"))
+;; (setq org-latex-listings 'minted)
+;; (add-to-list 'org-latex-packages-alist '("" "minted"))
 
 
 (with-eval-after-load "ox-latex"
@@ -136,7 +137,7 @@
 
 (with-eval-after-load "ox-latex"
 (add-to-list 'org-latex-classes
-    '("dg_article" "\\documentclass[draft=false,9pt,a4paper,ngerman]{scrartcl}
+    '("dg_article" "\\documentclass[draft=false,fontsize=9pt,a4paper,ngerman,DIV=calc]{scrartcl}
      \\usepackage{scrlayer}
      \\usepackage[ngerman]{babel}
      \\usepackage{fontspec}
@@ -146,16 +147,15 @@
      \\usepackage{enumitem}
      \\usepackage[table]{xcolor}
      \\usepackage[yyyymmdd]{datetime}
-     \\usepackage{tikz}
+%%     \\usepackage{tikz}
      \\usepackage[left=65mm,top=40mm,right=25mm,bottom=40mm]{geometry}     %% define size
      \\usepackage{lastpage}                                            %% For getting page x of y
-     \\usepackage{float}                                               %% Allows the figures to be positioned and formatted nicely
-     \\floatstyle{boxed}                                                  %using this
-     \\restylefloat{figure}                                               %and this command
+%%     \\usepackage{float}                                               %% Allows the figures to be positioned and formatted nicely
+%%     \\floatstyle{boxed}                                                  %using this
+%%     \\restylefloat{figure}                                               %and this command
      \\usepackage{url}                                                 %% Formatting of Urls
 
-     \\usepackage{titlesec}                                            %% Forredefining paragraph
-     \\setcounter{secnumdepth}{4}                                         %% set section number counter to 4
+     \\setcounter{secnumdepth}{4}                                         %% set section number counter to 4a
 
 
      %% Define Colors
@@ -163,13 +163,15 @@
      \\definecolor\{DG_YELLOW\}\{RGB\}\{255,200,46\}
      \\definecolor\{black1\}\{\RGB\}\{22,20,19\}
      \\definecolor\{bluePantone281C\}\{RGB\}\{0,38,99\}
-     \\definecolor\{Pantone123C}{RGB}{255,200,46}
-     \\definecolor\{n1}{RGB}{183,212,233}
-     \\definecolor\{n3}{RGB}{113,112,100}
-     \\definecolor\{n4}{RGB}{191,182,159}
-     \\definecolor\{grau10}{RGB}{230,230,230}
-     \\definecolor\{grau30}{RGB}{179,179,179}
-     \\definecolor\{blau5}{RGB}{230,230,255}
+     \\definecolor\{n1}{RGB}{183,212,233\}
+     \\definecolor\{n3}{RGB}{113,112,100\}
+     \\definecolor\{n4}{RGB}{191,182,159\}
+     \\definecolor\{grau10}{RGB}{230,230,230\}
+     \\definecolor\{grau30}{RGB}{179,179,179\}
+     \\definecolor\{blau5}{RGB}{230,230,255\}
+
+     \\definecolor\{Pantone123C}{RGB}{255,200,46\}
+     \\definecolor\{dg_sand}{RGB}{191,182,159\}
 
      %%Date
      \\renewcommand{\\dateseparator}{-}
@@ -178,8 +180,8 @@
      \\renewcommand{\\headfont}{\\normalfont\\sffamily\\color{Pantone123C}}
      %% \\renewcommand{\\pnumfont}{\\normalfont\\sffamily\\color{Pantone123C}}  %% First Heading ?
 
-     %% \\setlist\{noitemsep\}                                           %% kills the space between items
-     \\setmainfont{Myriad Pro}                                        %% Set duagon font
+     %% \\setlist\{noitemsep\}                                   %% kills the space between items
+     \\setmainfont{Myriad Pro}                                   %% Set duagon font
      \\setsansfont{Museo}                                        %% Set duagon font
 
      \\makeatletter
@@ -209,8 +211,10 @@
        }
 
        %% Tables
-       \\newcolumntype{L}[1]{>{\\raggedright\\let\\newline\\\\arraybackslash\\hspace{0pt}}p{#1}}
-       \\newcolumntype{C}[1]{>{\\centering\\let\\newline\\\\arraybackslash\\hspace{0pt}}p{#1}}
+       \\newcolumntype{L}[1]{>{\\raggedright\\arraybackslash}p{#1}}
+       \\newcolumntype{C}[1]{>{\\centering\\arraybackslash}p{#1}}
+       %% \\newcolumntype{L}[1]{>{\\raggedright\\let\\newline\\arraybackslash\\hspace{0pt}}p{#1}}
+       %% \\newcolumntype{C}[1]{>{\\centering\\let\\newline\\arraybackslash\\hspace{0pt}}p{#1}}
 
        \\newcolumntype{$}{>{\\global\\let\\currentrowstyle\\relax}}
        \\newcolumntype{^}{>{\\currentrowstyle}}
@@ -220,9 +224,9 @@
        \\newcolumntype{x}[1]{>{\\centering\\arraybackslash\\hspace{0pt}}m{#1}}
 
        \\setlength{\\arrayrulewidth}{1pt}
-       \\arrayrulecolor{n4}
+       \\arrayrulecolor{dg_sand}
 
-       \\renewcommand{\\arraystretch}{1.4}
+       \\renewcommand{\\arraystretch}{2.0}
 
        \\setlength{\\tabcolsep}{0.1cm} % set left and right margin in tables as fraction of cm (not pt), so it is easier to align tables
     "

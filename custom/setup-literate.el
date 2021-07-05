@@ -1,12 +1,14 @@
 (require 'org)
 (require 'color)
 (require 'ob-js)
-(require 'ox-latex)
 
 (setq org-ditaa-jar-path "~/java/ditaa.jar")
 (setq org-plantuml-jar-path "~/java/plantuml.jar")
 (add-to-list 'exec-path "/usr/bin/magick")
 
+(setq org-startup-shrink-all-tables t)
+(setq org-startup-folded t)
+(setq org-hide-block-startup t)
 
 ;; Make babel results blocks lowercase
 (setq org-babel-results-keyword "results")
@@ -18,6 +20,7 @@
     (error nil)))
 
 ;;; Highlight coloring export of source code block export
+(require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)
 
