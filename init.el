@@ -1,12 +1,30 @@
+;; You will most likely need to adjust this font size for your system!
+(defvar efs/default-font-size 180)
+(defvar efs/default-variable-font-size 180)
+
+;; Make frame transparency overridable
+(defvar efs/frame-transparency '(90 . 90))
+
+;; The default is 800 kilobytes.  Measured in bytes.
+(setq gc-cons-threshold (* 50 1000 1000))
+
+(defun efs/display-startup-time ()
+  (message "Emacs loaded in %s with %d garbage collections."
+           (format "%.2f seconds"
+                   (float-time
+                     (time-subtract after-init-time before-init-time)))
+           gcs-done))
+
+(add-hook 'emacs-startup-hook #'efs/display-startup-time)
+
+
 ;; Initialize Package Management
 (require 'package)
 ;; Initialize Package Management
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives
-              '("org" . "http://orgmode.org/elpa/") t)
-(setq package-check-signature nil)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 
@@ -20,8 +38,30 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
   (eval-when-compile (require 'use-package))
+
 (require 'use-package)
 (setq use-package-always-ensure t)
+
+(use-package auto-package-update
+  :custom
+  (auto-package-update-interval 7)
+  (auto-package-update-prompt-before-update t)
+  (auto-package-update-hide-results t)
+  :config
+  (auto-package-update-maybe)
+  (auto-package-update-at-time "09:00"))
+
+;; NOTE: If you want to move everything out of the ~/.emacs.d folder
+;; reliably, set `user-emacs-directory` before loading no-littering!
+;(setq user-emacs-directory "~/.cache/emacs")
+
+(use-package no-littering)
+
+;; no-littering doesn't set this by default so we must place
+;; auto save files in the same path as it uses for sessions
+(setq auto-save-file-name-transforms
+      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+
 
 (unless (package-installed-p 'ox-reveal)
   (package-install 'ox-reveal))
@@ -59,13 +99,13 @@
 ;; (require 'auto-complete-config)
 ;; (ac-config-default)
 
-(unless (package-installed-p 'company)
-  (package-install 'company))
-(require 'company)
+;; (unless (package-installed-p 'company)
+;;   (package-install 'company))
+;; (require 'company)
 
-(unless (package-installed-p 'company-c-headers)
-  (package-install 'company-c-headers))
-(require 'company-c-headers)
+;; (unless (package-installed-p 'company-c-headers)
+;;   (package-install 'company-c-headers))
+;; (require 'company-c-headers)
 
 (unless (package-installed-p 'org-plus-contrib)
   (package-install 'org-plus-contrib))
@@ -112,16 +152,21 @@
 
 
 ;; JavaScript: Debugging Mode and REPL
-(unless (package-installed-p 'indium)
-  (package-install 'indium))
-(require 'indium)
-(add-hook 'js-mode-hook #'indium-interaction-mode)
+;; (unless (package-installed-p 'indium)
+;;   (package-install 'indium))
+;; (require 'indium)
+;; (add-hook 'js-mode-hook #'indium-interaction-mode)
 
 
 (add-to-list 'load-path "~/.emacs.d/custom")
+(require 'setup-doome-style)
+(require 'setup-lsp)
 (require 'setup-general)
-(require 'setup-helm)
-(require 'setup-helm-gtags)
+(require 'setup-ivy-counsel)
+(require 'setup-completion)
+
+;;;; (require 'setup-helm)
+;;;; (require 'setup-helm-gtags)
 ;; (require 'setup-ggtags)
 ;; (require 'setup-cedet)
 ;; (require 'setup-c) all in general
@@ -129,7 +174,7 @@
 (require 'setup-literate)
 (require 'setup-latex)
 (require 'setup-org)
-(require 'setup-style)
+;;;; (require 'setup-spacemacs-style)
 (require 'setup-xwidget-menu)
 (require 'setup-docker)
 
@@ -141,47 +186,17 @@
             (auto-fill-mode 1)
             (setq fill-column 90)))
 (load-theme 'org-beautify t)
-
-;; Set Application Paths
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-view-program-selection
-   '(((output-dvi has-no-display-manager)
-      "dvi2tty")
-     ((output-dvi style-pstricks)
-      "dvips and gv")
-     (output-dvi "xdvi")
-     (output-pdf "Okular")
-     (output-html "xdg-open")))
- '(column-number-mode t)
- '(custom-safe-themes
-   '("6ebdb33507c7db94b28d7787f802f38ac8d2b8cd08506797b3af6cdfd80632e0" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "9685cefcb4efd32520b899a34925c476e7920725c8d1f660e7336f37d6d95764" default))
  '(delete-selection-mode nil)
- '(fill-column 500)
- '(global-display-line-numbers-mode t)
- '(inferior-octave-startup-args '("-i" "--line-editing"))
- '(menu-bar-mode nil)
- '(org-agenda-files
-   '("~/org/reference.org" "~/Daten/Duagon/DG_Projekte/02-D522/D522-Bombardier/05-todo/d522_bombardier.org" "~/Daten/Duagon/DG_Projekte/01-D521/D521-Generic/04-Todo/d521_generic.org" "~/Dokumente/Administration/98 Diverses/todo/my_todos.org" "~/Daten/Duagon/DG_Projekte/01-D521/D521-Alstom_PDM/05-PM/todo/d521_alstom_pdm.org" "~/Daten/learning/Digital-Signal-Processing/sp4comm/orgmode/week1/week1.org" "~/Daten/Duagon/DG_Projekte/02-D522/D522-AlstomNL/02-Support/todo/d522_alstom_NLD.org" "~/org/todo.org" "~/Daten/Duagon/DG_ORG/todo/DG_TodoList.org"))
- '(org-format-latex-options
-   '(:foreground default :background default :scale 2.5 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
-                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
- '(org-hide-block-startup t)
- '(org-latex-caption-above '(table))
- '(org-latex-compiler "xelatex")
- '(org-latex-listings 'minted)
  '(package-selected-packages
-   '(elpy docker-tramp tramp-theme helm-tramp tramp xwwp org-tree-slide helm-flyspell auto-dictionary magit org company-irony irony zygospore yasnippet-snippets xref-js2 ws-butler volatile-highlights verilog-mode use-package undo-tree spacemacs-theme spaceline sourcemap ox-reveal org-superstar org-plus-contrib org-beautify-theme ob-ipython indium iedit helm-swoop helm-projectile helm-gtags helm-c-yasnippet ecb dtrt-indent direx diredful dired-subtree dired-k dired-filetype-face company-quickhelp company-c-headers comment-dwim-2 clean-aindent-mode auto-complete anzu))
- '(show-paren-mode t)
- '(tool-bar-mode nil)
- '(tramp-default-method "ssh"))
+   '(zygospore yasnippet-snippets xwwp xref-js2 ws-butler which-key vterm volatile-highlights use-package undo-tree typescript-mode tramp-theme tramp spacemacs-theme spaceline sourcemap rainbow-delimiters python-mode pkg-info ox-reveal org-tree-slide org-superstar org-plus-contrib org-beautify-theme ob-ipython no-littering lsp-ui lsp-ivy ivy-prescient indium iedit htmlize helpful helm-tramp helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot forge eterm-256color eshell-git-prompt elpy dtrt-indent doom-themes doom-modeline docker-tramp direx diredful dired-subtree dired-single dired-open dired-k dired-hide-dotfiles dired-filetype-face dap-mode counsel-projectile company-irony company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "ADBO" :family "Source Code Pro")))))
+ )
