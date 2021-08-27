@@ -109,9 +109,6 @@
 ;; Spell checker
 ;; flyspell mode for spell checking everywhere
 (add-hook 'org-mode-hook 'turn-on-flyspell 'append)
-;; Turn on auto dictionnary checker
-(add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
-(define-key flyspell-mode-map (kbd "C-;") 'helm-flyspell-correct)
 
 ;; Disable keys in org-mode
 ;;    C-c [

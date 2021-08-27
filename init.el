@@ -71,13 +71,19 @@
 (setq Org-Reveal-title-slide nil)
 
 
-(unless (package-installed-p 'helm-flyspell)
-  (package-install 'helm-flyspell))
+(unless (package-installed-p 'flyspell-correct-ivy)
+  (package-install 'flyspell-correct-ivy))
+
+(use-package flyspell-correct-ivy
+  :bind ("C-M-;" . flyspell-correct-wrapper)
+  :init
+  (setq flyspell-correct-interface #'flyspell-correct-ivy))
+
+;; Turn on auto dictionnary checker
 (unless (package-installed-p 'auto-dictionary)
   (package-install 'auto-dictionary))
 (require 'auto-dictionary)
 (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
-
 
 (unless (package-installed-p 'org)
   (package-install 'org))
@@ -165,8 +171,8 @@
 (require 'setup-ivy-counsel)
 (require 'setup-completion)
 
-;;;; (require 'setup-helm)
-;;;; (require 'setup-helm-gtags)
+;; (require 'setup-helm)
+;; (require 'setup-helm-gtags)
 ;; (require 'setup-ggtags)
 ;; (require 'setup-cedet)
 ;; (require 'setup-c) all in general
@@ -191,9 +197,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("1f1b545575c81b967879a5dddc878783e6ebcca764e4916a270f9474215289e5" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
  '(delete-selection-mode nil)
+ '(org-agenda-files nil)
  '(package-selected-packages
-   '(zygospore yasnippet-snippets xwwp xref-js2 ws-butler which-key vterm volatile-highlights use-package undo-tree typescript-mode tramp-theme tramp spacemacs-theme spaceline sourcemap rainbow-delimiters python-mode pkg-info ox-reveal org-tree-slide org-superstar org-plus-contrib org-beautify-theme ob-ipython no-littering lsp-ui lsp-ivy ivy-prescient indium iedit htmlize helpful helm-tramp helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot forge eterm-256color eshell-git-prompt elpy dtrt-indent doom-themes doom-modeline docker-tramp direx diredful dired-subtree dired-single dired-open dired-k dired-hide-dotfiles dired-filetype-face dap-mode counsel-projectile company-irony company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
+   '(tree-sitter-langs tree-sitter omnisharp zygospore yasnippet-snippets xwwp xref-js2 ws-butler which-key vterm volatile-highlights use-package undo-tree typescript-mode tramp-theme tramp spacemacs-theme spaceline sourcemap rainbow-delimiters python-mode ox-reveal org-tree-slide org-superstar org-plus-contrib org-beautify-theme ob-ipython no-littering lsp-ui lsp-ivy ivy-prescient indium iedit htmlize helpful helm-tramp helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot forge flycheck eterm-256color eshell-git-prompt elpy dtrt-indent doom-themes doom-modeline docker-tramp direx diredful dired-subtree dired-single dired-open dired-k dired-hide-dotfiles dired-filetype-face dap-mode counsel-projectile company-irony company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

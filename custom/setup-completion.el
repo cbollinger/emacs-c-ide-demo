@@ -39,7 +39,6 @@
 
 
 (use-package company
-  
   :after lsp-mode
   :hook (lsp-mode . company-mode)
   :bind (:map company-active-map
