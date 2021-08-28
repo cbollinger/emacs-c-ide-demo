@@ -51,6 +51,18 @@
   (auto-package-update-maybe)
   (auto-package-update-at-time "09:00"))
 
+(use-package general
+:config
+(general-evil-setup t)
+
+(general-create-definer dw/leader-key-def
+                        :keymaps '(normal insert visual emacs)
+                        :prefix "SPC"
+                        :global-prefix "C-SPC")
+
+(general-create-definer dw/ctrl-c-keys
+                        :prefix "C-c"))
+
 ;; NOTE: If you want to move everything out of the ~/.emacs.d folder
 ;; reliably, set `user-emacs-directory` before loading no-littering!
 ;(setq user-emacs-directory "~/.cache/emacs")
@@ -202,7 +214,7 @@
  '(delete-selection-mode nil)
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(tree-sitter-langs tree-sitter omnisharp zygospore yasnippet-snippets xwwp xref-js2 ws-butler which-key vterm volatile-highlights use-package undo-tree typescript-mode tramp-theme tramp spacemacs-theme spaceline sourcemap rainbow-delimiters python-mode ox-reveal org-tree-slide org-superstar org-plus-contrib org-beautify-theme ob-ipython no-littering lsp-ui lsp-ivy ivy-prescient indium iedit htmlize helpful helm-tramp helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot forge flycheck eterm-256color eshell-git-prompt elpy dtrt-indent doom-themes doom-modeline docker-tramp direx diredful dired-subtree dired-single dired-open dired-k dired-hide-dotfiles dired-filetype-face dap-mode counsel-projectile company-irony company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
+   '(ffmpeg-player general wgrep prescient ivy-posframe tree-sitter-langs tree-sitter omnisharp zygospore yasnippet-snippets xwwp xref-js2 ws-butler which-key vterm volatile-highlights use-package undo-tree typescript-mode tramp-theme tramp spacemacs-theme spaceline sourcemap rainbow-delimiters python-mode ox-reveal org-tree-slide org-superstar org-plus-contrib org-beautify-theme ob-ipython no-littering lsp-ui lsp-ivy ivy-prescient indium iedit htmlize helpful helm-tramp helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot forge flycheck eterm-256color eshell-git-prompt elpy dtrt-indent doom-themes doom-modeline docker-tramp direx diredful dired-subtree dired-single dired-open dired-k dired-hide-dotfiles dired-filetype-face dap-mode counsel-projectile company-irony company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

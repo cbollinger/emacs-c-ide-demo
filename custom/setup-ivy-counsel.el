@@ -1,39 +1,3 @@
-;; (use-package ivy
-;;   :init
-;;   (progn
-;;     (ivy-mode 1)
-;;     (setq ivy-use-virtual-buffers t)
-;;     (global-set-key (kbd "C-s") 'swiper)))
-
-;; (use-package counsel
-;;   :bind
-;;   (("M-x" . counsel-M-x)
-;;    ("C-M-j" . counsel-switch-buffer)
-;;    ("M-y" . counsel-yank-pop)
-;;    ("C-c r" . counsel-recentf)
-;;    ("C-x C-f" . counsel-find-file)
-;;    ("<f1> f" . counsel-describe-function)
-;;    ("<f1> v" . counsel-describe-variable)
-;;    ("<f1> l" . counsel-load-library)
-;;    ("C-h f" . counsel-describe-function)
-;;    ("C-h v" . counsel-describe-variable)
-;;    ("C-h l" . counsel-load-library)
-;;   :map minibuffer-local-map
-;;    ("C-r" . 'counsel-minibuffer-history))
-;;    :custom
-;;    (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
-;;    :config
-;;    (counsel-mode 1))
-
-;; (use-package ivy-prescient
-;;   :after counsel
-;;   :custom
-;;   (ivy-prescient-enable-filtering nil)
-;;   :config
-;;   ;; Uncomment the following line to have sorting remembered across sessions!
-;;   ;(prescient-persist-mode 1)
-;;   (ivy-prescient-mode 1))
-
 (use-package hydra
   :defer t)
 
@@ -124,6 +88,44 @@
   :defer t
   :init
   (setq ivy-flx-limit 10000))
+
+
+
+(use-package wgrep)
+
+(use-package ivy-posframe
+  :disabled
+  :custom
+  (ivy-posframe-width      80)
+  (ivy-posframe-min-width  80)
+  (ivy-posframe-height     10)
+  (ivy-posframe-min-height 10)
+  :config
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+  (setq ivy-posframe-parameters '((parent-frame . nil)
+                                  (left-fringe . 8)
+                                  (right-fringe . 8)))
+  (ivy-posframe-mode 1))
+
+(use-package prescient
+  :after counsel
+  :config
+  (prescient-persist-mode 1))
+
+(use-package ivy-prescient
+  :after prescient
+  :config
+  (ivy-prescient-mode 1))
+
+(dw/leader-key-def
+ "r"   '(ivy-resume :which-key "ivy resume")
+ "f"   '(:ignore t :which-key "files")
+ "ff"  '(counsel-find-file :which-key "open file")
+ "C-f" 'counsel-find-file
+ "fr"  '(counsel-recentf :which-key "recent files")
+ "fR"  '(revert-buffer :which-key "revert file")
+ "fj"  '(counsel-file-jump :which-key "jump to file"))
+
 
 (use-package helpful
   :commands (helpful-callable helpful-variable helpful-command helpful-key)
