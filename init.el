@@ -124,7 +124,7 @@
 (require 'setup-lsp)
 (require 'setup-general)
 (require 'setup-ivy-counsel)
-(require 'setup-completion)
+(require 'setup-magit-completion)
 ;; (require 'setup-helm)
 ;; (require 'setup-helm-gtags)
 ;; (require 'setup-ggtags)
@@ -139,3 +139,18 @@
 (require 'setup-xwidget-menu)
 (require 'setup-docker)
 (require 'setup-nodejs)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(delete-selection-mode nil)
+ '(package-selected-packages
+   '(slime sly zygospore xref-js2 ws-butler which-key wgrep vterm volatile-highlights use-package undo-tree typescript-mode tree-sitter-langs sourcemap rainbow-delimiters pyvenv python-mode ox-reveal org-tree-slide org-superstar org-present org-plus-contrib org-beautify-theme omnisharp ob-ipython no-littering lsp-ui lsp-ivy ivy-rich ivy-prescient ivy-posframe ivy-hydra indium iedit helpful helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot general forge flyspell-correct-ivy flx ffmpeg-player eterm-256color eshell-git-prompt dtrt-indent doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dap-mode counsel-projectile company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

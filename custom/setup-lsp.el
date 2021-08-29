@@ -101,16 +101,11 @@
   :bind (("C-c r r" . 'omnisharp-run-code-action-refactoring)
          ("C-c C-c" . 'recompile)))
 
+(use-package sly
+  :mode "\\.lisp\\'")
 
-;; (use-package ccls
-;;   :ensure t
-;;   :config
-;;   (setq ccls-executable "ccls")
-;;   (setq lsp-prefer-flymake nil)
-;;   (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
-;;   :hook ((c-mode c++-mode objc-mode cuda-mode) .
-;;          (lambda () (require 'ccls) (lsp))))
-
+(use-package slime
+  :mode "\\.lisp\\'")
 
 
 (provide 'setup-lsp)
