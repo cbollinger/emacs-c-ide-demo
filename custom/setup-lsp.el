@@ -1,5 +1,6 @@
 (defun efs/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+  (setq read-process-output-max (* 1024 1024))
   (lsp-headerline-breadcrumb-mode))
 
 (use-package lsp-mode

@@ -11,7 +11,7 @@
 (setq visible-bell t)
 
 (column-number-mode)
-(global-display-line-numbers-mode t)
+;; (global-display-line-numbers-mode t)
 
 ;; Set frame transparency and size
 (set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
@@ -46,7 +46,11 @@
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
+  :custom
+  ((doom-modeline-height 15)
+   (doom-modeline-enable-word-count t)
+   (doom-modeline-lsp t)
+   (doom-color-icon t)))
 
 (use-package which-key
   :defer 0

@@ -97,20 +97,6 @@
 (require 'auto-dictionary)
 (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
-(unless (package-installed-p 'org)
-  (package-install 'org))
-(require 'org)
-(setq org-always-ensure t)
-
-(unless (package-installed-p 'org-superstar)
-  (package-install 'org-superstar))
-(require 'org-superstar)
-
-(unless (package-installed-p 'org-beautify-theme)
-  (package-install 'org-beautify-theme))
-(require 'org-beautify-theme)
-
-
 ;; (unless (package-installed-p 'auto-complete)
 ;;   (package-install 'auto-complete))
 ;; (require 'auto-complete)
@@ -133,56 +119,12 @@
   (package-install 'ob-ipython))
 
 
-;;; JavaScript
-;; JavaScript: MinorMode
-(unless (package-installed-p 'js2-mode)
-  (package-install 'js2-mode))
-(require 'js2-mode)
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-;; ;; Better imenu
-;; (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-
-;; JavaScript: Refactor Package
-(unless (package-installed-p 'js2-refactor)
-  (package-install 'js2-refactor))
-(require 'js2-refactor)
-(unless (package-installed-p 'xfef-js2)
-  (package-install 'xref-js2))
-
-;; JavaScript: Jumping to function definitions
-(require 'xref-js2)
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-r")
-(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
-;; unbind it.
-(define-key js-mode-map (kbd "M-.") nil)
-
-(add-hook 'js2-mode-hook (lambda ()
-                           (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
-
-;; JavaScript: Debugging aid
-(unless (package-installed-p 'sourcemap)
-  (package-install 'sourcemap))
-(require 'sourcemap)
-(setq coffee-args-compile '("-c" "-m")) ;; generating sourcemap file
-(add-hook 'coffee-after-compile-hook 'sourcemap-goto-corresponding-point)
-
-
-;; JavaScript: Debugging Mode and REPL
-;; (unless (package-installed-p 'indium)
-;;   (package-install 'indium))
-;; (require 'indium)
-;; (add-hook 'js-mode-hook #'indium-interaction-mode)
-
-
 (add-to-list 'load-path "~/.emacs.d/custom")
 (require 'setup-doome-style)
 (require 'setup-lsp)
 (require 'setup-general)
 (require 'setup-ivy-counsel)
 (require 'setup-completion)
-
 ;; (require 'setup-helm)
 ;; (require 'setup-helm-gtags)
 ;; (require 'setup-ggtags)
@@ -192,32 +134,66 @@
 (require 'setup-literate)
 (require 'setup-latex)
 (require 'setup-org)
+(require 'setup-org-presentation)
 ;;;; (require 'setup-spacemacs-style)
 (require 'setup-xwidget-menu)
 (require 'setup-docker)
+(require 'setup-nodejs)
 
-;; Org Settings
-(add-hook 'org-mode-hook
-          (defun org-setting-enable ()
-            (org-superstar-mode 1)
-            (org-indent-mode 1)
-            (auto-fill-mode 1)
-            (setq fill-column 90)))
-(load-theme 'org-beautify t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#292D3E" "#ff5370" "#c3e88d" "#ffcb6b" "#82aaff" "#c792ea" "#89DDFF" "#EEFFFF"])
  '(custom-safe-themes
-   '("1f1b545575c81b967879a5dddc878783e6ebcca764e4916a270f9474215289e5" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
+   '("846b3dc12d774794861d81d7d2dcdb9645f82423565bfb4dad01204fa322dbd5" "1f1b545575c81b967879a5dddc878783e6ebcca764e4916a270f9474215289e5" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
  '(delete-selection-mode nil)
+ '(doom-modeline-enable-word-count t)
+ '(doom-modeline-lsp nil)
+ '(doom-modeline-major-mode-color-icon nil)
+ '(exwm-floating-border-color "#232635")
+ '(fci-rule-color "#676E95")
+ '(highlight-tail-colors ((("#383f45") . 0) (("#323e51") . 20)))
+ '(jdee-db-active-breakpoint-face-colors (cons "#1c1f2b" "#c792ea"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1c1f2b" "#c3e88d"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1c1f2b" "#676E95"))
+ '(objed-cursor-color "#ff5370")
  '(org-agenda-files nil)
+ '(org-startup-folded 'fold)
  '(package-selected-packages
-   '(ffmpeg-player general wgrep prescient ivy-posframe tree-sitter-langs tree-sitter omnisharp zygospore yasnippet-snippets xwwp xref-js2 ws-butler which-key vterm volatile-highlights use-package undo-tree typescript-mode tramp-theme tramp spacemacs-theme spaceline sourcemap rainbow-delimiters python-mode ox-reveal org-tree-slide org-superstar org-plus-contrib org-beautify-theme ob-ipython no-littering lsp-ui lsp-ivy ivy-prescient indium iedit htmlize helpful helm-tramp helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot forge flycheck eterm-256color eshell-git-prompt elpy dtrt-indent doom-themes doom-modeline docker-tramp direx diredful dired-subtree dired-single dired-open dired-k dired-hide-dotfiles dired-filetype-face dap-mode counsel-projectile company-irony company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
+   '(org-present org-tree-slides ffmpeg-player general wgrep prescient ivy-posframe tree-sitter-langs tree-sitter omnisharp zygospore yasnippet-snippets xwwp xref-js2 ws-butler which-key vterm volatile-highlights use-package undo-tree typescript-mode tramp-theme tramp spacemacs-theme spaceline sourcemap rainbow-delimiters python-mode ox-reveal org-tree-slide org-superstar org-plus-contrib org-beautify-theme ob-ipython no-littering lsp-ui lsp-ivy ivy-prescient indium iedit htmlize helpful helm-tramp helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot forge flycheck eterm-256color eshell-git-prompt elpy dtrt-indent doom-themes doom-modeline docker-tramp direx diredful dired-subtree dired-single dired-open dired-k dired-hide-dotfiles dired-filetype-face dap-mode counsel-projectile company-irony company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired))
+ '(pdf-view-midnight-colors (cons "#EEFFFF" "#292D3E"))
+ '(rustic-ansi-faces
+   ["#292D3E" "#ff5370" "#c3e88d" "#ffcb6b" "#82aaff" "#c792ea" "#89DDFF" "#EEFFFF"])
+ '(vc-annotate-background "#292D3E")
+ '(vc-annotate-color-map
+   (list
+    (cons 20 "#c3e88d")
+    (cons 40 "#d7de81")
+    (cons 60 "#ebd476")
+    (cons 80 "#ffcb6b")
+    (cons 100 "#fcb66b")
+    (cons 120 "#f9a16b")
+    (cons 140 "#f78c6c")
+    (cons 160 "#e78e96")
+    (cons 180 "#d690c0")
+    (cons 200 "#c792ea")
+    (cons 220 "#d97dc1")
+    (cons 240 "#ec6898")
+    (cons 260 "#ff5370")
+    (cons 280 "#d95979")
+    (cons 300 "#b36082")
+    (cons 320 "#8d678b")
+    (cons 340 "#676E95")
+    (cons 360 "#676E95")))
+ '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-column ((t (:background "lavender" :strike-through nil :underline nil :slant normal :weight normal :height 181 :family "Fira Code"))))
+ '(org-column-title ((t (:underline t :weight bold :height 181))))
+ '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch) :foreground "orange" :underline nil)))))

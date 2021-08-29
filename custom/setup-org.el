@@ -1,18 +1,88 @@
 ;; set key for agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-;; Show column view with fixed size font
-(defun org-column-view-uses-fixed-width-face ()
-  ;; copy from org-faces.el
-  (when (fboundp 'set-face-attribute)
-    ;; Make sure that a fixed-width face is used when we have a column
-    ;; table.
-    (set-face-attribute 'org-column nil
-                        :height (face-attribute 'default :height)
-                        :family (face-attribute 'default :family))))
-(when (and (fboundp 'daemonp) (daemonp))
-  (add-hook 'org-mode-hook 'org-column-view-uses-fixed-width-face))
+;; TODO: Mode this to another section
+(setq-default fill-column 80)
 
+;; Turn on indentation and auto-fill mode for Org files
+(defun dw/org-mode-setup ()
+  (org-indent-mode)
+  (org-startup-folded t)
+  (org-latex-caption-above '(table))
+  (org-latex-compiler "xelatex")
+  (org-latex-listings 'minted)
+  (variable-pitch-mode 1)
+  (auto-fill-mode 0)
+  (visual-line-mode 1)
+  (setq evil-auto-indent nil)
+  ;;(diminish org-indent-mode)
+  )
+
+(use-package org
+  :defer t
+  :hook (org-mode . dw/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾"
+        org-hide-emphasis-markers t
+        org-src-fontify-natively t
+        org-fontify-quote-and-verse-blocks t
+        org-src-tab-acts-natively t
+        org-edit-src-content-indentation 2
+        org-hide-block-startup t
+        org-src-preserve-indentation nil
+        org-startup-folded t
+        org-cycle-separator-lines 2))
+
+  (setq org-modules
+        '(org-crypt
+          org-habit
+          org-bookmark
+          org-eshell
+          org-irc))
+
+
+
+(use-package org-superstar
+  :after org
+  :hook (org-mode . org-superstar-mode)
+  :custom
+  (org-superstar-remove-leading-stars t)
+  (org-superstar-headline-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+;; Replace list hyphen with dot
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("^ *\\([-]\\) "
+;;                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+;; Increase the size of various headings
+ (set-face-attribute 'org-document-title nil :font "Iosevka Etoile" :weight 'bold :height 1.3)
+(dolist (face '((org-level-1 . 1.8)
+                (org-level-2 . 1.7)
+                (org-level-3 . 1.6)
+                (org-level-4 . 1.5)
+                (org-level-5 . 1.4)
+                (org-level-6 . 1.3)
+                (org-level-7 . 1.2)
+                (org-level-8 . 1.1)))
+(set-face-attribute (car face) nil :font "Iosevka Etoile" :weight 'medium :height (cdr face)))
+
+;; Make sure org-indent face is available
+(require 'org-indent)
+
+;; Ensure that anything that should be fixed-pitch in Org files appears that way
+(set-face-attribute 'org-block           nil :inherit 'fixed-pitch                          :background "dark slate gray" )
+(set-face-attribute 'org-table           nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-formula         nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-code            nil :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-indent          nil :inherit '(org-hide fixed-pitch))
+(set-face-attribute 'org-verbatim        nil :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch) :foreground "DarkOrange1" )
+(set-face-attribute 'org-meta-line       nil :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-checkbox        nil :inherit 'fixed-pitch)
+
+;; Get rid of the background on column views
+(set-face-attribute 'org-column nil :background "light gray" :foreground "dark red")
+(set-face-attribute 'org-column-title nil :background nil)
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "ONGOING(g)"  "|" "DONE(d)")
@@ -152,5 +222,7 @@
     (todo priority-down category-keep)
     (tags priority-down category-keep)
     (search category-keep))))
+
+
 
 (provide 'setup-org)

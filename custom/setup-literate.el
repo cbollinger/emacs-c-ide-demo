@@ -19,6 +19,11 @@
       (org-display-inline-images)
     (error nil)))
 
+(use-package gnuplot
+  :init
+)
+
+
 ;;; Highlight coloring export of source code block export
 (require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
@@ -31,17 +36,17 @@
                     (color-darken-name
                      (face-attribute 'default :background) 3))
 
-(setq org-src-block-faces '(("emacs-lisp" (:background "dark blue" :foreground "yellow"))
-                            ("js"         (:background "dark blue" :foreground "yellow"))
-                            ("org"        (:background "dark blue" :foreground "yellow"))
-                            ("C++"        (:background "dark blue" :foreground "yellow"))
-                            ("lisp"       (:background "DarkSlateGray" :foreground "yellow"))
-                            ("latex"      (:background "DarkSlateGray" :foreground "yellow"))
-                            ("bclogo"     (:background "DarkSlateGray" :foreground "yellow"))
-                            ("gnuplot"    (:background "DarkSlateGray" :foreground "yellow"))
-                            ("octave"     (:background "DarkSlateGray" :foreground "yellow"))
-                            ("python"     (:background "DarkSlateGray" :foreground "yellow"))
-                            ("sh"         (:background "DarkSlateGray" :foreground "yellow"))))
+(setq org-src-block-faces '(("emacs-lisp" (:foreground "yellow"))
+                            ("js"         (:foreground "yellow"))
+                            ("org"        (:foreground "yellow"))
+                            ("C++"        (:foreground "yellow"))
+                            ("lisp"       (:foreground "yellow"))
+                            ("latex"      (:foreground "yellow"))
+                            ("bclogo"     (:foreground "yellow"))
+                            ("gnuplot"    (:foreground "yellow"))
+                            ("octave"     (:foreground "yellow"))
+                            ("python"     (:foreground "yellow"))
+                            ("sh"         (:foreground "yellow"))))
 
 ; Set languages for babel
 (org-babel-do-load-languages 'org-babel-load-languages
