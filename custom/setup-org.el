@@ -40,8 +40,6 @@
           org-eshell
           org-irc))
 
-
-
 (use-package org-superstar
   :after org
   :hook (org-mode . org-superstar-mode)
@@ -81,8 +79,11 @@
 (set-face-attribute 'org-checkbox        nil :inherit 'fixed-pitch)
 
 ;; Get rid of the background on column views
+(set-face-attribute 'org-column-title nil :background "light gray")
+;; (set-face-attribute 'org-column face :height 180 :width normal)
 (set-face-attribute 'org-column nil :background "light gray" :foreground "dark red")
-(set-face-attribute 'org-column-title nil :background nil)
+
+
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "ONGOING(g)"  "|" "DONE(d)")
