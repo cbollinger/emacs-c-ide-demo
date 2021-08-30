@@ -33,8 +33,9 @@
 
 (use-package magit
   :commands (magit-status magit-get-current-branch)
-  :custom
-  (magit-display-buffer-function #'magit-dislay-buffer-same-window-except-diff-v1))
+  ;;:custom
+  ;;(magit-display-buffer-function #'magit-dislay-buffer-same-window-except-diff-v1)
+  )
 
 ;; NOTE: Make sure to configure a GitHub token before using this package!
 ;; - https://magit.vc/manual/forge/Token-Creation.html#Token-Creation
