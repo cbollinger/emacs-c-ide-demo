@@ -7,15 +7,15 @@
 ;; Turn on indentation and auto-fill mode for Org files
 (defun dw/org-mode-setup ()
   (org-indent-mode)
-  (org-startup-folded t)
-  (org-latex-caption-above '(table))
-  (org-latex-compiler "xelatex")
-  (org-latex-listings 'minted)
-  (variable-pitch-mode 1)
-  (auto-fill-mode 0)
-  (visual-line-mode 1)
+  (setq variable-pitch-mode 1)
+  (setq auto-fill-mode 0)
+  (setq visual-line-mode 1)
   (setq evil-auto-indent nil)
-  ;;(diminish org-indent-mode)
+
+  (setq org-startup-folded t)
+  (setq org-latex-caption-above '(table))
+  (setq org-latex-compiler "xelatex")
+  (setq org-latex-listings 'minted)
   )
 
 (use-package org
@@ -145,7 +145,7 @@
 (define-key global-map (kbd "C-c c") 'org-capture)
 (setq org-capture-templates
       '(("t" "todo" entry (file+headline "~/org/todo.org" "Tasks")
-         "* TODO [#A] %?")
+         "* TODO [#A] %?\n  %U\n  %a\n  %i")
         ("n" "note" entry (file+datetree "~/org/reference.org")
          "* %?\nEntered on %U\n  %i")
         ))
