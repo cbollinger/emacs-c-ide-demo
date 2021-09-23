@@ -103,22 +103,30 @@
               ("MEETING"   :foreground "forest green" :weight bold)
               ("PHONE"     :foreground "forest green" :weight bold))))
 
-;;file to save todo items
-;; (setq org-agenda-files (quote ("~/org/todo.org"
-;;                                "~/org/reference.org"
-;;                                "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D521-Alstom_PDM/todo/d521_alstom_nl_pdm.org"
-;;                                "/mnt/c/Users/cbollinger/Documents/DG_Projekte/D522-Alstom_PDM/todo/todo/todo.org"
-;;                                "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i101_Kernel_update/todo/todo.org"
-;;                                "/mnt/c/Users/cbollinger/Documents/DG_Projekte/i102_NewHW/todo/todo.org"
-;;                                )))
+(setq org-directory "~/Nextcloud/Documents/org-mode")
+(setq org-default-notes-file "~/Nextcloud/Documents/org-mode/refile/refile.org")
 
-(setq org-agenda-files (quote ("~/Daten/Duagon/DG_ORG/todo/DG_TodoList.org"
-                               )))
+(setq org-agenda-files (quote ("~/Nextcloud/Documents/org-mode/gnu-software"
+                               "~/Nextcloud/Documents/org-mode/duagon/General"
+                               "~/Nextcloud/Documents/org-mode/duagon/Projects/SBB"
+                               "~/Nextcloud/Documents/org-mode/duagon/Projects/duagon"
+                               "~/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-CH"
+                               "~/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD")))
 
 
 ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                  (org-agenda-files :maxlevel . 9))))
+
+(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+;;;; Refile settings
+                                        ; Exclude DONE state tasks from refile targets
+(defun chb/verify-refile-target ()
+  "Exclude todo keywords with a done state from refile targets"
+  (not (member (nth 2 (org-heading-components)) org-done-keywords)))
+
+(setq org-refile-target-verify-function 'chb/verify-refile-target)
 
 
 ;;set priority range from A to C with default A
@@ -141,14 +149,39 @@
   (setq org-agenda-tags-column (- 4 (window-width)))
   (org-agenda-align-tags))
 
-;;capture todo items using C-c c t
-(define-key global-map (kbd "C-c c") 'org-capture)
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "~/org/todo.org" "Tasks")
-         "* TODO [#A] %?\n  %U\n  %a\n  %i")
-        ("n" "note" entry (file+datetree "~/org/reference.org")
-         "* %?\nEntered on %U\n  %i")
-        ))
+      (quote (("t" "todo" entry (file "~/Nextcloud/Documents/org-mode/refile/refile.org")
+               "* TODO [#A] %?\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("r" "respond" entry (file "~/Nextcloud/Documents/org-mode/refile/refile.org")
+               "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+              ("n" "note" entry (file "~/Nextcloud/Documents/org-mode/refile/refile.org")
+               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("j" "Journal" entry (file+datetree "~/git/org/diary.org")
+               "* %?\n%U\n" :clock-in t :clock-resume t)
+              ("w" "org-protocol" entry (file "~/Nextcloud/Documents/org-mode/refile/refile.org")
+               "* TODO Review %c\n%U\n" :immediate-finish t)
+              ("m" "Meeting" entry (file "~/Nextcloud/Documents/org-mode/refile/refile.org")
+               "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
+              ("p" "Phone call" entry (file "~/Nextcloud/Documents/org-mode/refile/refile.org")
+               "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
+              ("h" "Habit" entry (file "~/Nextcloud/Documents/org-mode/refile/refile.org")
+               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
+
+;; call this manually to copy the meeting notes into an email
+(defun chb/prepare-meeting-notes ()
+  "Prepare meeting notes for email
+   Take selected region and convert tabs to spaces, mark TODOs with leading >>>, and copy to kill ring for pasting"
+  (interactive)
+  (let (prefix)
+    (save-excursion
+      (save-restriction
+        (narrow-to-region (region-beginning) (region-end))
+        (untabify (point-min) (point-max))
+        (goto-char (point-min))
+        (while (re-search-forward "^\\( *-\\\) \\(TODO\\|DONE\\): " (point-max) t)
+          (replace-match (concat (make-string (length (match-string 1)) ?>) " " (match-string 2) ": ")))
+        (goto-char (point-min))
+        (kill-ring-save (point-min) (point-max))))))
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)

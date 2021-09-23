@@ -50,16 +50,16 @@
   (global-undo-tree-mode 1))
 
 
-;; Package: yasnippet
-;; GROUP: Editing -> Yasnippet
-;; Package: yasnippet
 (add-to-list 'load-path
              "~/.emacs.d/plugins/yasnippet")
-(use-package yasnippet
-  :defer t
-  :init
-  (yas-global-mode 1))
+(require 'yasnippet)
+(yas-global-mode 1)
 (add-hook 'prog-mode-hook 'yas-minor-mode)
+
+;; (use-package yasnippet
+;;   :defer t
+;;   :init
+;;   (yas-global-mode 1))
 
 ;; Package: clean-aindent-mode
 (use-package clean-aindent-mode

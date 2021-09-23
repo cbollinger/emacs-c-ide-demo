@@ -1,6 +1,6 @@
 ;; You will most likely need to adjust this font size for your system!
-(defvar efs/default-font-size 180)
-(defvar efs/default-variable-font-size 180)
+(defvar efs/default-font-size 150)
+(defvar efs/default-variable-font-size 150)
 
 ;; Make frame transparency overridable
 (defvar efs/frame-transparency '(90 . 90))
@@ -140,15 +140,43 @@
 (require 'setup-docker)
 (require 'setup-nodejs)
 
+
+(use-package elfeed
+  :ensure t
+  :defer t
+  :commands (elfeed)
+  :config
+  (setq elfeed-feeds
+        '(("http://nullprogram.com/feed/" program)
+          ("http://herbsutter.com/feed/" cpp)
+          ("http://planet.scipy.org/rss20.xml" python)
+          ("https://planet.emacslife.com/atom.xml" emacs)
+          ("http://planet.emacsen.org/atom.xml" emacs)
+          ("https://www.srf.ch/news/bnf/rss/1646" news)
+          ("https://www.srf.ch/news/bnf/rss/1890" schweiz)
+          ("https://www.srf.ch/news/bnf/rss/1922" international)
+          ("https://www.srf.ch/news/bnf/rss/1926" wirtschaft)
+          ("https://www.srf.ch/news/bnf/rss/1646" sport)
+          ))
+  )
+
+
+(use-package tramp
+  :defer t
+  :config
+  (setf tramp-persistency-file-name
+        (concat temporary-file-directory "tramp-" (user-login-name))))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
- '(org-agenda-files '("/home/christian/org/todo.org"))
+ '(fill-column 80)
  '(package-selected-packages
-   '(slime sly zygospore xref-js2 ws-butler which-key wgrep vterm volatile-highlights use-package undo-tree typescript-mode tree-sitter-langs sourcemap rainbow-delimiters pyvenv python-mode ox-reveal org-tree-slide org-superstar org-present org-plus-contrib org-beautify-theme omnisharp ob-ipython no-littering lsp-ui lsp-ivy ivy-rich ivy-prescient ivy-posframe ivy-hydra indium iedit helpful helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot general forge flyspell-correct-ivy flx ffmpeg-player eterm-256color eshell-git-prompt dtrt-indent doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dap-mode counsel-projectile company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
+   '(dtrt-indentq yasnippet-snippets helm-c-yasnippet ivy-yasnippet elfeed slime sly zygospore xref-js2 ws-butler which-key wgrep vterm volatile-highlights use-package undo-tree typescript-mode tree-sitter-langs sourcemap rainbow-delimiters pyvenv python-mode ox-reveal org-tree-slide org-superstar org-present org-plus-contrib org-beautify-theme omnisharp ob-ipython no-littering lsp-ui lsp-ivy ivy-rich ivy-prescient ivy-posframe ivy-hydra indium iedit helpful helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot general forge flyspell-correct-ivy flx ffmpeg-player eterm-256color eshell-git-prompt dtrt-indent doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dap-mode counsel-projectile company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
