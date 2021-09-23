@@ -125,7 +125,6 @@
 (defun chb/verify-refile-target ()
   "Exclude todo keywords with a done state from refile targets"
   (not (member (nth 2 (org-heading-components)) org-done-keywords)))
-
 (setq org-refile-target-verify-function 'chb/verify-refile-target)
 
 
@@ -149,8 +148,10 @@
   (setq org-agenda-tags-column (- 4 (window-width)))
   (org-agenda-align-tags))
 
+;; I use C-c c to start capture mode
+(global-set-key (kbd "C-c c") 'org-capture)
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file "~/Nextcloud/Documents/org-mode/refile/refile.org")
+      (quote (("t" "todo" entry (file "~/Nextcloud/Documents/org-mode/duagon/General/todo.org")
                "* TODO [#A] %?\n%U\n%a\n" :clock-in t :clock-resume t)
               ("r" "respond" entry (file "~/Nextcloud/Documents/org-mode/refile/refile.org")
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
