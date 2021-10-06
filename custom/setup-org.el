@@ -38,6 +38,7 @@
           org-habit
           org-bookmark
           org-eshell
+          org-tempo
           org-irc))
 
 (use-package org-superstar
