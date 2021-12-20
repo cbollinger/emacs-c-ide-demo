@@ -49,12 +49,13 @@
                             ("sh"         (:foreground "yellow"))))
 
 ; Set languages for babel
-(org-babel-do-load-languages 'org-babel-load-languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
   '((C       . t)    ; C, C++, D
    (js       . t)    ; JavaScript
    (ditaa    . t)    ; ditaa
    (shell    . t)    ; shell, bash
-   (lisp    . t)    ; latex
+   (lisp     . t)    ; lisp
    (latex    . t)    ; latex
    (octave   . t)    ; octave
    (gnuplot  . t)    ; gnuplot
