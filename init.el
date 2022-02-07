@@ -199,6 +199,9 @@
      (output-html "xdg-open")))
  '(delete-selection-mode nil)
  '(fill-column 80)
+ '(inferior-octave-startup-args '("-i" "--line-editing"))
+ '(org-agenda-files
+   '("/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d521_default.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d522_standard.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/General/todo.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/emacs.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/nextcloud.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/org-mode.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/General/notes.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/SBB/sbb_icn.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/arago_toolchain.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/deploy-host.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/i101_kernel_update.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/meetings.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-CH/d522_bt_alstom_cs.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d521_pdm.org"))
  '(org-latex-default-packages-alist
    '(("AUTO" "inputenc" t
       ("pdflatex"))
@@ -222,4 +225,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(doom-modeline-buffer-file ((t (:inherit (mode-line-buffer-id bold) :foreground "yellow"))))
+ '(hl-line ((t (:extend t :background "dark slate gray"))))
+ '(mode-line ((t (:background "navy"))))
+ '(mode-line-inactive ((t nil)))
  '(org-column ((t (:background "light gray" :foreground "dark red" :strike-through nil :underline nil :slant normal :weight normal :height 200 :width normal)))))

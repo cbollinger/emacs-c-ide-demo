@@ -1,17 +1,22 @@
-(setq inhibit-startup-message t)
+(setq inhibit-startup-message t ; disable startup message
+      visible-bell t            ; Set up the visible bell
+      )
 
-(scroll-bar-mode -1)        ; Disable visible scrollbar
-(tool-bar-mode -1)          ; Disable the toolbar
-(tooltip-mode -1)           ; Disable tooltips
-(set-fringe-mode 10)        ; Give some breathing room
-
-(menu-bar-mode -1)            ; Disable the menu bar
-
-;; Set up the visible bell
-(setq visible-bell t)
+(scroll-bar-mode -1)            ; Disable visible scrollbar
+(tool-bar-mode -1)              ; Disable the toolbar
+(tooltip-mode -1)               ; Disable tooltips
+(set-fringe-mode 10)            ; Give some breathing room
+(menu-bar-mode -1)              ; Disable the menu bar
 
 (column-number-mode)
-;; (global-display-line-numbers-mode t)
+(global-display-line-numbers-mode)
+(global-hl-line-mode 1)
+
+(custom-set-faces
+ '(doom-modeline-buffer-file ((t (:inherit (mode-line-buffer-id bold) :foreground "yellow"))))
+ '(hl-line ((t (:extend t :background "dark slate gray"))))
+ '(mode-line ((t (:background "navy"))))
+                  )
 
 ;; Set frame transparency and size
 (set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
@@ -108,7 +113,6 @@
 (use-package eshell
   :hook (eshell-first-time-mode . efs/configure-eshell)
   :config
-
   (with-eval-after-load 'esh-opt
     (setq eshell-destroy-buffer-when-process-dies t)
     (setq eshell-visual-commands '("htop" "zsh" "vim")))
