@@ -57,6 +57,17 @@
    (doom-modeline-lsp t)
    (doom-color-icon t)))
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(doom-modeline-buffer-file ((t (:inherit (mode-line-buffer-id bold) :foreground "yellow"))))
+ '(hl-line ((t (:extend t :background "dark slate gray"))))
+ '(mode-line ((t (:background "navy"))))
+ )
+
+
 (use-package which-key
   :defer 0
   :diminish which-key-mode

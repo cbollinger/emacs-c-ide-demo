@@ -228,5 +228,4 @@
  '(doom-modeline-buffer-file ((t (:inherit (mode-line-buffer-id bold) :foreground "yellow"))))
  '(hl-line ((t (:extend t :background "dark slate gray"))))
  '(mode-line ((t (:background "navy"))))
- '(mode-line-inactive ((t nil)))
  '(org-column ((t (:background "light gray" :foreground "dark red" :strike-through nil :underline nil :slant normal :weight normal :height 200 :width normal)))))
