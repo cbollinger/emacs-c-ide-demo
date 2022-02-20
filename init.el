@@ -20,15 +20,8 @@
 
 ;; Initialize Package Management
 (require 'package)
-;; Initialize Package Management
-(require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://elpa.gnu.org/packages/")
-                         ("org-contrib" . "https://elpa.nongnu.org/nongnu/")))
-
-      ;; ("org" . "https://orgmode.org/elpa/")
-      ;; ("elpa" . "https://elpa.gnu.org/packages/")))
-
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")t)
+(add-to-list 'package-archives '("org-contrib" . "https://elpa.nongnu.org/nongnu/")t)
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -114,9 +107,15 @@
 ;;   (package-install 'company-c-headers))
 ;; (require 'company-c-headers)
 
-(unless (package-installed-p 'org-plus-contrib)
-  (package-install 'org-plus-contrib))
-(require 'ox-taskjuggler)
+
+(unless (package-installed-p 'org-contrib)
+  (package-install 'org-contrib))
+(require 'org-contrib)
+
+;; (unless (package-installed-p 'ox-taskjuggler)
+;;   (package-install 'ox-taskjuggler))
+;; (require 'ox-taskjuggler)
+
 
 (unless (package-installed-p 'ob-ipython)
   (package-install 'ob-ipython))
@@ -190,20 +189,23 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(TeX-view-program-selection
-   '(((output-dvi has-no-display-manager)
+   (quote
+    (((output-dvi has-no-display-manager)
       "dvi2tty")
      ((output-dvi style-pstricks)
       "dvips and gv")
      (output-dvi "xdvi")
      (output-pdf "Okular")
-     (output-html "xdg-open")))
+     (output-html "xdg-open"))))
  '(delete-selection-mode nil)
  '(fill-column 80)
- '(inferior-octave-startup-args '("-i" "--line-editing"))
+ '(inferior-octave-startup-args (quote ("-i" "--line-editing")))
  '(org-agenda-files
-   '("/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d521_default.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d522_standard.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/General/todo.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/emacs.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/nextcloud.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/org-mode.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/General/notes.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/SBB/sbb_icn.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/arago_toolchain.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/deploy-host.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/i101_kernel_update.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/meetings.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-CH/d522_bt_alstom_cs.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d521_pdm.org"))
+   (quote
+    ("/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d521_default.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d522_standard.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/General/todo.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/emacs.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/nextcloud.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/org-mode.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/General/notes.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/SBB/sbb_icn.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/arago_toolchain.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/deploy-host.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/i101_kernel_update.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/meetings.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-CH/d522_bt_alstom_cs.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d521_pdm.org")))
  '(org-latex-default-packages-alist
-   '(("AUTO" "inputenc" t
+   (quote
+    (("AUTO" "inputenc" t
       ("pdflatex"))
      ("T1" "fontenc" t
       ("pdflatex"))
@@ -217,9 +219,10 @@
      ("" "textcomp" t nil)
      ("" "amssymb" t nil)
      ("" "capt-of" nil nil)
-     ("" "hyperref" nil nil)))
+     ("" "hyperref" nil nil))))
  '(package-selected-packages
-   '(dtrt-indentq yasnippet-snippets ivy-yasnippet elfeed slime sly zygospore xref-js2 ws-butler which-key wgrep vterm volatile-highlights use-package undo-tree typescript-mode tree-sitter-langs sourcemap rainbow-delimiters pyvenv python-mode org-tree-slide org-plus-contrib org-beautify-theme omnisharp ob-ipython no-littering lsp-ui lsp-ivy ivy-rich ivy-prescient ivy-posframe ivy-hydra indium iedit helpful helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot general forge flyspell-correct-ivy flx ffmpeg-player eterm-256color eshell-git-prompt dtrt-indent doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dap-mode counsel-projectile company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired)))
+   (quote
+    (dtrt-indentq yasnippet-snippets ivy-yasnippet elfeed slime sly zygospore xref-js2 ws-butler which-key wgrep vterm volatile-highlights use-package undo-tree typescript-mode tree-sitter-langs sourcemap rainbow-delimiters pyvenv python-mode org-tree-slide org-plus-contrib org-beautify-theme omnisharp ob-ipython no-littering lsp-ui lsp-ivy ivy-rich ivy-prescient ivy-posframe ivy-hydra indium iedit helpful helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot general forge flyspell-correct-ivy flx ffmpeg-player eterm-256color eshell-git-prompt dtrt-indent doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dap-mode counsel-projectile company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

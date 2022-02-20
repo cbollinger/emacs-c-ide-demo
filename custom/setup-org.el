@@ -21,6 +21,7 @@
 (use-package org
   :defer t
   :hook (org-mode . dw/org-mode-setup)
+;;  :ensure org-plus-contrib
   :config
   (setq org-ellipsis " ▾"
         org-hide-emphasis-markers t
