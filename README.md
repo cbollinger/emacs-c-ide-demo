@@ -5,7 +5,7 @@
 Prerequisite dotEmacs
 - sudo apt install fonts-firacode
 - sudo apt install fonts-cantarlell
-- isoeveka-etoil Download from github:
+- isoeveka-etoil download from https://typeof.net/Iosevka/, then:
   - sudo mkdir /usr/local/share/fonts/iosevka-font
   - sudo cp iosevka-etoile.ttc usr/local/share/fonts/iosevka-font
   - sudo fc-cache -fv
