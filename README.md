@@ -2,7 +2,7 @@
 - Emacs setup for C/C++ with Helm describe here: http://tuhdo.github.io/c-ide.html
 - Emacs from scratch: https://systemcrafters.cc/
 
-Prerequisite dotEmacs
+## Prerequisite dotEmacs
 - sudo apt install fonts-firacode
 - sudo apt install fonts-cantarlell
 - isoeveka-etoil download from https://typeof.net/Iosevka/, then:
@@ -19,3 +19,10 @@ Prerequisite dotEmacs
 - all-the-icons (melpa)
 - git config –global user.email “email@example.com”
 - tree-sitter how to install for lsp server????
+
+## Setup Org-Mode:
+- mkdir -p ~/git
+- cd git
+- git clone https://github.com/yyr/org-mode.git
+- cd org-mode
+- make all
