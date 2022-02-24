@@ -1,6 +1,9 @@
+(add-to-list 'load-path (expand-file-name "~/git/org-mode/lisp"))
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (require 'org)
-(require 'color)
+(require 'ox-latex)
 (require 'ob-js)
+(require 'color)
 
 (setq org-ditaa-jar-path "~/java/ditaa.jar")
 (setq org-plantuml-jar-path "~/java/plantuml.jar")
@@ -24,19 +27,18 @@
 )
 
 
-;;; Highlight coloring export of source code block export
-(require 'ox-latex)
+;; Highlight coloring export of source code block export
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)
 
 (setq org-src-fontify-natively t)
 
 ; Color (shade) source code blocks in emacs
-(set-face-attribute 'org-block nil :background
-                    (color-darken-name
-                     (face-attribute 'default :background) 3))
+;; (set-face-attribute 'org-block nil :background
+;;                     (color-darken-name
+;;                     (face-attribute 'default :background) 3))
 
-(setq org-src-block-faces '(("emacs-lisp" (:foreground "yellow"))
+ (setq org-src-block-faces '(("emacs-lisp" (:foreground "yellow"))
                             ("js"         (:foreground "yellow"))
                             ("org"        (:foreground "yellow"))
                             ("C++"        (:foreground "yellow"))

@@ -1,5 +1,16 @@
-;; set key for agenda
-(global-set-key (kbd "C-c a") 'org-agenda)
+;;;
+;;; Org Mode
+;;;
+(add-to-list 'load-path (expand-file-name "~/git/org-mode/lisp"))
+(add-to-list 'load-path (expand-file-name "~/git/org-mode/contirb/lisp"))
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+;;
+(require 'org)
+
+;; Standard key bindings
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
 
 ;; TODO: Mode this to another section
 (setq-default fill-column 80)
@@ -50,12 +61,12 @@
   (org-superstar-headline-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 ;; Replace list hyphen with dot
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("^ *\\([-]\\) "
-;;                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([-]\\) "
+                            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
 ;; Increase the size of various headings
- (set-face-attribute 'org-document-title nil :font "Iosevka Etoile" :weight 'bold :height 1.3)
+(set-face-attribute 'org-document-title nil :font "Iosevka Etoile" :weight 'bold :height 1.3)
 (dolist (face '((org-level-1 . 1.8)
                 (org-level-2 . 1.7)
                 (org-level-3 . 1.6)
@@ -64,7 +75,8 @@
                 (org-level-6 . 1.3)
                 (org-level-7 . 1.2)
                 (org-level-8 . 1.1)))
-(set-face-attribute (car face) nil :font "Iosevka Etoile" :weight 'medium :height (cdr face)))
+(set-face-attribute (car face) nil :font "Iosevka Etoile" :weight 'medium :height (cdr face))
+  )
 
 ;; Make sure org-indent face is available
 (require 'org-indent)
@@ -82,7 +94,7 @@
 
 ;; Get rid of the background on column views
 (set-face-attribute 'org-column-title nil :background "light gray")
-;; (set-face-attribute 'org-column face :height 180 :width normal)
+;;(set-face-attribute 'org-column face nil :height 180 :width normal)
 (set-face-attribute 'org-column nil :background "light gray" :foreground "dark red")
 
 
@@ -259,6 +271,22 @@
     (todo priority-down category-keep)
     (tags priority-down category-keep)
     (search category-keep))))
+
+;;; =================================================================================
+
+
+(require 'ox-reveal)
+(setq ox-reveal-always-ensure t)
+(setq org-reveal-root "file:/home/christian/Daten/reveal.js/")
+(setq Org-Reveal-title-slide nil)
+
+
+(require 'ox-taskjuggler)
+
+;;; ===============================================================================
+
+;; (unless (package-installed-p 'ob-ipython)
+;;  (package-install 'ob-ipython))
 
 
 

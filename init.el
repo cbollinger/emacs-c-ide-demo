@@ -70,15 +70,6 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-
-(unless (package-installed-p 'ox-reveal)
-  (package-install 'ox-reveal))
-(require 'ox-reveal)
-(setq ox-reveal-always-ensure t)
-(setq org-reveal-root "file:/home/christian/Daten/reveal.js/")
-(setq Org-Reveal-title-slide nil)
-
-
 (unless (package-installed-p 'flyspell-correct-ivy)
   (package-install 'flyspell-correct-ivy))
 
@@ -93,32 +84,6 @@
 (require 'auto-dictionary)
 (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
-;; (unless (package-installed-p 'auto-complete)
-;;   (package-install 'auto-complete))
-;; (require 'auto-complete)
-;; (require 'auto-complete-config)
-;; (ac-config-default)
-
-;; (unless (package-installed-p 'company)
-;;   (package-install 'company))
-;; (require 'company)
-
-;; (unless (package-installed-p 'company-c-headers)
-;;   (package-install 'company-c-headers))
-;; (require 'company-c-headers)
-
-
-(unless (package-installed-p 'org-contrib)
-  (package-install 'org-contrib))
-(require 'org-contrib)
-
-;; (unless (package-installed-p 'ox-taskjuggler)
-;;   (package-install 'ox-taskjuggler))
-;; (require 'ox-taskjuggler)
-
-
-(unless (package-installed-p 'ob-ipython)
-  (package-install 'ob-ipython))
 
 (unless (package-installed-p 'yasnippet)
   (package-install 'yasnippet))
@@ -140,21 +105,14 @@
 (require 'setup-general)
 (require 'setup-ivy-counsel)
 (require 'setup-magit-completion)
-;; (require 'setup-helm)
-;; (require 'setup-helm-gtags)
-;; (require 'setup-ggtags)
-;; (require 'setup-cedet)
-;; (require 'setup-c) all in general
 (require 'setup-editing)
 (require 'setup-literate)
 (require 'setup-latex)
 (require 'setup-org)
 (require 'setup-org-presentation)
-;;;; (require 'setup-spacemacs-style)
 (require 'setup-xwidget-menu)
-(require 'setup-docker)
+;; (require 'setup-docker)
 (require 'setup-nodejs)
-
 
 (use-package elfeed
   :ensure t
@@ -188,41 +146,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-view-program-selection
-   (quote
-    (((output-dvi has-no-display-manager)
-      "dvi2tty")
-     ((output-dvi style-pstricks)
-      "dvips and gv")
-     (output-dvi "xdvi")
-     (output-pdf "Okular")
-     (output-html "xdg-open"))))
  '(delete-selection-mode nil)
- '(fill-column 80)
- '(inferior-octave-startup-args (quote ("-i" "--line-editing")))
- '(org-agenda-files
-   (quote
-    ("/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d521_default.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d522_standard.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/General/todo.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/emacs.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/nextcloud.org" "/home/christian/Nextcloud/Documents/org-mode/gnu-software/org-mode.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/General/notes.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/SBB/sbb_icn.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/arago_toolchain.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/deploy-host.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/i101_kernel_update.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/duagon/meetings.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-CH/d522_bt_alstom_cs.org" "/home/christian/Nextcloud/Documents/org-mode/duagon/Projects/Alstom-NLD/d521_pdm.org")))
- '(org-latex-default-packages-alist
-   (quote
-    (("AUTO" "inputenc" t
-      ("pdflatex"))
-     ("T1" "fontenc" t
-      ("pdflatex"))
-     ("" "graphicx" t nil)
-     ("" "grffile" t nil)
-     ("" "longtable" nil nil)
-     ("" "wrapfig" nil nil)
-     ("" "rotating" nil nil)
-     ("normalem" "ulem" t nil)
-     ("" "amsmath" t nil)
-     ("" "textcomp" t nil)
-     ("" "amssymb" t nil)
-     ("" "capt-of" nil nil)
-     ("" "hyperref" nil nil))))
  '(package-selected-packages
-   (quote
-    (dtrt-indentq yasnippet-snippets ivy-yasnippet elfeed slime sly zygospore xref-js2 ws-butler which-key wgrep vterm volatile-highlights use-package undo-tree typescript-mode tree-sitter-langs sourcemap rainbow-delimiters pyvenv python-mode org-tree-slide org-plus-contrib org-beautify-theme omnisharp ob-ipython no-littering lsp-ui lsp-ivy ivy-rich ivy-prescient ivy-posframe ivy-hydra indium iedit helpful helm-swoop helm-projectile helm-gtags helm-flyspell gnuplot general forge flyspell-correct-ivy flx ffmpeg-player eterm-256color eshell-git-prompt dtrt-indent doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dap-mode counsel-projectile company-c-headers company-box comment-dwim-2 clean-aindent-mode ccls auto-package-update auto-dictionary anzu all-the-icons-dired))))
+   '(org-superstar ox-taskjuggler zygospore yasnippet-snippets xref-js2 which-key wgrep vterm use-package undo-tree typescript-mode sourcemap sly slime rainbow-delimiters pyvenv python-mode ob-ipython no-littering lsp-ui lsp-ivy ivy-rich ivy-prescient ivy-hydra indium iedit helpful gnuplot general forge flyspell-correct-ivy flx eterm-256color eshell-git-prompt elfeed doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dap-mode counsel-projectile company-box ccls auto-package-update auto-dictionary all-the-icons-dired)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -230,5 +156,4 @@
  ;; If there is more than one, they won't work right.
  '(doom-modeline-buffer-file ((t (:inherit (mode-line-buffer-id bold) :foreground "yellow"))))
  '(hl-line ((t (:extend t :background "dark slate gray"))))
- '(mode-line ((t (:background "navy"))))
- '(org-column ((t (:background "light gray" :foreground "dark red" :strike-through nil :underline nil :slant normal :weight normal :height 200 :width normal)))))
+ '(mode-line ((t (:background "navy")))))

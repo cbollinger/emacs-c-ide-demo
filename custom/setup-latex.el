@@ -1,3 +1,5 @@
+(add-to-list 'load-path (expand-file-name "~/git/org-mode/lisp"))
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (require 'ox-latex)
 ;; Latex search path
 (setq exec-path (append exec-path '("/usr/share/texmf")))
